@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+	<meta charset="UTF-8">
+	<title>博客后台管理</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../static/css/bakcup.css">
+</head>
+<body style="background-color: #99CCFF;height: 100%">
+	<div class="container" style="height: 100%">
+		<div class="row">
+			<h3 class="text-muted" style="color: #FFFFFF">博客后台管理系统</h3>
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="home">主页</a></li>
+							<li><a href="article">文章管理</a></li>
+							<li><a href="comment">评论管理</a></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle glyphicon glyphicon-user"
+								   data-toggle="dropdown" role="button" aria-haspopup="true"
+								   aria-expanded="false"><span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="logout">登出</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+        <div class="row" style="background-color: whitesmoke;margin-bottom:1%;height: 90%;">
+           <div class="col-lg-3 col-sm-3 col-md-3 col-xs-3 text-center" style="border: none;background-color: #CCFF99;padding:0 0;height: 20%;width: 40%;margin-top: 15%;left: 5%">
+               <div  style="padding-top: 10%;border-right: 1px ridge #aaa;width: 30%;height: 100%;position: relative;float: left;">
+                   <h1 class="glyphicon glyphicon-calendar"></h1>
+               </div>
+               <div style="padding-top: 5%;border-bottom: 1px ridge #aaa;width: 70%;height: 50%;position: relative;float: right;">
+                    <h4>{{.LastTime}}</h4>
+               </div>
+               <div style="padding-top: 2%;width: 70%;height: 50%;position: relative;float: right;">
+                   <h3>上次登录日期</h3>
+               </div>
+           </div>
+            <div class="col-lg-3 col-sm-3 col-md-3 col-xs-3"></div>
+            <div class="col-lg-3 col-sm-3 col-md-3 col-xs-3 text-center" style="background-color:#CCFFCC;padding:0 0;height: 20%;width: 40%;margin-top: 15%;right: -15%">
+              <div  style="padding-top: 10%;border-right: 1px ridge #aaa;width: 30%;height: 100%;position: relative;float: left;">
+                   <h1 class="glyphicon glyphicon-globe"></h1>
+               </div>
+               <div style="padding-top: 5%;border-bottom: 1px ridge #aaa;width: 70%;height: 50%;position: relative;float: right;">
+                    <h4>{{.LastIpAddress}}</h4>
+               </div>
+               <div style="padding-top: 2%;width: 70%;height: 50%;position: relative;float: right;">
+                   <h3>上次登录IP地址</h3>
+               </div>
+            </div>
+            <div class="col-lg-3 col-sm-3 col-md-3 col-xs-3"></div>
+		</div>
+        <div class="row text-center" style="background-color: whitesmoke;height: 3%">
+          <h6 class="text-center"> Copyright ©   长风莫忘 |
+        <a href="http://www.miitbeian.gov.cn/">辽ICP备18004670号-2</a></h6>
+        </div>
+	</div>
+<script type="text/javascript" src="../../static/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/js/bootstrap.min.js"></script>
+</body>
+</html>

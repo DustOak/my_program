@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Index</class>
+ <widget class="QMainWindow" name="Index">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>860</width>
+    <height>844</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="3,1,10">
+    <item>
+     <widget class="QTreeView" name="db">
+      <property name="autoScroll">
+       <bool>false</bool>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QWidget" name="widget_2" native="true">
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QPushButton" name="select_2">
+         <property name="text">
+          <string>Select</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="insert_2">
+         <property name="text">
+          <string>Insert</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="update_2">
+         <property name="text">
+          <string>Update</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="delete_3">
+         <property name="text">
+          <string>Delete</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="gridLayout_3" rowstretch="0,0">
+      <item row="1" column="0">
+       <widget class="QWidget" name="control" native="true">
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <widget class="QWidget" name="widget" native="true">
+           <layout class="QGridLayout" name="gridLayout_2" rowstretch="4,4,9">
+            <item row="1" column="0">
+             <widget class="QGroupBox" name="tableSelect_3">
+              <property name="tabletTracking">
+               <bool>false</bool>
+              </property>
+              <property name="title">
+               <string>Select  Field</string>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+              <widget class="QWidget" name="formLayoutWidget_4">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>30</y>
+                 <width>501</width>
+                 <height>104</height>
+                </rect>
+               </property>
+               <layout class="QFormLayout" name="formLayout_4">
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="selectedTableLabel_4">
+                  <property name="text">
+                   <string>Selected Field:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="tableListLabel_4">
+                  <property name="text">
+                   <string>Field List:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QComboBox" name="fieldListComboBox_4"/>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QTextEdit" name="selectedField"/>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="tableSelect_4">
+              <property name="tabletTracking">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QGroupBox {
+    border-width:1px;
+   border-style:solid;
+  border-color:lightGray; 
+  margin-top: 0.5ex;
+}
+QGroupBox::title {
+     subcontrol-origin: margin;
+     subcontrol-position: top left;
+   left:25px;       //线的偏离度
+     margin-left: 0px;
+     padding:0 1px; 
+}</string>
+              </property>
+              <property name="title">
+               <string>Select  Table</string>
+              </property>
+              <property name="flat">
+               <bool>false</bool>
+              </property>
+              <widget class="QWidget" name="formLayoutWidget_5">
+               <property name="geometry">
+                <rect>
+                 <x>10</x>
+                 <y>30</y>
+                 <width>501</width>
+                 <height>104</height>
+                </rect>
+               </property>
+               <layout class="QFormLayout" name="formLayout_5">
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="selectedTableLabel_5">
+                  <property name="text">
+                   <string>Selected Table:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="tableListLabel_5">
+                  <property name="text">
+                   <string>Table List:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QComboBox" name="TableListComboBox_5"/>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QTextEdit" name="selectedTable"/>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QGroupBox" name="where">
+              <property name="title">
+               <string>Condition</string>
+              </property>
+              <widget class="QWidget" name="formLayoutWidget_6">
+               <property name="geometry">
+                <rect>
+                 <x>6</x>
+                 <y>30</y>
+                 <width>511</width>
+                 <height>329</height>
+                </rect>
+               </property>
+               <layout class="QFormLayout" name="formLayout_6">
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <item row="0" column="0">
+                 <widget class="QLabel" name="selectConditionLabel">
+                  <property name="text">
+                   <string>Select Condition:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="tableListLabel">
+                  <property name="text">
+                   <string>Field List:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QComboBox" name="fieldListComboBox"/>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="domainLabel">
+                  <property name="text">
+                   <string>Domain</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QComboBox" name="domainComboBox">
+                  <property name="contextMenuPolicy">
+                   <enum>Qt::DefaultContextMenu</enum>
+                  </property>
+                  <property name="currentIndex">
+                   <number>-1</number>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>=</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>!=</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>&gt;</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>&lt;</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>&gt;=</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>&lt;=</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>like</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="valueLabel">
+                  <property name="text">
+                   <string>Value</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QLineEdit" name="valueLineEdit"/>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QLabel" name="andOrLabel">
+                  <property name="text">
+                   <string>And Or:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1">
+                 <widget class="QComboBox" name="comboBox_2">
+                  <property name="currentIndex">
+                   <number>-1</number>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>And</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Or</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="5" column="0">
+                 <widget class="Line" name="line">
+                  <property name="frameShadow">
+                   <enum>QFrame::Sunken</enum>
+                  </property>
+                  <property name="lineWidth">
+                   <number>1</number>
+                  </property>
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="0">
+                 <widget class="QLabel" name="orderLabel">
+                  <property name="text">
+                   <string>Order Field:</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="1">
+                 <widget class="QComboBox" name="orderComboBox"/>
+                </item>
+                <item row="7" column="0">
+                 <widget class="QLabel" name="sortLabel">
+                  <property name="text">
+                   <string>Sort</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="1">
+                 <widget class="QComboBox" name="sortcomboBox">
+                  <property name="currentIndex">
+                   <number>-1</number>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>Desc</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Asc</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="8" column="1">
+                 <widget class="QPushButton" name="add">
+                  <property name="text">
+                   <string>Add</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QTextEdit" name="ConditionText"/>
+                </item>
+               </layout>
+              </widget>
+              <widget class="QWidget" name="horizontalLayoutWidget">
+               <property name="geometry">
+                <rect>
+                 <x>70</x>
+                 <y>380</y>
+                 <width>381</width>
+                 <height>31</height>
+                </rect>
+               </property>
+               <layout class="QHBoxLayout" name="horizontalLayout">
+                <item>
+                 <widget class="QPushButton" name="submit">
+                  <property name="text">
+                   <string>Execute</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="0" column="0">
+       <widget class="QTableView" name="table"/>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>selectedTable</tabstop>
+  <tabstop>TableListComboBox_5</tabstop>
+  <tabstop>selectedField</tabstop>
+  <tabstop>fieldListComboBox_4</tabstop>
+  <tabstop>ConditionText</tabstop>
+  <tabstop>fieldListComboBox</tabstop>
+  <tabstop>domainComboBox</tabstop>
+  <tabstop>valueLineEdit</tabstop>
+  <tabstop>comboBox_2</tabstop>
+  <tabstop>orderComboBox</tabstop>
+  <tabstop>sortcomboBox</tabstop>
+  <tabstop>add</tabstop>
+  <tabstop>submit</tabstop>
+  <tabstop>select_2</tabstop>
+  <tabstop>update_2</tabstop>
+  <tabstop>db</tabstop>
+  <tabstop>insert_2</tabstop>
+  <tabstop>delete_3</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

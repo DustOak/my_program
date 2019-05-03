@@ -1,0 +1,151 @@
+/*login.html*/
+.Login{
+    position: relative;
+    width: 20%;
+    margin: 12% auto;
+}
+.login{
+    background-color: white;
+    padding-top: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 10%;
+}
+.form{
+    margin: 0 13%;
+}
+.text{
+    margin-bottom: 5%;
+}
+/*Index.html top*/
+.navbar{
+    border: none;
+    margin-bottom: 0;
+}
+.admin {
+    border-bottom: 1px solid #aaa;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),
+    0 1px 1px 0 rgba(0,0,0,.14),
+    0 2px 1px -1px rgba(0,0,0,.12);
+    position: fixed;
+    width: 100%;
+    z-index: 99;
+    border-radius: 0;
+}
+.admin>*{
+    height: 60px;
+}
+.top{
+    background-color: #f44336;
+    width: 13%;
+}
+.top>a{
+    font-size: 25px;
+    padding-left: 15%;
+}
+.top>a>span{
+    color: white;
+}
+.admin>ul{
+    margin-right: 5%;
+}
+.navbar-right{
+    padding-top: 0.1%;
+ }
+/*Index.html left*/
+.left{
+    width: 13%;
+    background-color: #1f2837;
+    border-radius:0;
+    position:fixed;
+    top: 60px;
+    height: 100%
+}
+
+.item{
+    background-color: #1f2837;
+    height: 50px;
+    color: white;
+}
+.leftMenu>li>a {
+   padding-top: 5.5%;
+   padding-left: 15%;
+   cursor: pointer;
+    font-size: 17px;
+    border-bottom: 1px ridge #555;
+}
+.leftMenu>li>a:hover {
+    background-color: #555;
+    color: white;
+}
+/*Index.html foot*/
+.foot{
+    background-color:#1f2837 ;
+    border: 0px;
+    color: white;
+    padding: 0 0;
+}
+/*main.html*/
+.main{
+    position:relative;
+    top: 60px;
+    margin-left: 13%;
+    padding-top: 2%;
+    padding-left: 2%;
+    width: auto;
+}
+.main>div>h1{
+    margin-top: 0;
+    border: none;
+    margin-bottom: 1%;
+}
+.main>div{
+    margin-bottom: 2%;
+}
+.main>div>a{
+    background-color:#e0e8f5 ;
+    cursor: pointer;
+    color: #f44336;
+
+}
+.card{
+    background-color: #F44336;
+    padding: 0 0;
+    margin-bottom: 0;
+    color: white;
+    margin-left: 3%;
+}
+.cardLeft{
+    background-color: #F44336;
+    position: relative;
+    border-right:1px ridge #aaa;
+    width: 24%;
+    float: left;
+    text-align: center;
+    font-size: 40px;
+    padding: 10% 0;
+}
+.cardTop{
+    background-color: #F44336;
+    width: 76%;
+    text-align: center;
+    margin-left: 24%;
+    font-size: 20px;
+    padding: 5% 0;
+    border-bottom:1px ridge #aaa;
+}
+.cardDown{
+    background-color: #F44336;
+    width: 76%;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 24%;
+    padding: 5% 0;
+}
+/*articleList.html*/
+.table{
+    width: 98%;
+    background-color: white;
+    padding: 1% 1%;
+    position: relative;
+}

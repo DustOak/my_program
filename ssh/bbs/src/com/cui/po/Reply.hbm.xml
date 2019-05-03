@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cui.po">
+	<class name="Reply" table="reply">
+		<id name="id" column="id" type="java.lang.Integer">
+			<generator class="increment"/>
+		</id>
+		<property name="content" column="content" not-null="true"/>
+		<property name="publishTime" column="publishTime"/>
+		<many-to-one name="pid" column="pid" not-null="true"/>
+		<many-to-one name="aid" column="aid"/>
+		<many-to-one name="sid" column="sid"/>
+	</class>
+</hibernate-mapping>

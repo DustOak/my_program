@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cui.po">
+	<class name="Admin" table="admin">
+		<id name="id" column="id" type="java.lang.Integer">
+			<generator class="increment"/>
+		</id>
+		<property name="account" type="java.lang.String" column="account" not-null="true"/>
+		<property name="password" type="java.lang.String" column="password" not-null="true"/>
+		<property name="permission" type="java.lang.Integer" column="permission"/>
+		<property name="nickname" type="java.lang.String" column="nickname"/>
+		<property name="photoPath" type="java.lang.String" column="photoPath"/>
+	</class>
+</hibernate-mapping>

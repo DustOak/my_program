@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cui.po">
+	<class name="Post" table="post">
+		<id name="id" column="id" type="java.lang.Integer">
+			<generator class="increment"/>
+		</id>
+		<property name="name" column="name"/>
+		<property name="content" column="content" not-null="true"/>
+		<property name="publishTime" column="publishTime" not-null="true"/>
+		<many-to-one name="aid" column="aid"/>
+		<many-to-one name="bid" column="bid" not-null="true"/>
+		<many-to-one name="sid" column="sid"/>
+	</class>
+</hibernate-mapping>

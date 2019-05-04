@@ -9,52 +9,10 @@
     <bookmark url="file://$PROJECT_DIR$/src/com/cui/action/LoginAction.java" line="47" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="501e686f-22a4-41bd-a9ae-78e7e6928718" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="501e686f-22a4-41bd-a9ae-78e7e6928718" name="Default Changelist" comment="update">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/addbuddy.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/banner.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/bbsPhoto.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/bimg.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/box_bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/btn-submit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/btn_reply.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/cm_bottom_bg.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/cmt_bg.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/cmt_left_bg.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/cmt_left_li.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/cmt_right_bg.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/cr_bottom.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/error_big.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/fastreply.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/folder_new.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/h.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/home.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/li.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/media.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/menu_a_bg02.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/menu_a_bg03.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/menu_bg.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/menu_ge.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/menu_left.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/menu_right.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/pmto.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/pn_post.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/right_big.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/search.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/search.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/search_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/search_btn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/t_3.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/t_5.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/title_bg.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/title_bottom_bg.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/title_menu.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/title_menu1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/tr06_bg.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/tr06_left.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/tr06_right.gif" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -101,12 +59,12 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/home.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="81" column="54" selection-start-line="81" selection-start-column="53" selection-end-line="81" selection-end-column="54" />
+            <state relative-caret-position="236">
+              <caret line="79" column="42" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
               <folding>
                 <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -123,10 +81,10 @@
                 <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#small#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#hr#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#small#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#u#0;n#p#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -226,25 +184,7 @@
             <path>
               <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
               <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
-              <item name="imgs" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -254,9 +194,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mariadb" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556876985843" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1556877021817" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -418,7 +359,11 @@
       <workItem from="1556804174289" duration="2396000" />
       <workItem from="1556852456718" duration="12989000" />
       <workItem from="1556872095512" duration="696000" />
-      <workItem from="1556873059101" duration="3524000" />
+      <workItem from="1556873059101" duration="3614000" />
+      <workItem from="1556936214557" duration="532000" />
+      <workItem from="1556937284928" duration="109000" />
+      <workItem from="1556937409741" duration="15000" />
+      <workItem from="1556938347293" duration="2466000" />
     </task>
     <task id="LOCAL-00001" summary="更新bbs项目名以及当前进度">
       <created>1556872161763</created>
@@ -441,16 +386,24 @@
       <option name="project" value="LOCAL" />
       <updated>1556873167595</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update">
+      <created>1556877002393</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1556877002393</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121245000" />
+    <option name="totallyTimeSpent" value="124457000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1440" height="860" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17238913" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18097281" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Persistence" order="3" side_tool="true" />
@@ -459,7 +412,6 @@
       <window_info id="UI Designer" order="6" />
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info id="Web" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Database Console" weight="0.32882273" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3292011" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32746956" />
@@ -476,6 +428,7 @@
       <window_info anchor="bottom" id="Spring" order="13" />
       <window_info anchor="bottom" id="Database Changes" order="14" />
       <window_info anchor="bottom" id="Version Control" order="15" weight="0.32882273" />
+      <window_info anchor="bottom" id="Database Console" order="16" weight="0.32882273" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -507,7 +460,8 @@
     </ignored-roots>
     <MESSAGE value="更新bbs项目名以及当前进度" />
     <MESSAGE value="测试" />
-    <option name="LAST_COMMIT_MESSAGE" value="测试" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/cui/util/GetToken.java">
@@ -694,12 +648,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cui/po/reply/hbm/xml.java" />
     <entry file="file://$PROJECT_DIR$/src/struts.xml">
+      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
         </state>
       </provider>
-      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -883,9 +837,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/images/addbuddy.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/images/addbuddy.gif" />
     <entry file="file://$PROJECT_DIR$/web/images/头像/1.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -895,18 +847,10 @@
     <entry file="file://$PROJECT_DIR$/web/images/头像/8.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/images/home.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/images/btn-submit.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/images/menu_ge.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/images/tr06_right.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/images/home.gif" />
+    <entry file="file://$PROJECT_DIR$/web/images/btn-submit.png" />
+    <entry file="file://$PROJECT_DIR$/web/images/menu_ge.gif" />
+    <entry file="file://$PROJECT_DIR$/web/images/tr06_right.gif" />
     <entry file="file://$PROJECT_DIR$/web/images/SSH图标/Hibernate.GIF">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -940,8 +884,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/home.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="81" column="54" selection-start-line="81" selection-start-column="53" selection-end-line="81" selection-end-column="54" />
+        <state relative-caret-position="236">
+          <caret line="79" column="42" selection-start-line="79" selection-start-column="42" selection-end-line="79" selection-end-column="42" />
           <folding>
             <element signature="n#style#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -958,10 +902,10 @@
             <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#small#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#hr#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#small#1;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#u#0;n#p#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

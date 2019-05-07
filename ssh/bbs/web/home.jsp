@@ -1,12 +1,12 @@
-<!--<%&#45;&#45;-->
-<!--Created by IntelliJ IDEA.-->
-<!--User: cuiwenbin-->
-<!--Date: 19-4-16-->
-<!--Time: 下午9:32-->
-<!--To change this template use File | Settings | File Templates.-->
-<!--&#45;&#45;%>-->
-<!--<%@ page contentType="text/html;charset=UTF-8" language="java" %>-->
-<!--<%@ taglib prefix="s" uri="/struts-tags" %>-->
+<%--
+Created by IntelliJ IDEA.
+User: cuiwenbin
+Date: 19-4-16
+Time: 下午9:32
+To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html lang="zh-CN" style="height: 100%;padding: 0; margin: 0;">
 <head>
@@ -19,6 +19,7 @@
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
 </head>
 <body style="background: rgb(236, 244, 253);overflow-y: scroll;height: 100%;padding: 0; margin: 0;">
+<!--head bar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light " style="position:fixed;width:100%;z-index:99;">
     <a class="navbar-brand" href="#" style="margin-right: 10%">梦想科大</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -28,6 +29,7 @@
         </form>
     </div>
 </nav>
+<!--left bar-->
 <div class="float-left" style="top: 6%;background: #293134;width: 12%;color: white; position:fixed;height: 100%;">
     <div class="card-img text-center" style="margin-bottom: 5%">
         <img src="images/头像/none.png" style="margin-top:16%;border-radius: 100px; width: 100px;">
@@ -37,6 +39,9 @@
         <p>请<a href="/login">登录</a></p>
     </div>
 </div>
+
+
+<!-- hot post bar-->
 <div class="float-right" style="margin-top: 4%;margin-left: .5%;
 width:87.5%;height:auto;color: white; overflow-y: auto;border: black solid 2px;">
     <div style="background: white;width: 80%;height:auto;margin: 2% auto;">
@@ -76,21 +81,24 @@ width:87.5%;height:auto;color: white; overflow-y: auto;border: black solid 2px;"
         </div>
     </div>
 </div>
-<div class="float-right" style="margin-top: 1%;margin-left: .5%;padding: .5%;
-width:87.5%;height:2000px;color: black; overflow-y: auto;border: #1e88e5 solid 2px;">
-    <div>
-        <div class="alert alert-info" role="alert" style="margin-bottom: 0;border-radius: 5px 5px 0 0 ">
-            父板块名
-        </div>
-        <div style="width: 20%;padding: 2%;margin-left: 3%;float: left;margin-right: 0;">
+
+<!--board bar-->
+<div class="float-right" style="margin-top: 1%;margin-left: .5%;
+width:87.5%;height:100%;color: black; overflow-y: auto;border: #1e88e5 solid 2px;">
+    <div class="alert alert-info" role="alert" style="margin-bottom: 0;margin-top: 1%;border-radius: 5px 5px 0 0 ">
+        父板块名
+    </div>
+    <div class="row" style="max-width: 96%;padding-left: 2%">
+        <div style="width: 11%;padding: 2%;margin-left: 10%;float: left;margin-right: 0;">
             <img src="images/头像/none2.png" width="90" height="90" style="margin: 1% 0 1% 1%">
             <a href="#" style="position: absolute">子板块名</a>
-            <small style="margin-left: .1%;position: absolute;margin-top: 1.1%;max-width: 15;"><p>
-                描描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述述</p>
+            <small style="position: absolute;margin-top: 1%;width:15%;max-width:15%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+                Jacarat 是 Apache旗下一个开源项目
             </small>
         </div>
-
     </div>
+</div>
+</div>
 </div>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

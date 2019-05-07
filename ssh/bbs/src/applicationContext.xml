@@ -27,4 +27,5 @@
 	<bean id="daoOperating" class="com.cui.dao.DaoOperating">
 		<constructor-arg ref="sessionFactory"/>
 	</bean>
+	<bean id="loadBoard" class="com.cui.service.BoardLoadService"/>
 </beans>

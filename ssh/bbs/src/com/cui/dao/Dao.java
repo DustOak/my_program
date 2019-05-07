@@ -7,11 +7,11 @@ static Object Get(Object oj, int id) {
 	return null;
 }
 
-static List<Object> Gets(Object oj) {
+static List Gets(Object oj) {
 	return null;
 }
 
-static List<Object> Finds(String fields, Object...value) {
+static List Finds(String fields, Object... value) {
 	return null;
 }
 

@@ -10,8 +10,8 @@
 		</id>
 		<property name="name" type="java.lang.String" column="name" not-null="true"/>
 		<property name="description" type="java.lang.String" column="description"/>
-		<property name="parentId" type="java.lang.Integer" column="parentId"/>
 		<property name="boardImg" type="java.lang.String" column="boardImg"/>
-		<many-to-one name="aid" column="aid" not-null="true"/>
+		<many-to-one name="aid" column="aid" not-null="true" fetch="select"/>
+		<many-to-one name="parentId" column="parentId" fetch="select"/>
 	</class>
 </hibernate-mapping>

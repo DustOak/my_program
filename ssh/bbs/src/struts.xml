@@ -14,6 +14,9 @@
 				<interceptor-ref name="defaultStack"/>
 			</interceptor-stack>
 		</interceptors>
+		<action name="/" class="com.cui.action.MainAction">
+			<result name="success">home.jsp</result>
+		</action>
 		<action name="login" class="com.cui.action.indexAction">
 			<interceptor-ref name="Session"/>
 			<result name="input">/index.jsp</result>
@@ -25,7 +28,7 @@
 		</action>
 		<action name="home" class="com.cui.action.HomeAction">
 			<interceptor-ref name="Session"/>
-			<result name="success">/home.html</result>
+			<result name="success">/home.jsp</result>
 			<result name="input" type="redirectAction">login</result>
 		</action>
 	</package>

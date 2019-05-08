@@ -6,6 +6,7 @@
 
 <struts>
 	<constant name="struts.action.extension" value=","/>
+	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect" value="true"/>
 	<package name="login" extends="struts-default">
 		<interceptors>
 			<interceptor name="SessionCheck" class="com.cui.interceptor.SessionCheck"/>
@@ -14,7 +15,7 @@
 				<interceptor-ref name="defaultStack"/>
 			</interceptor-stack>
 		</interceptors>
-		<action name="/" class="com.cui.action.MainAction">
+		<action name="index" class="com.cui.action.MainAction">
 			<result name="success">home.jsp</result>
 		</action>
 		<action name="login" class="com.cui.action.indexAction">

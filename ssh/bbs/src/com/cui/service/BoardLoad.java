@@ -5,9 +5,9 @@ import com.cui.po.Board;
 import java.util.List;
 
 public interface BoardLoad {
-Board loadBoard(int id);
+Board loadBoard(Integer id);
 
-List<Board> loadChildBoards(int parentId);
+List<Board> loadChildBoards(Integer parentId);
 
 List<Board> loadAllBoards();
 

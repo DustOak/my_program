@@ -20,6 +20,7 @@
       <root url="jar://$PROJECT_DIR$/lib/aopalliance-1.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/spring-tx-4.3.18.RELEASE.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/spring-core-4.3.18.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/druid-1.1.9.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

@@ -1,6 +1,5 @@
 package com.cui.dao;
 
-import com.cui.po.Board;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 

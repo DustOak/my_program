@@ -18,7 +18,7 @@ To change this template use File | Settings | File Templates.
     <link rel="stylesheet" href="css/main.css">
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
 </head>
-<body style="background: rgb(236, 244, 253);overflow-y: scroll;height: 100%;padding: 0; margin: 0;">
+<body style="background: rgb(236, 244, 253);overflow-y: scroll;height: auto;padding: 0; margin: 0;">
 <!--head bar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light " style="position:fixed;width:100%;z-index:99;">
     <a class="navbar-brand" href="#" style="margin-right: 10%">梦想科大</a>
@@ -43,7 +43,7 @@ To change this template use File | Settings | File Templates.
 
 <!-- hot post bar-->
 <div class="float-right" style="margin-top: 4%;margin-left: .5%;
-width:87.5%;height:auto;color: white; overflow-y: auto;border: black solid 2px;">
+width:87.5%;height:auto;color: white; overflow-y: auto;">
     <div style="background: white;width: 80%;height:auto;margin: 2% auto;">
         <div id="carouselExampleControls" class="carousel slide "
              data-ride="carousel" style="width: 40%;">
@@ -83,22 +83,29 @@ width:87.5%;height:auto;color: white; overflow-y: auto;border: black solid 2px;"
 </div>
 
 <!--board bar-->
-<div class="float-right" style="margin-top: 1%;margin-left: .5%;
-width:87.5%;height:100%;color: black; overflow-y: auto;border: #1e88e5 solid 2px;">
+<div class="float-right" style="margin-top: 1%;margin-left: .5%; margin-bottom: 1%;
+width:87.5%;height:auto;color: black; overflow-y: hidden;">
     <s:iterator value="boards" var="board">
         <div class="alert alert-info" role="alert" style="margin-bottom: 0;margin-top: 1%;border-radius: 5px 5px 0 0 ">
-           <s:property value="#board.getName()"></s:property>
+            <s:property value="#board.getName()"/>
         </div>
         <div class="row" style="max-width: 96%;padding-left: 2%">
-            <s:property value="#board.">
+            <s:iterator value="childBoard.get(#board.getId())" var="child">
                 <div style="width: 11%;padding: 2%;margin-left: 10%;float: left;margin-right: 0;">
-                    <img src="images/头像/none2.png" width="90" height="90" style="margin: 1% 0 1% 1%">
-                    <a href="#" style="position: absolute">子板块名</a>
+                    <s:if test="#child.getBoardImg()==null">
+                        <img src="images/board/none2.png" width="90" height="90"
+                             style="margin: 1% 0 1% 1%">
+                    </s:if>
+                    <s:else>
+                        <img src="images/board/<s:property value="#child.getBoardImg()"/>" width="90" height="90"
+                             style="margin: 1% 0 1% 1%">
+                    </s:else>
+                    <a href="#" style="position: absolute"><s:property value="#child.getName()"/></a>
                     <small style="position: absolute;margin-top: 1%;width:15%;max-width:15%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
-                        Jacarat 是 Apache旗下一个开源项目
+                        <s:property value="#child.getDescription()"/>
                     </small>
                 </div>
-            </s:property>
+            </s:iterator>
         </div>
     </s:iterator>
 </div>

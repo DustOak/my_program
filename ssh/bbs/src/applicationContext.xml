@@ -4,11 +4,15 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
 		<property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
 		<property name="url" value="jdbc:mariadb://127.0.0.1:3306/bbs?characterEncoding=UTF-8"/>
 		<property name="username" value="root"/>
 		<property name="password" value="950712cwb"/>
+		<property name="maxActive" value="200"/>
+		<property name="initialSize" value="50"/>
+		<property name="minIdle" value="20"/>
+		<property name="timeBetweenEvictionRunsMillis" value="10000"/>
 	</bean>
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
@@ -22,7 +26,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 				<prop key="hibernate.dialect">
 					org.hibernate.dialect.MariaDBDialect
 				</prop>
-				<prop key="show_sql">true</prop>
+				<!--				<prop key="hibernate.show_sql">true</prop>-->
 			</props>
 		</property>
 	</bean>

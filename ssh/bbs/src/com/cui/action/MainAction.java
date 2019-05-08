@@ -8,19 +8,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class MainAction extends ActionSupport {
-List<Board> boards;
-
+private List<Board> boards;
+private Map<Integer, List<Board>> childBoard = new HashMap<>();
 @Autowired
 BoardLoadService boardLoad;
 
+public Map<Integer, List<Board>> getChildBoard() {
+	return childBoard;
+}
+
+public void setChildBoard(Map<Integer, List<Board>> childBoard) {
+	this.childBoard = childBoard;
+}
+
+
 public String execute() {
-	boards = boardLoad.loadAllBoards();
-	for (int i = 0; i < boards.size(); i++) {
-		System.out.print(boards.get(i).getId() + " ");
+	boards = boardLoad.loadRootBoards();
+	for (int j = 0; j < boards.size(); j++) {
+		childBoard.put(boards.get(j).getId(), boardLoad.loadChildBoards(boards.get(j).getId()));
 	}
 	return SUCCESS;
 }

@@ -9,14 +9,14 @@ import java.util.List;
 
 public class BoardLoadService implements BoardLoad {
 @Override
-public Board loadBoard(int id) {
+public Board loadBoard(Integer id) {
 	return (Board) DaoOperating.Get(new Board(), id);
 }
 
 @Override
-public List<Board> loadChildBoards(int parentId) {
-	String str = "from board where parentId=:0 order by id asc";
-	return DaoOperating.Finds(str, parentId);
+public List<Board> loadChildBoards(Integer parentId) {
+	String str = "from Board  where parentId=" + parentId + " order by id asc";
+	return DaoOperating.Finds(str);
 }
 
 @Override
@@ -26,7 +26,7 @@ public List<Board> loadAllBoards() {
 
 @Override
 public List<Board> loadRootBoards() {
-	String str = "from board where parentId=null order by id asc ";
+	String str = "from Board where parentId is null order by id asc ";
 	return DaoOperating.Finds(str);
 }
 

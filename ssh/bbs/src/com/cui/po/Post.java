@@ -5,18 +5,18 @@ import java.util.Date;
 
 public class Post implements Serializable {
 
-private int id;
+private Integer id;
 private String name;
 private String content;
 private Student sid;
 private Board bid;
 private Date publishTime;
 
-public int getId() {
+public Integer getId() {
 	return id;
 }
 
-public void setId(int id) {
+public void setId(Integer id) {
 	this.id = id;
 }
 
@@ -52,6 +52,14 @@ public void setBid(Board bid) {
 	this.bid = bid;
 }
 
+public Date getPublishTime() {
+	return publishTime;
+}
+
+public void setPublishTime(Date publishTime) {
+	this.publishTime = publishTime;
+}
+
 public Admin getAid() {
 	return aid;
 }
@@ -71,11 +79,4 @@ public void setCount(int count) {
 private Admin aid;
 private int count;
 
-public Date getPublishTime() {
-	return publishTime;
-}
-
-public void setPublishTime(Date publishTime) {
-	this.publishTime = publishTime;
-}
 }

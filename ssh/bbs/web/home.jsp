@@ -85,18 +85,22 @@ width:87.5%;height:auto;color: white; overflow-y: auto;border: black solid 2px;"
 <!--board bar-->
 <div class="float-right" style="margin-top: 1%;margin-left: .5%;
 width:87.5%;height:100%;color: black; overflow-y: auto;border: #1e88e5 solid 2px;">
-    <div class="alert alert-info" role="alert" style="margin-bottom: 0;margin-top: 1%;border-radius: 5px 5px 0 0 ">
-        父板块名
-    </div>
-    <div class="row" style="max-width: 96%;padding-left: 2%">
-        <div style="width: 11%;padding: 2%;margin-left: 10%;float: left;margin-right: 0;">
-            <img src="images/头像/none2.png" width="90" height="90" style="margin: 1% 0 1% 1%">
-            <a href="#" style="position: absolute">子板块名</a>
-            <small style="position: absolute;margin-top: 1%;width:15%;max-width:15%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
-                Jacarat 是 Apache旗下一个开源项目
-            </small>
+    <s:iterator value="boards" var="board">
+        <div class="alert alert-info" role="alert" style="margin-bottom: 0;margin-top: 1%;border-radius: 5px 5px 0 0 ">
+           <s:property value="#board.getName()"></s:property>
         </div>
-    </div>
+        <div class="row" style="max-width: 96%;padding-left: 2%">
+            <s:property value="#board.">
+                <div style="width: 11%;padding: 2%;margin-left: 10%;float: left;margin-right: 0;">
+                    <img src="images/头像/none2.png" width="90" height="90" style="margin: 1% 0 1% 1%">
+                    <a href="#" style="position: absolute">子板块名</a>
+                    <small style="position: absolute;margin-top: 1%;width:15%;max-width:15%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
+                        Jacarat 是 Apache旗下一个开源项目
+                    </small>
+                </div>
+            </s:property>
+        </div>
+    </s:iterator>
 </div>
 </div>
 </div>

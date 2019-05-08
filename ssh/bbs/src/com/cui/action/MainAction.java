@@ -2,7 +2,7 @@ package com.cui.action;
 
 import com.cui.po.Board;
 import com.cui.service.BoardLoadService;
-import com.cui.util.ApplicationContextOperator;
+
 import com.opensymphony.xwork2.ActionSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,14 +18,11 @@ List<Board> boards;
 BoardLoadService boardLoad;
 
 public String execute() {
-	for (String s : ApplicationContextOperator.getApplicationContext().getBeanDefinitionNames()) {
-		System.out.println(s);
-	}
 	boards = boardLoad.loadAllBoards();
-//	for (int i = 0; i < boards.size(); i++) {
-//		System.out.println(boards.get(i).getAid());
-//	}
-	return INPUT;
+	for (int i = 0; i < boards.size(); i++) {
+		System.out.print(boards.get(i).getId() + " ");
+	}
+	return SUCCESS;
 }
 
 public List<Board> getBoards() {

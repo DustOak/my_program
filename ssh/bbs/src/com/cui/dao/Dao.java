@@ -23,8 +23,16 @@ static void Update(Object oj) {
 
 }
 
-static void Delete(Object oj) {
+static boolean Delete(Object oj) {
+	return false;
+}
 
+static Object Query(String str) {
+	return null;
+}
+
+static List LimitQuery(Object oj, int limit) {
+	return null;
 }
 	
 }

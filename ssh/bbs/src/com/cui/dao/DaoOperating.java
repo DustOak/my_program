@@ -26,6 +26,10 @@ public static List Gets(Object oj) {
 	return getHibernateTemplate().findByExample(oj);
 }
 
+public static Object Query(String str) {
+	return getHibernateTemplate().getSessionFactory().openSession().createSQLQuery(str);
+}
+
 public static List Finds(String fields, Object... value) {
 	return getHibernateTemplate().find(fields, value);
 }
@@ -35,12 +39,22 @@ public static boolean Save(Object oj) {
 }
 
 public static void Update(Object oj) {
-	getHibernateTemplate().update(oj);
+		getHibernateTemplate().update(oj);
 }
 
-public static void Delete(Object oj) {
-	getHibernateTemplate().delete(oj);
+public static boolean Delete(Object oj) {
+	try {
+		getHibernateTemplate().delete(oj);
+		return true;
+	} catch (Exception ex) {
+		ex.printStackTrace();
+		return false;
+	}
 }
+
+//public static List LimitQuery(Object oj, int limit) {
+//return getHibernateTemplate().findBye
+//}
 
 public static HibernateTemplate getHibernateTemplate() {
 	return hibernateTemplate;

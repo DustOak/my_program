@@ -1,8 +1,10 @@
 package com.cui.action;
 
 import com.cui.po.Board;
+import com.cui.po.Post;
 import com.cui.service.BoardLoadService;
 
+import com.cui.service.PostLoadService;
 import com.opensymphony.xwork2.ActionSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -16,8 +18,20 @@ import java.util.Map;
 public class MainAction extends ActionSupport {
 private List<Board> boards;
 private Map<Integer, List<Board>> childBoard = new HashMap<>();
+private List<Post> hotPosts;
 @Autowired
 BoardLoadService boardLoad;
+
+public PostLoadService getPostLoad() {
+	return postLoad;
+}
+
+public void setPostLoad(PostLoadService postLoad) {
+	this.postLoad = postLoad;
+}
+
+@Autowired
+PostLoadService postLoad;
 
 public Map<Integer, List<Board>> getChildBoard() {
 	return childBoard;
@@ -33,6 +47,7 @@ public String execute() {
 	for (int j = 0; j < boards.size(); j++) {
 		childBoard.put(boards.get(j).getId(), boardLoad.loadChildBoards(boards.get(j).getId()));
 	}
+	hotPosts = postLoad.rankPosts(6);
 	return SUCCESS;
 }
 
@@ -53,4 +68,11 @@ public void setBoardLoad(BoardLoadService boardLoad) {
 }
 
 
+public List<Post> getHotPosts() {
+	return hotPosts;
+}
+
+public void setHotPosts(List<Post> hotPosts) {
+	this.hotPosts = hotPosts;
+}
 }

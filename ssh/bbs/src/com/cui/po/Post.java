@@ -6,11 +6,19 @@ import java.util.Date;
 public class Post implements Serializable {
 
 private Integer id;
+
+public Post(Integer id) {
+	this.id = id;
+}
+
 private String name;
 private String content;
 private Student sid;
 private Board bid;
 private Date publishTime;
+
+public Post() {
+}
 
 public Integer getId() {
 	return id;

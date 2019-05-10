@@ -22,3 +22,7 @@
 .board:hover{
     text-decoration: none;
 }
+#example_paginate{
+   float: left;
+    margin-left: -13%;
+}

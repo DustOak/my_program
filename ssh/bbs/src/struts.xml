@@ -16,21 +16,19 @@
 			</interceptor-stack>
 		</interceptors>
 		<action name="index" class="com.cui.action.MainAction">
-			<result name="success">home.jsp</result>
+			<result name="success">tourist_home.jsp</result>
+		</action>
+		<action name="board" class="com.cui.action.BoardAction">
+		
 		</action>
 		<action name="login" class="com.cui.action.indexAction">
 			<interceptor-ref name="Session"/>
 			<result name="input">/index.jsp</result>
-			<result name="success" type="redirectAction">home?sessionId=${sessionId}</result>
+			<result name="success" type="redirectAction">index?sessionId=${sessionId}</result>
 		</action>
 		<action name="loginAction" class="com.cui.action.LoginAction">
-			<result name="success" type="redirectAction">home?sessionId=${sessionID}</result>
+			<result name="success" type="redirectAction">index?sessionId=${sessionID}</result>
 			<result name="input">/index.jsp</result>
-		</action>
-		<action name="home" class="com.cui.action.HomeAction">
-			<interceptor-ref name="Session"/>
-			<result name="success">/home.jsp</result>
-			<result name="input" type="redirectAction">login</result>
 		</action>
 	</package>
 </struts>

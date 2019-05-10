@@ -24,8 +24,8 @@ To change this template use File | Settings | File Templates.
     <a class="navbar-brand" href="#" style="margin-right: 10%">梦想科大</a>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <input class="form-control mr-sm-2" type="search" placeholder="帖子名" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查找</button>
         </form>
     </div>
 </nav>
@@ -76,8 +76,11 @@ width:87.5%;height:auto;color: white; overflow-y: auto;">
             <hr style="margin: 1%;padding: 0;">
             <s:iterator value="hotPosts" var="post">
                 <p style="margin-left: 5%;font-size: 13px">
-                    <a href="#" style="color: #1d2124;" class="board">【<s:property
-                            value="#post.getBid().getName()"/>】</a><u><a href="#" style="color: #1d2124">
+                    <a href="/board?board=<s:property value="#post.getBid().getId()"/>" style="color: #1d2124;"
+                       class="board">【<s:property
+                            value="#post.getBid().getName()"/>】</a><u><a
+                        href="/post?board=<s:property value="#post.getBid().getId()"/>&post=<s:property value="#post.getId()"/>"
+                        style="color: #1d2124">
                     <s:property value="#post.getName()"/></a></u>【点击量:<s:property value="#post.getCount()"/>】
                 </p>
             </s:iterator>
@@ -103,7 +106,8 @@ width:87.5%;height:auto;color: black; overflow-y: hidden;">
                         <img src="images/board/<s:property value="#child.getBoardImg()"/>" width="90" height="90"
                              style="margin: 1% 0 1% 1%">
                     </s:else>
-                    <a href="#" style="position: absolute"><s:property value="#child.getName()"/></a>
+                    <a href="/board?board=<s:property value="#child.getId()"/>" style="position: absolute"><s:property
+                            value="#child.getName()"/></a>
                     <small style="position: absolute;margin-top: 1%;width:15%;max-width:15%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
                         <s:property value="#child.getDescription()"/>
                     </small>

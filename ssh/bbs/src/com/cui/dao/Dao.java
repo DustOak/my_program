@@ -31,7 +31,7 @@ static Object Query(String str) {
 	return null;
 }
 
-static List LimitQuery(Object oj, int limit) {
+static List LimitQuery(String hql, int start, int length) {
 	return null;
 }
 	

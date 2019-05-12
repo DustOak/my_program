@@ -1,6 +1,10 @@
 package com.cui.dao;
 
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.orm.hibernate4.HibernateCallback;
 import org.springframework.orm.hibernate4.HibernateTemplate;
 
 import java.util.List;
@@ -39,7 +43,7 @@ public static boolean Save(Object oj) {
 }
 
 public static void Update(Object oj) {
-		getHibernateTemplate().update(oj);
+	getHibernateTemplate().update(oj);
 }
 
 public static boolean Delete(Object oj) {
@@ -52,9 +56,17 @@ public static boolean Delete(Object oj) {
 	}
 }
 
-//public static List LimitQuery(Object oj, int limit) {
-//return getHibernateTemplate().findBye
-//}
+public static List LimitQuery(String hql, int start, int length) {
+	return getHibernateTemplate().execute(new HibernateCallback<List>() {
+		@Override
+		public List doInHibernate(Session session) throws HibernateException {
+			Query query = session.createQuery(hql);
+			query.setFirstResult(start);
+			query.setMaxResults(length);
+			return query.list();
+		}
+	});
+}
 
 public static HibernateTemplate getHibernateTemplate() {
 	return hibernateTemplate;

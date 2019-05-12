@@ -9,7 +9,7 @@ boolean saveOrUpdate(Post post);
 
 List<Post> allPost();
 
-List<Post> pageAllPost(int bid, int pageNo, int pageSize);
+List<Post> pageAllPost(int bid, int start, int length);
 
 int getPostsCount();
 

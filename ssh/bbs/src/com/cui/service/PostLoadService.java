@@ -3,6 +3,7 @@ package com.cui.service;
 
 import com.cui.dao.DaoOperating;
 import com.cui.po.Admin;
+import com.cui.po.Board;
 import com.cui.po.Post;
 import com.cui.po.Student;
 
@@ -33,9 +34,9 @@ public List<Post> allPost() {
 }
 
 @Override
-public List<Post> pageAllPost(int bid, int pageNo, int pageSize) {
-	String str = "from Post where bid=?0 order by id desc limit ?1*?2,?3 ";
-	return DaoOperating.Finds(str, bid, pageNo, pageSize, pageSize);
+public List<Post> pageAllPost(int bid, int start, int length) {
+	String hql = "from Post as p where p.bid=" + bid;
+	return DaoOperating.LimitQuery(hql, start, length);
 }
 
 @Override

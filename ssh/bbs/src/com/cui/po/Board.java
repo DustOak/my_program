@@ -5,6 +5,13 @@ import java.io.Serializable;
 public class Board implements Serializable {
 private Integer id;
 
+public Board(Integer id) {
+	this.id = id;
+}
+
+public Board() {
+}
+
 public Integer getId() {
 	return id;
 }

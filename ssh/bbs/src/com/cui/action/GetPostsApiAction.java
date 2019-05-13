@@ -1,13 +1,22 @@
 package com.cui.action;
 
+import com.alibaba.druid.support.json.JSONUtils;
 import com.cui.po.Post;
-import com.cui.service.PostLoad;
+
 import com.cui.service.PostLoadService;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class GetPostsApiAction extends ActionSupport {
@@ -18,6 +27,7 @@ private String data;
 private List<Post> posts;
 @Autowired
 private PostLoadService postLoadService;
+private List<Map<String, Object>> currentPagePosts = new ArrayList<>();
 
 public int getStart() {
 	return start;
@@ -37,11 +47,37 @@ public void setLength(int length) {
 
 public String execute() {
 	posts = postLoadService.pageAllPost(board, start, length);
-	for (int j = 0; j < posts.size(); j++) {
-		System.out.print(posts.get(j).getBid().getName() + " ");
-		System.out.println(posts.get(j).getName() + " ");
+	for (Post post : posts) {
+		Map<String, Object> data = new HashMap<>(0);
+		data.put("postName", post.getName());
+		if (post.getSid() != null) {
+			data.put("author", post.getSid().getNickName());
+		} else {
+			data.put("author", post.getAid().getNickname());
+			
+		}
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		data.put("publishTime", dateFormat.format(post.getPublishTime()));
+		data.put("readCount", post.getCount());
+		data.put("replyCount", post.getReplies().size());
+		currentPagePosts.add(data);
 	}
-	return SUCCESS;
+	Map<String, Object> jsons = new HashMap<>();
+	int allPostCount = postLoadService.getBoardPostsCount(board);
+	System.out.println(allPostCount);
+	jsons.put("data", currentPagePosts);
+	jsons.put("recordsTotal", allPostCount);
+	jsons.put("draw", 1);
+	jsons.put("recordsFiltered", allPostCount);
+	String json = JSONUtils.toJSONString(jsons);
+	HttpServletResponse response = ServletActionContext.getResponse();
+	response.setContentType("text/html;charset=UTF-8");
+	try {
+		response.getWriter().println(json);
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+	return null;
 }
 
 public String getData() {
@@ -76,4 +112,14 @@ public List<Post> getPosts() {
 public void setPosts(List<Post> posts) {
 	this.posts = posts;
 }
+
+
+public List<Map<String, Object>> getCurrentPagePosts() {
+	return currentPagePosts;
+}
+
+public void setCurrentPagePosts(List<Map<String, Object>> currentPagePosts) {
+	this.currentPagePosts = currentPagePosts;
+}
+
 }

@@ -30,12 +30,30 @@ public static List Gets(Object oj) {
 	return getHibernateTemplate().findByExample(oj);
 }
 
-public static Object Query(String str) {
-	return getHibernateTemplate().getSessionFactory().openSession().createSQLQuery(str);
-}
+//public static Object Query(String sql, Object... value) {
+//	return getHibernateTemplate().execute(new HibernateCallback<List>() {
+//		@Override
+//		public List doInHibernate(Session session) throws HibernateException {
+//			Query query = session.createQuery(sql);
+//			for (int i = 0; i < value.length; i++) {
+//				query.setParameter(i, value[i]);
+//			}
+//			return query.list();
+//		}
+//	});
+//}
 
 public static List Finds(String fields, Object... value) {
-	return getHibernateTemplate().find(fields, value);
+	return getHibernateTemplate().execute(new HibernateCallback<List>() {
+		@Override
+		public List doInHibernate(Session session) throws HibernateException {
+			Query query = session.createQuery(fields);
+			for (int i = 0; i < value.length; i++) {
+				query.setParameter(i, value[i]);
+			}
+			return query.list();
+		}
+	});
 }
 
 public static boolean Save(Object oj) {
@@ -66,6 +84,10 @@ public static List LimitQuery(String hql, int start, int length) {
 			return query.list();
 		}
 	});
+}
+
+public static int Count(Object oj) {
+	return getHibernateTemplate().findByExample(oj).size();
 }
 
 public static HibernateTemplate getHibernateTemplate() {

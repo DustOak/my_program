@@ -34,5 +34,8 @@ static Object Query(String str) {
 static List LimitQuery(String hql, int start, int length) {
 	return null;
 }
-	
+
+static int Count(Object oj) {
+	return 0;
+}
 }

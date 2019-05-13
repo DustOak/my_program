@@ -6,6 +6,8 @@ import com.cui.po.Admin;
 import com.cui.po.Board;
 import com.cui.po.Post;
 import com.cui.po.Student;
+import javafx.geometry.Pos;
+import org.hibernate.query.internal.NativeQueryImpl;
 
 
 import java.util.ArrayList;
@@ -41,8 +43,12 @@ public List<Post> pageAllPost(int bid, int start, int length) {
 
 @Override
 public int getPostsCount() {
-	String str = "select count(*) from post";
-	return (int) DaoOperating.Query(str);
+	return DaoOperating.Count(new Post());
+}
+
+public int getBoardPostsCount(int bid) {
+	String hql = "from Post as p  where p.bid=" + bid;
+	return DaoOperating.Finds(hql).size();
 }
 
 @Override
@@ -90,24 +96,24 @@ public List<Post> rankPosts(int size) {
 @Override
 public int countTotalPost() {
 	String str = "select count(*) from post";
-	return (int) DaoOperating.Query(str);
+	return DaoOperating.Finds(str).size();
 }
 
 @Override
 public int countTodayPost() {
 	String str = "SELECT COUNT(*) FROM post WHERE DATEDIFF(publishtime,NOW()) = 0";
-	return (int) DaoOperating.Query(str);
+	return DaoOperating.Finds(str).size();
 }
 
 @Override
 public int countYesteradyPost() {
 	String str = "SELECT COUNT(*) FROM post WHERE DATEDIFF(publishtime,NOW()) = -1";
-	return (int) DaoOperating.Query(str);
+	return DaoOperating.Finds(str).size();
 }
 
 @Override
 public int countDayLargestPost() {
 	String str = "SELECT MAX(COUNT) FROM post WHERE DATEDIFF(publishtime,NOW())=0";
-	return (int) DaoOperating.Query(str);
+	return DaoOperating.Finds(str).size();
 }
 }

@@ -70,27 +70,46 @@ width:90%;height:100%;color: black;border:  #bee5eb solid 1px; border-radius: 5p
 <script>
     $(document).ready(function () {
         $('#example').DataTable({
+            paging: true,
             autoWidth: false,
             lengthChange: false,
             order: false,
             searching: false,
+            async: false,
             info: false,
-            serverSide: true,
             stateSave: true,
+            serverSide: true,
             processing: true,
-            pageLength: 20,
+            pageLength: 3,
             ajax: {
                 url: "getPosts?board=6",
                 type: "POST",
+
             },
             columns: [
                 {"data": "postName"},
                 {"data": "author"},
                 {"data": "publishTime"},
-                {"data": "start_date"},
                 {"data": "readCount"},
                 {"data": "replyCount"}
-            ]
+            ],
+            language: {
+                "sProcessing": "载入中...",
+                "sEmptyTable": "未搜索到数据",
+                "sLoadingRecords": "载入中...",
+                "oPaginate": {
+                    "sFirst": "首页",
+                    "sPrevious": "上页",
+                    "sNext": "下页",
+                    "sLast": "末页"
+                },
+            },
+            dataSrc: function (json) {
+                json.draw = json.data.draw;
+                json.recordsTotal = json.data.recordsTotal;
+                json.recordsFiltered = json.data.recordsFiltered;
+                return json.data;
+            },
         });
     });
 </script>

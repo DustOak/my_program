@@ -12,13 +12,6 @@ public Board(Integer id) {
 public Board() {
 }
 
-public Integer getId() {
-	return id;
-}
-
-public void setId(Integer id) {
-	this.id = id;
-}
 
 public String getName() {
 	return name;
@@ -66,5 +59,11 @@ private Admin aid;
 private String boardImg;
 private Board parentId;
 
+public Integer getId() {
+	return id;
+}
 
+public void setId(Integer id) {
+	this.id = id;
+}
 }

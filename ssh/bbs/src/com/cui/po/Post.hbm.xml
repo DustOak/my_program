@@ -4,7 +4,7 @@
 		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="com.cui.po">
-	<class name="Post" table="post">
+	<class name="Post" table="post" lazy="false">
 		<id name="id" column="id" type="java.lang.Integer">
 			<generator class="increment"/>
 		</id>
@@ -12,8 +12,12 @@
 		<property name="content" column="content" type="java.lang.String"/>
 		<property name="publishTime" column="publishTime" type="java.util.Date"/>
 		<property name="count" column="count" type="java.lang.Integer"/>
-		<many-to-one name="aid" column="aid"/>
-		<many-to-one name="bid" column="bid" not-null="true"/>
-		<many-to-one name="sid" column="sid"/>
+		<many-to-one name="aid" column="aid" class="Admin"/>
+		<many-to-one name="bid" column="bid" not-null="true" class="Board"/>
+		<many-to-one name="sid" column="sid" class="Student"/>
+		<set name="replies" cascade="all-delete-orphan" order-by="id desc" lazy="false" inverse="true">
+			<key column="pid"/>
+			<one-to-many class="com.cui.po.Reply"/>
+		</set>
 	</class>
 </hibernate-mapping>

@@ -22,7 +22,6 @@
 			<result name="success">tourist_board.html</result>
 		</action>
 		<action name="getPosts" class="com.cui.action.GetPostsApiAction">
-		
 		</action>
 		
 		

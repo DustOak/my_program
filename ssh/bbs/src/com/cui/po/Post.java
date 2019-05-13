@@ -1,7 +1,7 @@
 package com.cui.po;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.*;
 
 public class Post implements Serializable {
 
@@ -16,6 +16,7 @@ private String content;
 private Student sid;
 private Board bid;
 private Date publishTime;
+private Set replies = new HashSet();
 
 public Post() {
 }
@@ -76,15 +77,23 @@ public void setAid(Admin aid) {
 	this.aid = aid;
 }
 
-public int getCount() {
+public Integer getCount() {
 	return count;
 }
 
-public void setCount(int count) {
+public void setCount(Integer count) {
 	this.count = count;
 }
 
 private Admin aid;
-private int count;
+private Integer count;
 
+
+public Set getReplies() {
+	return replies;
+}
+
+public void setReplies(Set replies) {
+	this.replies = replies;
+}
 }

@@ -12,15 +12,8 @@
     <list default="true" id="501e686f-22a4-41bd-a9ae-78e7e6928718" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cui/action/GetPostsApiAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cui/action/GetPostsApiAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cui/dao/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cui/dao/Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cui/dao/DaoOperating.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cui/dao/DaoOperating.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cui/po/Board.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cui/po/Board.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cui/po/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cui/po/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cui/po/Post.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cui/po/Post.hbm.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cui/po/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cui/po/Post.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cui/service/PostLoad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cui/service/PostLoad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/cui/po/Admin.hbm.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cui/po/Admin.hbm.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/cui/service/PostLoadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cui/service/PostLoadService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/struts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/tourist_board.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/tourist_board.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -75,8 +68,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/tourist_board.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="82" column="26" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
+            <state relative-caret-position="414">
+              <caret line="83" column="25" selection-start-line="83" selection-start-column="25" selection-end-line="83" selection-end-column="25" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -93,36 +86,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cui/action/GetPostsApiAction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="64" column="48" selection-start-line="64" selection-start-column="48" selection-end-line="64" selection-end-column="48" />
+            <state relative-caret-position="310">
+              <caret line="58" column="34" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2291#2292#0" expanded="true" />
-                <element signature="e#2348#2349#0" expanded="true" />
-                <element signature="e#2390#2391#0" expanded="true" />
-                <element signature="e#2448#2449#0" expanded="true" />
-                <element signature="e#2523#2524#0" expanded="true" />
-                <element signature="e#2633#2634#0" expanded="true" />
-                <element signature="e#2682#2683#0" expanded="true" />
-                <element signature="e#2747#2748#0" expanded="true" />
-                <element signature="e#2121#2122#0" expanded="true" />
-                <element signature="e#2149#2150#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/cui/po/Post.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="620">
-              <caret line="89" selection-start-line="89" selection-end-line="89" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1239#1240#0" expanded="true" />
-                <element signature="e#1258#1259#0" expanded="true" />
-                <element signature="e#1297#1298#0" expanded="true" />
-                <element signature="e#1324#1325#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -131,8 +98,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/cui/service/PostLoadService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
+            <state relative-caret-position="240">
+              <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -198,7 +165,6 @@
         <option value="$PROJECT_DIR$/src/com/cui/po/Reply.java" />
         <option value="$PROJECT_DIR$/src/com/cui/po/Student.hbm.xml" />
         <option value="$PROJECT_DIR$/src/com/cui/po/Admin.java" />
-        <option value="$PROJECT_DIR$/src/com/cui/po/Admin.hbm.xml" />
         <option value="$PROJECT_DIR$/src/com/cui/po/Reply.hbm.xml" />
         <option value="$PROJECT_DIR$/web/home.html" />
         <option value="$PROJECT_DIR$/src/com/cui/service/BoadrLoadService.java" />
@@ -215,13 +181,14 @@
         <option value="$PROJECT_DIR$/src/struts.xml" />
         <option value="$PROJECT_DIR$/src/com/cui/dao/Dao.java" />
         <option value="$PROJECT_DIR$/src/com/cui/po/Post.java" />
-        <option value="$PROJECT_DIR$/src/com/cui/action/GetPostsApiAction.java" />
         <option value="$PROJECT_DIR$/src/com/cui/service/PostLoad.java" />
         <option value="$PROJECT_DIR$/src/com/cui/dao/DaoOperating.java" />
         <option value="$PROJECT_DIR$/src/com/cui/po/Post.hbm.xml" />
         <option value="$PROJECT_DIR$/src/com/cui/po/Board.hbm.xml" />
         <option value="$PROJECT_DIR$/src/com/cui/po/Board.java" />
         <option value="$PROJECT_DIR$/src/com/cui/service/PostLoadService.java" />
+        <option value="$PROJECT_DIR$/src/com/cui/po/Admin.hbm.xml" />
+        <option value="$PROJECT_DIR$/src/com/cui/action/GetPostsApiAction.java" />
         <option value="$PROJECT_DIR$/web/tourist_board.html" />
       </list>
     </option>
@@ -246,7 +213,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -320,6 +286,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -380,7 +347,7 @@
     </configuration>
     <configuration name="Tomcat 9.0.141" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.141" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/index" />
-      <option name="UPDATING_POLICY" value="update-resources" />
+      <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
       <deployment>
         <artifact name="Login:war exploded">
           <settings>
@@ -507,7 +474,9 @@
       <workItem from="1557485833619" duration="8635000" />
       <workItem from="1557655699272" duration="505000" />
       <workItem from="1557656285045" duration="10487000" />
-      <workItem from="1557731239063" duration="19326000" />
+      <workItem from="1557731239063" duration="19511000" />
+      <workItem from="1557810789407" duration="8923000" />
+      <workItem from="1557821338726" duration="1331000" />
     </task>
     <task id="LOCAL-00001" summary="更新bbs项目名以及当前进度">
       <created>1556872161763</created>
@@ -607,11 +576,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557670875880</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="update">
+      <created>1557756878699</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1557756878699</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224784000" />
+    <option name="totallyTimeSpent" value="235223000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -626,7 +602,7 @@
     <frame x="0" y="-1" width="1920" height="1040" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20181043" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20607029" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Persistence" order="3" side_tool="true" />
@@ -637,7 +613,7 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32861805" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3264418" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946752" visible="true" weight="0.3264418" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934713" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -645,7 +621,7 @@
       <window_info anchor="bottom" id="Application Servers" order="7" weight="0.32861805" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.23068553" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32882273" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5005325" side_tool="true" weight="0.3264418" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32752994" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" weight="0.3297062" />
       <window_info anchor="bottom" id="Spring" order="13" weight="0.32861805" />
@@ -687,9 +663,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/images/home.gif" />
-    <entry file="file://$PROJECT_DIR$/web/images/btn-submit.png" />
-    <entry file="file://$PROJECT_DIR$/web/images/menu_ge.gif" />
     <entry file="file://$PROJECT_DIR$/web/images/tr06_right.gif" />
     <entry file="file://$PROJECT_DIR$/web/images/imgs/10794203.jpg">
       <provider selected="true" editor-type-id="images" />
@@ -921,15 +894,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://1f42d036-69bb-42f2-ade3-729fbe037963/schema/bbs/table/post">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="aad377e4-fa05-4ba0-aa83-853507d7a373">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cui/dao/Dao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="402">
@@ -979,29 +943,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cui/po/Post.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="620">
-          <caret line="89" selection-start-line="89" selection-end-line="89" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1239#1240#0" expanded="true" />
-            <element signature="e#1258#1259#0" expanded="true" />
-            <element signature="e#1297#1298#0" expanded="true" />
-            <element signature="e#1324#1325#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1f42d036-69bb-42f2-ade3-729fbe037963/schema/bbs/table/board">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="aad377e4-fa05-4ba0-aa83-853507d7a373">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cui/po/Board.hbm.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -1031,47 +972,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cui/po/Post.hbm.xml">
+    <entry file="file://$PROJECT_DIR$/src/com/cui/po/Post.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" column="59" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cui/service/PostLoadService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
+        <state relative-caret-position="524">
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cui/action/GetPostsApiAction.java">
+    <entry file="file://$PROJECT_DIR$/src/com/cui/service/PostLoadService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="64" column="48" selection-start-line="64" selection-start-column="48" selection-end-line="64" selection-end-column="48" />
+        <state relative-caret-position="240">
+          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2291#2292#0" expanded="true" />
-            <element signature="e#2348#2349#0" expanded="true" />
-            <element signature="e#2390#2391#0" expanded="true" />
-            <element signature="e#2448#2449#0" expanded="true" />
-            <element signature="e#2523#2524#0" expanded="true" />
-            <element signature="e#2633#2634#0" expanded="true" />
-            <element signature="e#2682#2683#0" expanded="true" />
-            <element signature="e#2747#2748#0" expanded="true" />
-            <element signature="e#2121#2122#0" expanded="true" />
-            <element signature="e#2149#2150#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cui/po/Admin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cui/po/Admin.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="49" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cui/po/Post.hbm.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="14" column="58" lean-forward="true" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://1f42d036-69bb-42f2-ade3-729fbe037963/schema/bbs/table/board">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="b63da724-f5dc-4326-8bda-cab51756fa2f">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://1f42d036-69bb-42f2-ade3-729fbe037963/schema/bbs/table/post">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="b63da724-f5dc-4326-8bda-cab51756fa2f">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cui/action/GetPostsApiAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="58" column="34" selection-start-line="58" selection-start-column="34" selection-end-line="58" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/Login_war_exploded/tourist_board.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-793">
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/tourist_board.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="82" column="26" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
+        <state relative-caret-position="414">
+          <caret line="83" column="25" selection-start-line="83" selection-start-column="25" selection-end-line="83" selection-end-column="25" />
           <folding>
             <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />

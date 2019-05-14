@@ -42,9 +42,9 @@
 
 <!-- hot post bar-->
 <div class="float-right" style="margin-top: 4%;
-width:100%;height:auto;color: black; overflow:hidden;padding-left: 17%">
+width:100%;color: black; overflow:hidden;padding-left: 17%">
     <div style="margin-top: 1%;margin-left: 1%; margin-bottom: 1%;
-width:90%;height:100%;color: black;border:  #bee5eb solid 1px; border-radius: 5px; border-top: none ">
+width:90%;color: black;border:  #bee5eb solid 1px; border-radius: 5px; border-top: none ">
         <div class="alert alert-info" role="alert"
              style="width: 100%;margin-bottom: 0;margin-top: 1%;border-radius: 5px 5px 0 0;">
             <a href="" style="color: black">父板块</a>&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;<a href=""
@@ -70,6 +70,7 @@ width:90%;height:100%;color: black;border:  #bee5eb solid 1px; border-radius: 5p
 <script>
     $(document).ready(function () {
         $('#example').DataTable({
+            retrieve: true,
             paging: true,
             autoWidth: false,
             lengthChange: false,
@@ -80,11 +81,14 @@ width:90%;height:100%;color: black;border:  #bee5eb solid 1px; border-radius: 5p
             stateSave: true,
             serverSide: true,
             processing: true,
-            pageLength: 3,
+            pageLength: 40,
             ajax: {
-                url: "getPosts?board=6",
+                url: "getPosts",
                 type: "POST",
-
+                cache: false,
+                data: {
+                    "board": 6
+                }
             },
             columns: [
                 {"data": "postName"},
@@ -93,25 +97,32 @@ width:90%;height:100%;color: black;border:  #bee5eb solid 1px; border-radius: 5p
                 {"data": "readCount"},
                 {"data": "replyCount"}
             ],
-            language: {
-                "sProcessing": "载入中...",
-                "sEmptyTable": "未搜索到数据",
-                "sLoadingRecords": "载入中...",
-                "oPaginate": {
-                    "sFirst": "首页",
-                    "sPrevious": "上页",
-                    "sNext": "下页",
-                    "sLast": "末页"
-                },
-            },
-            dataSrc: function (json) {
-                json.draw = json.data.draw;
-                json.recordsTotal = json.data.recordsTotal;
-                json.recordsFiltered = json.data.recordsFiltered;
-                return json.data;
-            },
+            language:
+                {
+                    "sProcessing":
+                        "处理中...",
+                    "sEmptyTable":
+                        "未搜索到数据",
+                    "sLoadingRecords":
+                        "载入中...",
+                    "oPaginate":
+                        {
+                            "sFirst":
+                                "首页",
+                            "sPrevious":
+                                "上页",
+                            "sNext":
+                                "下页",
+                            "sLast":
+                                "末页"
+                        }
+                    ,
+                }
+            ,
+
         });
-    });
+    })
+    ;
 </script>
 </body>
 </html>

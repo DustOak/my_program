@@ -23,6 +23,7 @@ public class GetPostsApiAction extends ActionSupport {
 private int board;
 private int start;
 private int length;
+private int draw;
 private String data;
 private List<Post> posts;
 @Autowired
@@ -52,9 +53,10 @@ public String execute() {
 		data.put("postName", post.getName());
 		if (post.getSid() != null) {
 			data.put("author", post.getSid().getNickName());
-		} else {
+		} else if (post.getAid() != null) {
 			data.put("author", post.getAid().getNickname());
-			
+		}else {
+			data.put("author", "匿名");
 		}
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		data.put("publishTime", dateFormat.format(post.getPublishTime()));
@@ -64,14 +66,13 @@ public String execute() {
 	}
 	Map<String, Object> jsons = new HashMap<>();
 	int allPostCount = postLoadService.getBoardPostsCount(board);
-	System.out.println(allPostCount);
 	jsons.put("data", currentPagePosts);
 	jsons.put("recordsTotal", allPostCount);
-	jsons.put("draw", 1);
+	jsons.put("draw", draw);
 	jsons.put("recordsFiltered", allPostCount);
 	String json = JSONUtils.toJSONString(jsons);
 	HttpServletResponse response = ServletActionContext.getResponse();
-	response.setContentType("text/html;charset=UTF-8");
+	response.setContentType("application/json;charset=UTF-8");
 	try {
 		response.getWriter().println(json);
 	} catch (IOException e) {
@@ -122,4 +123,11 @@ public void setCurrentPagePosts(List<Map<String, Object>> currentPagePosts) {
 	this.currentPagePosts = currentPagePosts;
 }
 
+public int getDraw() {
+	return draw;
+}
+
+public void setDraw(int draw) {
+	this.draw = draw;
+}
 }

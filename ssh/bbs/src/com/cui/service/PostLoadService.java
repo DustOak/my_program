@@ -37,7 +37,7 @@ public List<Post> allPost() {
 
 @Override
 public List<Post> pageAllPost(int bid, int start, int length) {
-	String hql = "from Post ";
+	String hql = "from Post as p where p.bid=" + bid + "order by publishTime desc";
 	return DaoOperating.LimitQuery(hql, start, length);
 }
 
@@ -47,7 +47,7 @@ public int getPostsCount() {
 }
 
 public int getBoardPostsCount(int bid) {
-	String hql = "from Post ";
+	String hql = "from Post as p where p.bid = " + bid;
 	return DaoOperating.Finds(hql).size();
 }
 

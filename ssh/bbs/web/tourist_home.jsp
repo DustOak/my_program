@@ -76,7 +76,7 @@ width:87.5%;height:auto;color: white; overflow-y: auto;">
             <hr style="margin: 1%;padding: 0;">
             <s:iterator value="hotPosts" var="post">
                 <p style="margin-left: 5%;font-size: 13px">
-                    <a href="/board?board=<s:property value="#post.getBid().getId()"/>" style="color: #1d2124;"
+                    <a href="/posts?board=<s:property value="#post.getBid().getId()"/>" style="color: #1d2124;"
                        class="board">【<s:property
                             value="#post.getBid().getName()"/>】</a><u><a
                         href="/post?board=<s:property value="#post.getBid().getId()"/>&post=<s:property value="#post.getId()"/>"
@@ -106,7 +106,7 @@ width:87.5%;height:auto;color: black; overflow-y: hidden;">
                         <img src="images/board/<s:property value="#child.getBoardImg()"/>" width="90" height="90"
                              style="margin: 1% 0 1% 1%">
                     </s:else>
-                    <a href="/board?board=<s:property value="#child.getId()"/>" style="position: absolute"><s:property
+                    <a href="/posts?board=<s:property value="#child.getId()"/>" style="position: absolute"><s:property
                             value="#child.getName()"/></a>
                     <small style="position: absolute;margin-top: 1%;width:15%;max-width:15%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;">
                         <s:property value="#child.getDescription()"/>

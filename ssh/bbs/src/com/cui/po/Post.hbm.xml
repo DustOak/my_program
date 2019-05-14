@@ -12,9 +12,9 @@
 		<property name="content" column="content" type="java.lang.String"/>
 		<property name="publishTime" column="publishTime" type="java.util.Date"/>
 		<property name="count" column="count" type="java.lang.Integer"/>
-		<many-to-one name="aid" column="aid" class="Admin"/>
+		<many-to-one name="aid" column="aid" class="Admin" lazy="false"/>
 		<many-to-one name="bid" column="bid" not-null="true" class="Board"/>
-		<many-to-one name="sid" column="sid" class="Student"/>
+		<many-to-one name="sid" column="sid" class="Student" lazy="false"/>
 		<set name="replies" cascade="all-delete-orphan" order-by="id desc" lazy="false" inverse="true">
 			<key column="pid"/>
 			<one-to-many class="com.cui.po.Reply"/>

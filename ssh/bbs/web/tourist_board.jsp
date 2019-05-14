@@ -1,12 +1,12 @@
-<!--<%&#45;&#45;-->
-<!--  Created by IntelliJ IDEA.-->
-<!--  User: cuiwenbin-->
-<!--  Date: 19-5-10-->
-<!--  Time: 下午9:14-->
-<!--  To change this template use File | Settings | File Templates.-->
-<!--&#45;&#45;%>-->
-<!--<%@ page contentType="text/html;charset=UTF-8" language="java" %>-->
-<!--<%@ taglib prefix="s" uri="/struts-tags" %>-->
+<%--
+  Created by IntelliJ IDEA.
+  User: cuiwenbin
+  Date: 19-5-10
+  Time: 下午9:14
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
     <title>梦想科大</title>
@@ -46,11 +46,11 @@ width:100%;color: black; overflow:hidden;padding-left: 17%">
     <div style="margin-top: 1%;margin-left: 1%; margin-bottom: 1%;
 width:90%;color: black;border:  #bee5eb solid 1px; border-radius: 5px; border-top: none ">
         <div class="alert alert-info" role="alert"
-             style="width: 100%;margin-bottom: 0;margin-top: 1%;border-radius: 5px 5px 0 0;">
-            <a href="" style="color: black">父板块</a>&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;<a href=""
-                                                                                            style="color: black">当前板块</a>
+             style="width: 100%;margin-bottom: 0;margin-top: 1%;border-radius: 5px 5px 0 0;color: black">
+            <a href="index" style="color: black">主页</a>&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;<s:property
+                value="boar.getName()"/>
         </div>
-        <table id="example" class="table table-striped table-bordered" style="width:100%;font-size: 13px">
+        <table id="example" class="table table-striped table-bordered" style="width:100%;font-size: 13px;color: black">
             <thead>
             <tr style="height: 5%;">
                 <td width="60%">帖子名</td>
@@ -87,7 +87,7 @@ width:90%;color: black;border:  #bee5eb solid 1px; border-radius: 5px; border-to
                 type: "POST",
                 cache: false,
                 data: {
-                    "board": 6
+                    "board": <s:property value="getBoard()"/>
                 }
             },
             columns: [

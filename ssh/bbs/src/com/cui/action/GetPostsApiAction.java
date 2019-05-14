@@ -50,19 +50,28 @@ public String execute() {
 	posts = postLoadService.pageAllPost(board, start, length);
 	for (Post post : posts) {
 		Map<String, Object> data = new HashMap<>(0);
-		data.put("postName", post.getName());
+		if (post.getAid() != null) {
+			data.put("author", post.getAid().getNickname());
+			data.put("postName", "<a href='/post?board=" + board + "&post=" + post.getId() + "' style='color:red;'>【管理员发帖】" + post.getName() + "</a>");
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			data.put("publishTime", dateFormat.format(post.getPublishTime()));
+			data.put("readCount", post.getCount());
+			data.put("replyCount", post.getReplies().size());
+			currentPagePosts.add(data);
+		}
+	}
+	for (Post post : posts) {
+		Map<String, Object> data = new HashMap<>(0);
 		if (post.getSid() != null) {
 			data.put("author", post.getSid().getNickName());
-		} else if (post.getAid() != null) {
-			data.put("author", post.getAid().getNickname());
-		}else {
-			data.put("author", "匿名");
+			data.put("postName", "<a href='/post?board=" + board + "&post=" + post.getId() + "' style='color:black'>" + post.getName() + "</a>");
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			data.put("publishTime", dateFormat.format(post.getPublishTime()));
+			data.put("readCount", post.getCount());
+			data.put("replyCount", post.getReplies().size());
+			currentPagePosts.add(data);
 		}
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		data.put("publishTime", dateFormat.format(post.getPublishTime()));
-		data.put("readCount", post.getCount());
-		data.put("replyCount", post.getReplies().size());
-		currentPagePosts.add(data);
+		
 	}
 	Map<String, Object> jsons = new HashMap<>();
 	int allPostCount = postLoadService.getBoardPostsCount(board);

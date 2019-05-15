@@ -19,9 +19,24 @@
     border-radius: 5px;
     margin-top: 50%;
 }
-.board:hover{
+
+.board:hover {
     text-decoration: none;
 }
-#example_paginate{
-  margin-right: 5%;
+
+#example_paginate {
+    margin-right: 5%;
 }
+
+table.dataTable thead .sorting::after, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after {
+    content: "";
+    float: right;
+    color: white;
+}
+
+table.dataTable thead .sorting::before, table.dataTable thead .sorting_asc:before, table.dataTable thead .sorting_desc:before {
+    content: "";
+    float: right;
+    color: white;
+}
+

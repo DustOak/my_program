@@ -49,10 +49,15 @@ width:90%;color: black;border:  #bee5eb solid 1px; border-radius: 5px; border-to
              style="width: 100%;margin-bottom: 0;margin-top: 1%;border-radius: 5px 5px 0 0;color: black">
             <a href="index" style="color: black">主页</a>&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;<s:property
                 value="boar.getName()"/>
+            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="游客模式,无法发布帖子"
+                  style="margin-left: 80%">
+  <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>发布帖子</button>
+</span>
         </div>
-        <table id="example" class="table table-striped table-bordered" style="width:100%;font-size: 13px;color: black">
+        <table id="example" class="table table-striped table-bordered text-center"
+               style="width:100%;font-size: 13px;color: black">
             <thead>
-            <tr style="height: 5%;">
+            <tr style="height: 5% " class="text-center">
                 <td width="60%">帖子名</td>
                 <td width="12%">发布者</td>
                 <td width="7%">发布时间</td>
@@ -75,6 +80,7 @@ width:90%;color: black;border:  #bee5eb solid 1px; border-radius: 5px; border-to
             autoWidth: false,
             lengthChange: false,
             order: false,
+            bSort: false,
             searching: false,
             async: false,
             info: false,

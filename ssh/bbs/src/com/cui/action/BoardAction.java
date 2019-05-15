@@ -16,8 +16,6 @@ private BoardLoadService boardLoadService;
 
 public String execute() {
 	boar = boardLoadService.loadBoard(board);
-	System.out.println();
-	System.out.println();
 	return SUCCESS;
 }
 

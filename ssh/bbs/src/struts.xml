@@ -23,7 +23,12 @@
 		</action>
 		<action name="getPosts" class="com.cui.action.GetPostsApiAction">
 		</action>
-		
+		<action name="post" class="com.cui.action.PostAction">
+			<result name="success">/tourist_post.jsp</result>
+			<result name="error" type="httpheader">
+				<param name="status">404</param>
+			</result>
+		</action>
 		
 		<action name="login" class="com.cui.action.indexAction">
 			<interceptor-ref name="Session"/>

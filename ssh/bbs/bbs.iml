@@ -74,5 +74,6 @@
     <orderEntry type="library" name="semantic" level="application" />
     <orderEntry type="library" name="dataTables.semanticui" level="application" />
     <orderEntry type="library" name="dataTables.bootstrap4" level="application" />
+    <orderEntry type="library" name="search_children" level="application" />
   </component>
 </module>

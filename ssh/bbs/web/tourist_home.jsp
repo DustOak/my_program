@@ -32,7 +32,7 @@ To change this template use File | Settings | File Templates.
 <!--left bar-->
 <div class="float-left" style="top: 6%;background: #293134;width: 12%;color: white; position:fixed;height: 100%;">
     <div class="card-img text-center" style="margin-bottom: 5%">
-        <img src="images/头像/none.png" style="margin-top:16%;border-radius: 100px; width: 100px;">
+        <img src="images/head/none.png" style="margin-top:16%;border-radius: 100px; width: 100px;">
     </div>
     <div class="text-center">
         <p>当前为游客状态<br/>无法进行发/回帖操作</p>

@@ -52,7 +52,7 @@ public String execute() {
 		Map<String, Object> data = new HashMap<>(0);
 		if (post.getAid() != null) {
 			data.put("author", post.getAid().getNickname());
-			data.put("postName", "<a href='/post?board=" + board + "&post=" + post.getId() + "' style='color:red;'>【管理员发帖】" + post.getName() + "</a>");
+			data.put("postName", "<a href='/post?post=" + post.getId() + "' style='color:red;'>【管理员发帖】" + post.getName() + "</a>");
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			data.put("publishTime", dateFormat.format(post.getPublishTime()));
 			data.put("readCount", post.getCount());
@@ -64,7 +64,7 @@ public String execute() {
 		Map<String, Object> data = new HashMap<>(0);
 		if (post.getSid() != null) {
 			data.put("author", post.getSid().getNickName());
-			data.put("postName", "<a href='/post?board=" + board + "&post=" + post.getId() + "' style='color:black'>" + post.getName() + "</a>");
+			data.put("postName", "<a href='/post?post=" + post.getId() + "' style='color:black'>" + post.getName() + "</a>");
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			data.put("publishTime", dateFormat.format(post.getPublishTime()));
 			data.put("readCount", post.getCount());

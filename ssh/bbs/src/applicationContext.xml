@@ -9,10 +9,14 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 		<property name="url" value="jdbc:mariadb://127.0.0.1:3306/bbs?characterEncoding=UTF-8"/>
 		<property name="username" value="root"/>
 		<property name="password" value="950712cwb"/>
-		<property name="maxActive" value="200"/>
-		<property name="initialSize" value="50"/>
-		<property name="minIdle" value="20"/>
-		<property name="timeBetweenEvictionRunsMillis" value="10000"/>
+		<property name="maxActive" value="20"/>
+		<property name="initialSize" value="5"/>
+		<property name="minIdle" value="10"/>
+		<property name="maxWait" value="60000"/>
+		<property name="timeBetweenEvictionRunsMillis" value="2000"/>
+		<property name="minEvictableIdleTimeMillis" value="600000"/>
+		<property name="maxEvictableIdleTimeMillis" value="900000"/>
+		<property name="filters" value="stat"/>
 	</bean>
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
@@ -35,6 +39,8 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	</bean>
 	<bean id="boardLoad" class="com.cui.service.BoardLoadService"/>
 	<bean id="postLoad" class="com.cui.service.PostLoadService"/>
+	<bean id="adminLoad" class="com.cui.service.AdminLoadService"/>
+	<bean id="studentLoad" class="com.cui.service.StudentLoadService"/>
 	<context:annotation-config/>
 	<context:component-scan base-package="com"/>
 </beans>

@@ -51,7 +51,7 @@ width:90%;color: black;border:  #bee5eb solid 1px; border-radius: 5px; border-to
                 value="boar.getName()"/>
             <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="游客模式,无法发布帖子"
                   style="margin-left: 80%">
-  <button class="btn btn-primary" style="pointer-events: none;" type="button" disabled>发布帖子</button>
+  <button class="btn btn-secondary" style="pointer-events: none;" type="button" disabled>发布帖子</button>
 </span>
         </div>
         <table id="example" class="table table-striped table-bordered text-center"

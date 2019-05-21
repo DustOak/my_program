@@ -1,6 +1,5 @@
 package com.cui.service;
 
-import com.cui.dao.DaoOperating;
 import com.cui.po.Post;
 
 import java.util.List;

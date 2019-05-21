@@ -3,11 +3,9 @@ package com.cui.service;
 
 import com.cui.dao.DaoOperating;
 import com.cui.po.Admin;
-import com.cui.po.Board;
+
 import com.cui.po.Post;
 import com.cui.po.Student;
-import javafx.geometry.Pos;
-import org.hibernate.query.internal.NativeQueryImpl;
 
 
 import java.util.ArrayList;

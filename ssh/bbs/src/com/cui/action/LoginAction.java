@@ -2,23 +2,49 @@ package com.cui.action;
 
 
 import com.cui.dao.DaoOperating;
+import com.cui.service.AdminLoadService;
+import com.cui.service.StudentLoadService;
 import com.cui.util.Encryption;
 import com.cui.po.Admin;
 import com.cui.util.Session;
 import com.cui.util.SessionManager;
-import com.opensymphony.xwork2.ActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.Cookie;
 
 import java.util.List;
 
-
+@Component
 public class LoginAction extends ActionSupport {
 private String account;
 private String password;
 private String sessionID;
+private Integer adminOrStudent;
+
+public AdminLoadService getAdminLoadService() {
+	return adminLoadService;
+}
+
+public void setAdminLoadService(AdminLoadService adminLoadService) {
+	this.adminLoadService = adminLoadService;
+}
+
+public StudentLoadService getStudentLoadService() {
+	return studentLoadService;
+}
+
+public void setStudentLoadService(StudentLoadService studentLoadService) {
+	this.studentLoadService = studentLoadService;
+}
+
+@Autowired
+private AdminLoadService adminLoadService;
+@Autowired
+private StudentLoadService studentLoadService;
 
 public void validate() {
 	if (account.equals("") || password.equals("")) {
@@ -69,5 +95,13 @@ public String getSessionID() {
 
 public void setSessionID(String sessionID) {
 	this.sessionID = sessionID;
+}
+
+public Integer getAdminOrStudent() {
+	return adminOrStudent;
+}
+
+public void setAdminOrStudent(Integer adminOrStudent) {
+	this.adminOrStudent = adminOrStudent;
 }
 }

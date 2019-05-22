@@ -46,11 +46,9 @@
                         <input class="form-check-input" type="radio" name="adminOrStudent" id="inlineRadio2" value="1">
                         <label class="form-check-label" for="inlineRadio2">管理员</label>
                     </div>
-
                     <div class="form-group" style="margin-top: 5%">
                         <button class="btn btn-block btn-info" type="submit">Login</button>
                     </div>
-
                 </form>
             </div>
         </div>

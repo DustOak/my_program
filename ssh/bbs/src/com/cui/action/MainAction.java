@@ -1,7 +1,9 @@
 package com.cui.action;
 
+import com.cui.po.Admin;
 import com.cui.po.Board;
 import com.cui.po.Post;
+import com.cui.po.Student;
 import com.cui.service.BoardLoadService;
 
 import com.cui.service.PostLoadService;
@@ -21,6 +23,26 @@ private Map<Integer, List<Board>> childBoard = new HashMap<>();
 private List<Post> hotPosts;
 @Autowired
 BoardLoadService boardLoad;
+private String sessionId;
+private Admin admin;
+
+public Admin getAdmin() {
+	return admin;
+}
+
+public void setAdmin(Admin admin) {
+	this.admin = admin;
+}
+
+public Student getStudent() {
+	return student;
+}
+
+public void setStudent(Student student) {
+	this.student = student;
+}
+
+private Student student;
 
 public PostLoadService getPostLoad() {
 	return postLoad;
@@ -74,5 +96,13 @@ public List<Post> getHotPosts() {
 
 public void setHotPosts(List<Post> hotPosts) {
 	this.hotPosts = hotPosts;
+}
+
+public String getSessionId() {
+	return sessionId;
+}
+
+public void setSessionId(String sessionId) {
+	this.sessionId = sessionId;
 }
 }

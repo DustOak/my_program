@@ -2,6 +2,7 @@ package com.cui.action;
 
 
 import com.cui.dao.DaoOperating;
+import com.cui.po.Student;
 import com.cui.service.AdminLoadService;
 import com.cui.service.StudentLoadService;
 import com.cui.util.Encryption;
@@ -69,14 +70,21 @@ public void setAccount(String account) {
 }
 
 public String execute() {
-	Admin admin = new Admin();
-	admin.setAccount(this.account);
-	admin.setPassword(Encryption.getMd5(this.password));
-	List<Object> list = DaoOperating.Gets(admin);
-	if (! list.isEmpty()) {
-		admin = (Admin) list.get(0);
+	Object oj = null;
+	switch (adminOrStudent) {
+		case 0:
+			oj = studentLoadService.CheckUsernameAndPassword(this.getAccount(), Encryption.getMd5(this.getPassword()));
+			break;
+		case 1:
+			oj = adminLoadService.CheckUsernameAndPassword(this.getAccount(), Encryption.getMd5(this.getPassword()));
+			break;
+		default:
+			addFieldError("error", "Illegal identity!");
+			return INPUT;
+	}
+	if (oj != null) {
 		String token = Encryption.getRandomToken();
-		SessionManager.Put(token, new Session(admin, ServletActionContext.getRequest().getRemoteAddr()));
+		SessionManager.Put(token, new Session(oj, ServletActionContext.getRequest().getRemoteAddr()));
 		Cookie cookie = new Cookie("sessionId", token);
 		cookie.setMaxAge(3600);
 		cookie.setPath("/");

@@ -1,13 +1,13 @@
-<!--<%&#45;&#45;-->
-<!--  Created by IntelliJ IDEA.-->
-<!--  User: cuiwenbin-->
-<!--  Date: 19-4-16-->
-<!--  Time: 下午7:12-->
-<!--  To change this template use File | Settings | File Templates.-->
-<!--&#45;&#45;%>-->
-<!--<!doctype html>-->
-<!--<%@ page contentType="text/html;charset=UTF-8" language="java" %>-->
-<!--<%@ taglib prefix="s" uri="/struts-tags" %>-->
+<%--
+  Created by IntelliJ IDEA.
+  User: cuiwenbin
+  Date: 19-4-16
+  Time: 下午7:12
+  To change this template use File | Settings | File Templates.
+--%>
+<!doctype html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <html lang="en">
 <head>
     <title>用户登录</title>
@@ -30,8 +30,8 @@
                 <h4>校园BBS系统</h4>
                 <hr>
                 <form action="loginAction" method="post" target="_self" >
-<!--                    <s:fielderror class="p-3 mb-2 bg-danger text-white "-->
-<!--                           name="error"      style="border-radius: 3px;margin: 0 auto;list-style-type:none"/>-->
+                    <s:fielderror class="p-3 mb-2 bg-danger text-white "
+                           name="error"      style="border-radius: 3px;margin: 0 auto;list-style-type:none"/>
                     <div class="form-group">
                         <input class="form-control" id="account" type="text" placeholder="User Name" name="account">
                     </div>
@@ -46,6 +46,7 @@
                         <input class="form-check-input" type="radio" name="adminOrStudent" id="inlineRadio2" value="1">
                         <label class="form-check-label" for="inlineRadio2">管理员</label>
                     </div>
+
                     <div class="form-group" style="margin-top: 5%">
                         <button class="btn btn-block btn-info" type="submit">Login</button>
                     </div>

@@ -32,12 +32,12 @@
 		
 		<action name="login" class="com.cui.action.indexAction">
 			<interceptor-ref name="Session"/>
-			<result name="input">/login.html</result>
+			<result name="input">/login.jsp</result>
 			<result name="success" type="redirectAction">index?sessionId=${sessionId}</result>
 		</action>
 		<action name="loginAction" class="com.cui.action.LoginAction">
 			<result name="success" type="redirectAction">index?sessionId=${sessionID}</result>
-			<result name="input">/login.html</result>
+			<result name="input">/login.jsp</result>
 		</action>
 	</package>
 </struts>

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="@localhos">
-  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.14">
+  <database-model serializer="dbm" dbms="MARIADB" family-id="MARIADB" format-version="4.15">
     <root id="1">
       <ServerVersion>10.1.38</ServerVersion>
-      <Dbms>MARIADB</Dbms>
       <DefaultEngine>InnoDB</DefaultEngine>
       <DefaultCasing>exact</DefaultCasing>
     </root>
@@ -987,7 +986,7 @@
     </column>
     <column id="247" parent="240" name="password">
       <Position>3</Position>
-      <DataType>char(20)|0s</DataType>
+      <DataType>char(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1249,7 +1248,7 @@
     </column>
     <column id="296" parent="244" name="password">
       <Position>5</Position>
-      <DataType>char(20)|0s</DataType>
+      <DataType>char(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>

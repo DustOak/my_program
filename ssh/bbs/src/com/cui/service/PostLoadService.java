@@ -56,14 +56,14 @@ public Post loadPost(int id) {
 
 @Override
 public List<Post> allPostsByUser(Object user) {
-	Post post = new Post();
+	
 	if (user instanceof Admin) {
-		post.setAid((Admin) user);
-		return DaoOperating.Gets(post);
+		String hql = "from Post as p where p.aid = " + ((Admin) user).getId();
+		return DaoOperating.Finds(hql);
 	}
 	if (user instanceof Student) {
-		post.setSid((Student) user);
-		return DaoOperating.Gets(post);
+		String hql = "from Post as p where p.sid = " + ((Student) user).getId();
+		return DaoOperating.Finds(hql);
 	}
 	return null;
 }

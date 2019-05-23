@@ -96,7 +96,7 @@ width:87.5%;height:auto;color: black; overflow-y: hidden;">
             <s:property value="#board.getName()"/>
         </div>
         <div class="row" style="max-width: 96%;padding-left: 2%">
-            <s:iterator value="childBoard.get(#board.getId())" var="child">
+            <s:iterator value="#board.getChildBoards()" var="child">
                 <div style="width: 11%;padding: 2%;margin-left: 10%;float: left;margin-right: 0;">
                     <s:if test="#child.getBoardImg()==null">
                         <img src="images/board/none2.png" width="90" height="90"

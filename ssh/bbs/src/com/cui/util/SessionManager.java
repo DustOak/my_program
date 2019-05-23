@@ -9,12 +9,12 @@ private static long destroyTime;
 
 //销毁时间 毫秒
 public static void Init(long destroyTime) {
-	System.out.println("开始执行session管理功能");
-	System.out.println("初始化session列表");
+	System.out.println("开始执行Session管理功能");
+	System.out.println("初始化Session列表");
 	sessionMap = new HashMap<String, Session>();
 	SessionManager.destroyTime = destroyTime;
-	System.out.println("初始化销毁时间为:" + destroyTime / 1000 + "秒");
-	System.out.println("开始定时多线程执行清理过期session任务");
+	System.out.println("初始化Session销毁时间为:" + destroyTime / 1000 + "秒");
+	System.out.println("开始定时多线程执行清理过期");
 	Timer timer = new Timer();
 	timer.schedule(new TimerTask() {
 		@Override
@@ -29,6 +29,7 @@ public static synchronized void Put(String key, Session session) {
 }
 
 public static synchronized void Remove(String key) {
+	System.out.println("销毁SessionId 为" + key + "的Session");
 	sessionMap.remove(key);
 }
 
@@ -54,7 +55,6 @@ public static boolean IsExpired(String key) {
 //是否更换ip 是 true 否 false
 public static boolean IsInitIPAddr(String key, String ipAddr) {
 	Session session = Get(key);
-	System.out.println("创建iP" + session.getIpAddr() + "当前访问iP" + ipAddr);
 	if (session != null && session.getIpAddr().equals(ipAddr)) {
 		return false;
 	}
@@ -75,6 +75,7 @@ public static synchronized void ClearExpiredSession() {
 	System.out.println("Session清理完毕");
 }
 
+
 public static Map<String, Session> getSessionMap() {
 	return sessionMap;
 }
@@ -91,5 +92,6 @@ public long getDestroyTime() {
 public void setDestroyTime(long destroyTime) {
 	this.destroyTime = destroyTime;
 }
+
 
 }

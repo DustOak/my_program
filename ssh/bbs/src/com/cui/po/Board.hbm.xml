@@ -13,5 +13,9 @@
 		<property name="boardImg" type="java.lang.String" column="boardImg"/>
 		<many-to-one name="aid" column="aid" not-null="true" fetch="select" class="Admin"/>
 		<many-to-one name="parentId" column="parentId" fetch="select" class="Board"/>
+		<set name="childBoards" cascade="all-delete-orphan" order-by="id asc" lazy="false" inverse="true">
+			<key column="parentId"/>
+			<one-to-many class="com.cui.po.Board"/>
+		</set>
 	</class>
 </hibernate-mapping>

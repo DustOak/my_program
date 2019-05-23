@@ -44,6 +44,6 @@ public String intercept(ActionInvocation actionInvocation) throws Exception {
 			}
 		}
 	}
-	return "input";
+	return "TOURIST";
 }
 }

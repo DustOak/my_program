@@ -16,10 +16,12 @@
 			</interceptor-stack>
 		</interceptors>
 		<action name="index" class="com.cui.action.MainAction">
-			<result name="success">tourist_home.jsp</result>
+			<result name="TOURIST">tourist_home.jsp</result>
+			<result name="USER_LOGIN">user_home.jsp</result>
 		</action>
-		<action name="posts" class="com.cui.action.BoardAction">
-			<result name="success">tourist_board.jsp</result>
+		<action name="posts" class="com.cui.action.PostsAction">
+			<result name="TOURIST">tourist_posts.jsp</result>
+			<result name="USER_LOGIN">user_posts.jsp</result>
 		</action>
 		<action name="getPosts" class="com.cui.action.GetPostsApiAction">
 		</action>
@@ -29,10 +31,12 @@
 				<param name="status">404</param>
 			</result>
 		</action>
-		
+		<action name="logout" class="com.cui.action.LogoutAction">
+			<result name="success" type="redirectAction">login</result>
+		</action>
 		<action name="login" class="com.cui.action.indexAction">
 			<interceptor-ref name="Session"/>
-			<result name="input">/login.jsp</result>
+			<result name="TOURIST">/login.jsp</result>
 			<result name="success" type="redirectAction">index?sessionId=${sessionId}</result>
 		</action>
 		<action name="loginAction" class="com.cui.action.LoginAction">

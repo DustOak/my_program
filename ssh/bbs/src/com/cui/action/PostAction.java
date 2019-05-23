@@ -4,7 +4,7 @@ package com.cui.action;
 import com.cui.po.Post;
 import com.cui.service.PostLoadService;
 import com.opensymphony.xwork2.ActionSupport;
-import javafx.geometry.Pos;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

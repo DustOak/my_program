@@ -31,22 +31,45 @@ To change this template use File | Settings | File Templates.
 </nav>
 <!--left bar-->
 <div class="float-left" style="top: 6%;background: #293134;width: 12%;color: white; position:fixed;height: 100%;">
-    <div class="card-img text-center" style="margin-bottom: 5%">
-        <s:if test="student!=null">
-            <img src="images/head/<s:property value="student.getPhotoPath()"/> "
-                 style="margin-top:16%;border-radius: 100px; width: 100px;">
-        </s:if>
-        <s:else>
-            <img src="images/head/<s:property value="admin.getPhotoPath()"/> "
-                 style="margin-top:16%;border-radius: 100px; width: 100px;">
-        </s:else>
-    </div>
-    <div class="text-center">
-        <p>昵称</p>
-        <p>姓名</p>
-        <p>发帖总数</p>
-        <p>回复总数</p>
-    </div>
+    <s:if test="student!=null">
+        <div class="card-img text-center" style="margin-bottom: 5%">
+            <s:if test="student.getPhotoPath()!=null">
+                <img src="images/head/<s:property value="student.getPhotoPath()"/>"
+                     style="margin-top:16%;border-radius: 100px; width: 100px;">
+            </s:if>
+            <s:else>
+                <img src="images/head/noneHead.jpg"
+                     style="margin-top:16%;border-radius: 100px; width: 100px;">
+            </s:else>
+
+        </div>
+        <div class="text-center">
+            <p>昵称:<s:property value="student.getNickName()"/></p>
+            <p>姓名:<s:property value="student.getRealName()"/></p>
+            <p><a href="/myPost?sessionId=<s:property value="sessionId"/>">查看我的帖子</a></p>
+            <p><a href="/myReplies?sessionId=<s:property value="sessionId"/>">查看我的回复</a></p>
+            <p><a href="/logout?sessionId=<s:property value="sessionId"/>">注销</a></p>
+        </div>
+    </s:if>
+    <s:else>
+        <div class="card-img text-center" style="margin-bottom: 5%">
+            <s:if test="admin.getPhotoPath()!=null">
+                <img src="images/head/<s:property value="admin.getPhotoPath()"/> "
+                     style="margin-top:16%;border-radius: 100px; width: 100px;">
+            </s:if>
+            <s:else>
+                <img src="images/head/noneHead.jpg"
+                     style="margin-top:16%;border-radius: 100px; width: 100px;">
+            </s:else>
+        </div>
+        <div class="text-center">
+            <p>昵称:<s:property value="admin.getNickname()"/></p>
+            <p>姓名:<s:property value="admin.getName()"/></p>
+            <p><a href="/myPost?sessionId=<s:property value="sessionId"/>">查看我的帖子</a></p>
+            <p><a href="/myReplies?sessionId=<s:property value="sessionId"/>">查看我的回复</a></p>
+            <p><a href="/logout?sessionId=<s:property value="sessionId"/>">注销</a></p>
+        </div>
+    </s:else>
 </div>
 
 
@@ -112,7 +135,7 @@ width:87.5%;height:auto;color: black; overflow-y: hidden;">
             <s:property value="#board.getName()"/>
         </div>
         <div class="row" style="max-width: 96%;padding-left: 2%">
-            <s:iterator value="childBoard.get(#board.getId())" var="child">
+            <s:iterator value="#board.getChildBoards()" var="child">
                 <div style="width: 11%;padding: 2%;margin-left: 10%;float: left;margin-right: 0;">
                     <s:if test="#child.getBoardImg()==null">
                         <img src="images/board/none2.png" width="90" height="90"

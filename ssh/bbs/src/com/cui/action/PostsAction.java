@@ -2,29 +2,23 @@ package com.cui.action;
 
 import com.cui.po.Admin;
 import com.cui.po.Board;
-import com.cui.po.Post;
 import com.cui.po.Student;
 import com.cui.service.BoardLoadService;
-
-import com.cui.service.PostLoadService;
-
 import com.cui.util.SessionManager;
 import com.opensymphony.xwork2.ActionSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
-import java.util.List;
-
 @Component
-public class MainAction extends ActionSupport {
-private List<Board> boards;
-private List<Post> hotPosts;
+public class PostsAction extends ActionSupport {
+private int board;
+private Board boar;
 @Autowired
-BoardLoadService boardLoad;
+private BoardLoadService boardLoadService;
 private String sessionId;
 private Admin admin;
-
+private Student student;
 
 public Admin getAdmin() {
 	return admin;
@@ -42,24 +36,11 @@ public void setStudent(Student student) {
 	this.student = student;
 }
 
-private Student student;
-
-public PostLoadService getPostLoad() {
-	return postLoad;
-}
-
-public void setPostLoad(PostLoadService postLoad) {
-	this.postLoad = postLoad;
-}
-
-@Autowired
-PostLoadService postLoad;
-
-
 public String execute() {
-	boards = boardLoad.loadRootBoards();
-	hotPosts = postLoad.rankPosts(6);
-	if (sessionId != null) {
+	boar = boardLoadService.loadBoard(board);
+	if (sessionId == null) {
+		return "TOURIST";
+	} else {
 		Object oj = SessionManager.Get(sessionId).getObject();
 		if (oj != null) {
 			if (oj instanceof Admin) {
@@ -73,35 +54,33 @@ public String execute() {
 		} else {
 			return "TOURIST";
 		}
-	} else {
-		return "TOURIST";
 	}
 	
 }
 
-public List<Board> getBoards() {
-	return boards;
+public int getBoard() {
+	return board;
 }
 
-public void setBoards(List<Board> boards) {
-	this.boards = boards;
-}
-
-public BoardLoadService getBoardLoad() {
-	return boardLoad;
-}
-
-public void setBoardLoad(BoardLoadService boardLoad) {
-	this.boardLoad = boardLoad;
+public void setBoard(int board) {
+	this.board = board;
 }
 
 
-public List<Post> getHotPosts() {
-	return hotPosts;
+public BoardLoadService getBoardLoadService() {
+	return boardLoadService;
 }
 
-public void setHotPosts(List<Post> hotPosts) {
-	this.hotPosts = hotPosts;
+public void setBoardLoadService(BoardLoadService boardLoadService) {
+	this.boardLoadService = boardLoadService;
+}
+
+public Board getBoar() {
+	return boar;
+}
+
+public void setBoar(Board boar) {
+	this.boar = boar;
 }
 
 public String getSessionId() {
@@ -111,7 +90,4 @@ public String getSessionId() {
 public void setSessionId(String sessionId) {
 	this.sessionId = sessionId;
 }
-
-
 }
-

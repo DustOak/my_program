@@ -17,7 +17,6 @@ import org.springframework.stereotype.Component;
 
 import javax.servlet.http.Cookie;
 
-import java.util.List;
 
 @Component
 public class LoginAction extends ActionSupport {

@@ -108,14 +108,13 @@ width:87.5%;height:auto;color: white; overflow-y: auto;">
             <hr style="margin: 1%;padding: 0;">
             <s:iterator value="hotPosts" var="post">
                 <p style="margin-left: 5%;font-size: 13px">
-                    <a href="/posts?board=<s:property value=" #post.getBid().getId()"/>" style="color: #1d2124;"
+                    <a href="/posts?sessionId=<s:property value="getSessionId()"/>&board=<s:property value=" #post.getBid().getId()"/>"
+                       style="color: #1d2124;"
                        class="board">【
                         <s:property
                                 value="#post.getBid().getName()"/>
                         】</a><u><a
-                        href="/post?board=<s:property value=" #post.getBid().getId()"/>&post=
-                    <s:property value="#post.getId()"/>
-                    "
+                        href="/post?sessionId=<s:property value="getSessionId()"/>&board=<s:property value=" #post.getBid().getId()"/>&post=<s:property value="#post.getId()"/>"
                         style="color: #1d2124">
                     <s:property value="#post.getName()"/>
                 </a></u>【点击量:
@@ -145,7 +144,8 @@ width:87.5%;height:auto;color: black; overflow-y: hidden;">
                         <img src="images/board/<s:property value=" #child.getBoardImg()"/>" width="90" height="90"
                              style="margin: 1% 0 1% 1%">
                     </s:else>
-                    <a href="/posts?board=<s:property value=" #child.getId()"/>" style="position: absolute">
+                    <a href="/posts?sessionId=<s:property value="getSessionId()"/>&board=<s:property value=" #child.getId()"/>"
+                       style="position: absolute">
                         <s:property
                                 value="#child.getName()"/>
                     </a>

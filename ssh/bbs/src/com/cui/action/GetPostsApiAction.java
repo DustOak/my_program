@@ -4,6 +4,8 @@ import com.alibaba.druid.support.json.JSONUtils;
 import com.cui.po.Post;
 
 import com.cui.service.PostLoadService;
+import com.cui.util.Session;
+import com.cui.util.SessionManager;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,16 @@ private int length;
 private int draw;
 private String data;
 private List<Post> posts;
+
+public String getSessionId() {
+	return sessionId;
+}
+
+public void setSessionId(String sessionId) {
+	this.sessionId = sessionId;
+}
+
+private String sessionId;
 @Autowired
 private PostLoadService postLoadService;
 private List<Map<String, Object>> currentPagePosts = new ArrayList<>();
@@ -52,7 +64,12 @@ public String execute() {
 		Map<String, Object> data = new HashMap<>(0);
 		if (post.getAid() != null) {
 			data.put("author", post.getAid().getNickname());
-			data.put("postName", "<a href='/post?post=" + post.getId() + "' style='color:red;'>【管理员发帖】" + post.getName() + "</a>");
+			if (sessionId != null && ! SessionManager.IsExist(sessionId)) {
+				data.put("postName", "<a href='/post?sessionId=" + getSessionId() + "&post=" + post.getId() + "' style='color:red;'>【管理员发帖】" + post.getName() + "</a>");
+			} else {
+				data.put("postName", "<a href='/post?post=" + post.getId() + "' style='color:red;'>【管理员发帖】" + post.getName() + "</a>");
+			}
+			
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			data.put("publishTime", dateFormat.format(post.getPublishTime()));
 			data.put("readCount", post.getCount());
@@ -64,7 +81,11 @@ public String execute() {
 		Map<String, Object> data = new HashMap<>(0);
 		if (post.getSid() != null) {
 			data.put("author", post.getSid().getNickName());
-			data.put("postName", "<a href='/post?post=" + post.getId() + "' style='color:black'>" + post.getName() + "</a>");
+			if (sessionId != null && ! SessionManager.IsExist(sessionId)) {
+				data.put("postName", "<a href='/post?sessionId=" + getSessionId() + "&post=" + post.getId() + "' style='color:black;'>" + post.getName() + "</a>");
+			} else {
+				data.put("postName", "<a href='/post?post=" + post.getId() + "' style='color:black;'>" + post.getName() + "</a>");
+			}
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			data.put("publishTime", dateFormat.format(post.getPublishTime()));
 			data.put("readCount", post.getCount());

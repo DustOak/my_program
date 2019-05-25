@@ -76,5 +76,6 @@
     <orderEntry type="library" name="dataTables.bootstrap4" level="application" />
     <orderEntry type="library" name="search_children" level="application" />
     <orderEntry type="library" name="wangEditor" level="application" />
+    <orderEntry type="library" name="xss" level="application" />
   </component>
 </module>

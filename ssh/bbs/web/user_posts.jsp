@@ -76,11 +76,11 @@
     width:90%;color: black;border: #bee5eb solid 1px; border-radius: 5px; border-top: none ">
         <div class="alert alert-info" role="alert"
              style="width: 100%;margin-bottom: 0;margin-top: 1%;border-radius: 5px 5px 0 0;color: black">
-            <a href="index" style="color: black">主页</a>&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;<s:property
+            <a href="index?sessionId=<s:property value="getSessionId()"/>" style="color: black">主页</a>&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;<s:property
                 value="boar.getName()"/>
-            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="游客模式,无法发布帖子"
+            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="发布帖子"
                   style="margin-left: 80%">
-    <button class="btn btn-secondary" style="pointer-events: none;" type="button" disabled>发布帖子</button>
+    <button class="btn btn-success" type="button">发布帖子</button>
     </span>
         </div>
         <table id="example" class="table table-striped table-bordered text-center"
@@ -122,7 +122,8 @@
                 type: "POST",
                 cache: false,
                 data: {
-                    "board": <s:property value="getBoard()"/>
+                    "board": <s:property value="getBoard()"/>,
+                    "sessionId": '<s:property value="getSessionId()"/>'
                 }
             },
             columns: [

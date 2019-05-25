@@ -38,9 +38,7 @@ public void setStudent(Student student) {
 
 public String execute() {
 	boar = boardLoadService.loadBoard(board);
-	if (sessionId == null) {
-		return "TOURIST";
-	} else {
+	if (sessionId != null && ! SessionManager.IsExist(sessionId)) {
 		Object oj = SessionManager.Get(sessionId).getObject();
 		if (oj != null) {
 			if (oj instanceof Admin) {
@@ -54,6 +52,9 @@ public String execute() {
 		} else {
 			return "TOURIST";
 		}
+		
+	} else {
+		return "TOURIST";
 	}
 	
 }

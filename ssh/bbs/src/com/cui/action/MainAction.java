@@ -59,7 +59,7 @@ PostLoadService postLoad;
 public String execute() {
 	boards = boardLoad.loadRootBoards();
 	hotPosts = postLoad.rankPosts(6);
-	if (sessionId != null) {
+	if (sessionId != null && ! SessionManager.IsExist(sessionId)) {
 		Object oj = SessionManager.Get(sessionId).getObject();
 		if (oj != null) {
 			if (oj instanceof Admin) {

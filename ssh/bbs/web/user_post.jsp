@@ -223,7 +223,7 @@ width:100%;color: black; overflow:hidden;padding-left: 17%;">
     </div>
 </div>
 <!--回帖界面-->
-<div style="width:50%;margin-left: 28%;float: top;margin-top: 10%;background:#f8f9fa;padding: 2%;display: none;"
+<div style="width:50%;margin-left: 28%;margin-top: 10%;background:#f8f9fa;padding: 2%;z-index: 99;position: absolute;display: none"
      id="reply">
     <div id="textEditor" style="background: #f8f9fa"></div>
     <button class="btn btn-success" style="margin-top: 1%;width: 30%" onclick="getData()" id="submit" disabled>回复
@@ -249,7 +249,7 @@ width:100%;color: black; overflow:hidden;padding-left: 17%;">
     editor2.create();
 
     function show() {
-        $("#reply").attr("style", "display:block;");
+        $("#reply").attr("style", "display:block;width:50%;margin-left: 28%;margin-top: 10%;background:#f8f9fa;padding: 2%;z-index: 99;position: absolute;");
     }
 
     function getData() {

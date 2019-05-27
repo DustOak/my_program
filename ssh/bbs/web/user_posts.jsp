@@ -80,7 +80,7 @@
                 value="boar.getName()"/>
             <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="发布帖子"
                   style="margin-left: 80%">
-    <button class="btn btn-success" type="button">发布帖子</button>
+    <button class="btn btn-success" type="button" onclick="show()">发布帖子</button>
     </span>
         </div>
         <table id="example" class="table table-striped table-bordered text-center"
@@ -97,11 +97,78 @@
         </table>
     </div>
 </div>
-
-
+<!--发帖界面-->
+<div style="width:50%;margin-left: 28%;margin-top: 10%;background:#f8f9fa;padding: 2%;z-index: 99;position: absolute;display: none"
+     id="reply">
+    <div class="form-group" style="width: 55%;">
+        <label for="title">帖子标题</label>
+        <input type="email" class="form-control" id="title" aria-describedby="emailHelp"
+               placeholder="Title" maxlength="30">
+        <small id="emailHelp" class="form-text text-muted">帖子标题,不超过30字符</small>
+    </div>
+    <div id="textEditor" style="background: #f8f9fa"></div>
+    <button class="btn btn-success" style="margin-top: 1%;width: 30%" onclick="getData()" id="submit" disabled>回复
+    </button>
+    <button class="btn btn-danger" style="margin-top: 1%;" onclick="clearData()">清空</button>
+    <button class="btn btn-secondary" style="margin-top: 1%;" onclick="noShow()">关闭</button>
+</div>
 <script src="https://cdn.staticfile.org/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.staticfile.org/datatables/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/wangEditor/10.0.13/wangEditor.min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/js-xss/0.3.3/xss.min.js"></script>
 <script>
+    var E = window.wangEditor;
+    var editor2 = new E('#textEditor');
+    editor2.customConfig.uploadImgShowBase64 = true;
+    editor2.customConfig.onchange = function (html) {
+        txt = editor2.txt.text().replace(/\s+/g, "");
+        if (txt === "") {
+            document.getElementById("submit").disabled = true;
+        } else {
+            document.getElementById("submit").removeAttribute("disabled");
+        }
+    };
+    editor2.create();
+
+    function show() {
+        $("#reply").attr("style", "display:block;width:50%;margin-left: 28%;margin-top: 10%;background:#f8f9fa;padding: 2%;z-index: 99;position: absolute;");
+    }
+
+    function getData() {
+        content = filterXSS(editor2.txt.html());
+        title = filterXSS($("#title").val());
+        if (title.replace(/\s+/g, "") === "") {
+            alert("帖子标题禁止为空");
+        } else {
+            $.ajax({
+                data: {
+                    "board":<s:property value="getBoard()"/>,
+                    "content": content,
+                    "title": title,
+                    "sessionId": '<s:property value="getSessionId()"/>'
+                },
+                url: "/savePost",
+                type: "post",
+                success: function () {
+                    alert("发帖成功");
+                    window.location.reload();
+                },
+                error: function () {
+                    alert("发帖失败 请询问管理员");
+                    window.location.reload();
+                }
+            })
+        }
+    }
+
+    function noShow() {
+        $('#reply').attr("style", "display:none;");
+    }
+
+    function clearData() {
+        editor2.txt.html("");
+    }
+
     $(document).ready(function () {
         $('#example').DataTable({
             retrieve: true,

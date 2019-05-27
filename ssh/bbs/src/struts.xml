@@ -32,6 +32,10 @@
 				<param name="status">404</param>
 			</result>
 		</action>
+		<action name="savePost" class="com.cui.action.SavePostAction">
+		
+		</action>
+		
 		<action name="logout" class="com.cui.action.LogoutAction">
 			<result name="success" type="redirectAction">login</result>
 		</action>

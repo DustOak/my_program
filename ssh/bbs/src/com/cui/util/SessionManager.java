@@ -45,7 +45,6 @@ public static Session Get(String key) {
 //是否过期是 true 否 false
 public static boolean IsExpired(String key) {
 	Session session = Get(key);
-	System.out.println("销毁时间" + session.getDestroyTime() + "当前时间" + System.currentTimeMillis());
 	if (session != null && System.currentTimeMillis() < session.getDestroyTime()) {
 		return false;
 	}

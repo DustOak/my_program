@@ -56,13 +56,15 @@ public static List Finds(String fields, Object... value) {
 	});
 }
 
-public static boolean Save(Object oj) {
-	return (boolean) getHibernateTemplate().save(oj);
+public static void Save(Object oj) {
+	getHibernateTemplate().save(oj);
+	getHibernateTemplate().flush();
 }
 
 public static void Update(Object oj) {
 	getHibernateTemplate().update(oj);
 }
+
 
 public static boolean Delete(Object oj) {
 	try {

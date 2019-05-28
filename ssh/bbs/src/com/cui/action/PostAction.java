@@ -11,6 +11,8 @@ import com.opensymphony.xwork2.ActionSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
+
 
 @Component
 public class PostAction extends ActionSupport {

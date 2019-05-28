@@ -1,9 +1,23 @@
 package com.cui.action;
 
+import com.alibaba.druid.support.json.JSONUtils;
+import com.cui.po.Admin;
+import com.cui.po.Board;
+import com.cui.po.Post;
+import com.cui.po.Student;
 import com.cui.service.PostLoadService;
+import com.cui.util.SessionManager;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @Component
 public class SavePostAction extends ActionSupport {
@@ -11,6 +25,7 @@ private Integer board;
 @Autowired
 private PostLoadService postLoadService;
 private String title;
+
 
 public String getTitle() {
 	return title;
@@ -56,11 +71,46 @@ public void setSessionId(String sessionId) {
 
 private String sessionId;
 
+//下次试一试使用原生sql进行保存
 public String execute() {
-	System.out.println(board);
-	System.out.println(sessionId);
-	System.out.println(title);
-	System.out.println(content);
-	return SUCCESS;
+	Map<String, Object> json = new HashMap<>();
+	if (board == null || title == null || sessionId == null || content == null) {
+		json.put("code", 200);
+		json.put("msg", "所有参数均不可为空");
+		json.put("error", 1);
+	} else {
+		Post post = new Post();
+		post.setBid(new Board(board));
+		Object oj = SessionManager.Get(sessionId).getObject();
+		if (oj != null) {
+			if (oj instanceof Admin) {
+				post.setAid((Admin) oj);
+			} else {
+				post.setSid((Student) oj);
+			}
+		}
+		post.setName(title);
+		post.setContent(content);
+		post.setPublishTime(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+		post.setId(null);
+		if (postLoadService.saveOrUpdate(post)) {
+			json.put("code", 200);
+			json.put("msg", "");
+			json.put("error", 0);
+		} else {
+			json.put("code", 200);
+			json.put("msg", "发布失败,请联系管理员");
+			json.put("error", 0);
+		}
+	}
+	HttpServletResponse response = ServletActionContext.getResponse();
+	response.setContentType("application/json;charset=UTF-8");
+	String data = JSONUtils.toJSONString(json);
+	try {
+		response.getWriter().println(data);
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+	return null;
 }
 }

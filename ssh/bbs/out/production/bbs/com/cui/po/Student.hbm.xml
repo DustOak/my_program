@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!DOCTYPE hibernate-mapping PUBLIC
+		"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.cui.po">
+	<class name="Student" table="student">
+		<id name="id" column="id" type="java.lang.Integer">
+			<generator class="increment"/>
+		</id>
+		<property name="stuNum" column="stuNum" not-null="true" type="java.lang.String"/>
+		<property name="realName" column="realName" type="java.lang.String"/>
+		<property name="nickName" column="nickName" type="java.lang.String"/>
+		<property name="password" column="password" not-null="true" type="java.lang.String"/>
+		<property name="qq" column="qq" type="java.lang.String"/>
+		<property name="email" column="email" type="java.lang.String"/>
+		<property name="major" column="major" type="java.lang.String"/>
+		<property name="className" column="className" type="java.lang.String"/>
+		<property name="photoPath" column="photoPath" type="java.lang.String"/>
+	</class>
+</hibernate-mapping>

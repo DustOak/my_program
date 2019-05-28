@@ -70,8 +70,7 @@ public String execute() {
 				data.put("postName", "<a href='/post?post=" + post.getId() + "' style='color:red;'>【管理员发帖】" + post.getName() + "</a>");
 			}
 			
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-			data.put("publishTime", dateFormat.format(post.getPublishTime()));
+			data.put("publishTime", post.getPublishTime());
 			data.put("readCount", post.getCount());
 			data.put("replyCount", post.getReplies().size());
 			currentPagePosts.add(data);
@@ -86,8 +85,7 @@ public String execute() {
 			} else {
 				data.put("postName", "<a href='/post?post=" + post.getId() + "' style='color:black;'>" + post.getName() + "</a>");
 			}
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-			data.put("publishTime", dateFormat.format(post.getPublishTime()));
+			data.put("publishTime", post.getPublishTime());
 			data.put("readCount", post.getCount());
 			data.put("replyCount", post.getReplies().size());
 			currentPagePosts.add(data);
@@ -96,6 +94,9 @@ public String execute() {
 	}
 	Map<String, Object> jsons = new HashMap<>();
 	int allPostCount = postLoadService.getBoardPostsCount(board);
+	jsons.put("code", 200);
+	jsons.put("msg", "");
+	jsons.put("error", 0);
 	jsons.put("data", currentPagePosts);
 	jsons.put("recordsTotal", allPostCount);
 	jsons.put("draw", draw);

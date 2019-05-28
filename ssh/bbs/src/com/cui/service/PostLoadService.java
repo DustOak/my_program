@@ -17,7 +17,8 @@ public class PostLoadService implements PostLoad {
 public boolean saveOrUpdate(Post post) {
 	try {
 		if (post.getId() == null) {
-			return DaoOperating.Save(post);
+			DaoOperating.Save(post);
+			return true;
 		} else {
 			DaoOperating.Update(post);
 			return true;

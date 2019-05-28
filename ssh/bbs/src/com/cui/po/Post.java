@@ -15,7 +15,7 @@ private String name;
 private String content;
 private Student sid;
 private Board bid;
-private Date publishTime;
+private String publishTime;
 private Set replies = new HashSet();
 
 public Post() {
@@ -61,11 +61,11 @@ public void setBid(Board bid) {
 	this.bid = bid;
 }
 
-public Date getPublishTime() {
+public String getPublishTime() {
 	return publishTime;
 }
 
-public void setPublishTime(Date publishTime) {
+public void setPublishTime(String publishTime) {
 	this.publishTime = publishTime;
 }
 

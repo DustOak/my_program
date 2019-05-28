@@ -34,7 +34,8 @@ public List<Board> loadRootBoards() {
 public boolean SaveOrUpdate(Board board) {
 	try {
 		if (board.getId() == null) {
-			return DaoOperating.Save(board);
+			DaoOperating.Save(board);
+			return true;
 		} else {
 			DaoOperating.Update(board);
 			return true;

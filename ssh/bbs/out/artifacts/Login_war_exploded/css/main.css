@@ -1,0 +1,41 @@
+#login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    margin: 0;
+    background: linear-gradient(0deg, #0b4182 1%, #1e88e5 100%) fixed;
+}
+
+.loginBox {
+    width: 100%;
+    height: auto;
+    background-color: white;
+    padding: 8%;
+    border-radius: 5px;
+}
+
+.board:hover {
+    text-decoration: none;
+}
+
+#example_paginate {
+    margin-right: 5%;
+}
+
+table.dataTable thead .sorting::after, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after {
+    content: "";
+    float: right;
+    color: white;
+}
+
+table.dataTable thead .sorting::before, table.dataTable thead .sorting_asc:before, table.dataTable thead .sorting_desc:before {
+    content: "";
+    float: right;
+    color: white;
+}
+

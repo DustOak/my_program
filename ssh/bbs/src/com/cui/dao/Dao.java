@@ -15,8 +15,8 @@ static List Finds(String fields, Object... value) {
 	return null;
 }
 
-static boolean Save(Object oj) {
-	return false;
+static void Save(Object oj) {
+
 }
 
 static void Update(Object oj) {

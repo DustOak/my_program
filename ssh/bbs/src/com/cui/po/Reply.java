@@ -6,7 +6,7 @@ import java.util.Date;
 public class Reply implements Serializable {
 private int id;
 private String content;
-private Date publishTime;
+private String publishTime;
 private Post pid;
 private Admin aid;
 private Student sid;
@@ -27,11 +27,11 @@ public void setContent(String content) {
 	this.content = content;
 }
 
-public Date getPublishTime() {
+public String getPublishTime() {
 	return publishTime;
 }
 
-public void setPublishTime(Date publishTime) {
+public void setPublishTime(String publishTime) {
 	this.publishTime = publishTime;
 }
 

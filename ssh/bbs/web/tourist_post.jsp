@@ -103,7 +103,7 @@ width:100%;color: black; overflow:hidden;padding-left: 17%;">
                     <div class="alert alert-info" role="alert"
                          style="margin-bottom: 0;border-radius: 3px 0 0 0 ;border-right: none;height: 30px;padding: .2% 0 1% 1%;">
                         <s:property
-                            value="postData.getPublishTime()"/>
+                                value="postData.getPublishTime()"/>
                     </div>
                     <div class="card-body"><s:property
                             value="postData.getContent()" escapeHtml="false"/>
@@ -119,7 +119,7 @@ width:100%;color: black; overflow:hidden;padding-left: 17%;">
                         </div>
                         <s:if test="#reply.getSid()!=null">
                             <div class="card-body" style="padding-left: 23%;">
-                                <s:if test="postData.getSid().getPhotoPath()!=null">
+                                <s:if test="#reply.getSid().getPhotoPath()!=null">
                                     <img src="images/head/<s:property value="#reply.getSid().getPhotoPath()"/>"
                                          width="150" height="150">
                                 </s:if>
@@ -153,7 +153,7 @@ width:100%;color: black; overflow:hidden;padding-left: 17%;">
                         <div class="alert alert-info" role="alert"
                              style="margin-bottom: 0;border-radius: 0 3px 0 0;height: 30px;border-left: none;padding: .3% 0 0 1%;">
                             <s:property
-                                value="#reply.getPublishTime()"/>
+                                    value="#reply.getPublishTime()"/>
                             <a href="" id="back-to-top" onclick="backTop()"> 返回顶部</a>
                         </div>
                         <div class="card-body"><s:property

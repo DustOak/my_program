@@ -34,7 +34,20 @@
 		</action>
 		<action name="savePost" class="com.cui.action.SavePostAction">
 		</action>
-		
+		<action name="saveReply" class="com.cui.action.SaveReplyAction">
+		</action>
+		<action name="boardManager" class="com.cui.action.BoardManagerAction">
+			<result name="success">user_boardManager.jsp</result>
+			<result name="error" type="httpheader">
+				<param name="status">404</param>
+			</result>
+		</action>
+		<action name="deleteBoard" class="com.cui.action.DeleteBoardAction">
+			<result name="success" type="redirectAction">boardManager?sessionId=${sessionId}</result>
+			<result name="error" type="httpheader">
+				<param name="status">404</param>
+			</result>
+		</action>
 		<action name="logout" class="com.cui.action.LogoutAction">
 			<result name="success" type="redirectAction">login</result>
 		</action>

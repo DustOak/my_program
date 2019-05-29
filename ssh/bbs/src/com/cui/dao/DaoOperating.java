@@ -3,30 +3,33 @@ package com.cui.dao;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-import org.springframework.orm.hibernate4.HibernateCallback;
-import org.springframework.orm.hibernate4.HibernateTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate5.HibernateCallback;
+import org.springframework.orm.hibernate5.HibernateTemplate;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
 
 import java.util.List;
 
+@Component
+@Service
 public class DaoOperating implements Dao {
 
-public DaoOperating() {
-}
+@Autowired
+private HibernateTemplate hibernateTemplate;
 
-public DaoOperating(SessionFactory sf) {
-	sessionFactory = sf;
-	hibernateTemplate = new HibernateTemplate(sessionFactory);
-}
-
-private static HibernateTemplate hibernateTemplate = null;
-private static SessionFactory sessionFactory = null;
-
-public static Object Get(Object oj, int id) {
+@Transactional
+public Object Get(Object oj, int id) {
 	return getHibernateTemplate().get(oj.getClass(), id);
 }
 
-public static List Gets(Object oj) {
+@Transactional
+public List Gets(Object oj) {
 	return getHibernateTemplate().findByExample(oj);
 }
 
@@ -42,8 +45,8 @@ public static List Gets(Object oj) {
 //		}
 //	});
 //}
-
-public static List Finds(String fields, Object... value) {
+@Transactional
+public List Finds(String fields, Object... value) {
 	return getHibernateTemplate().execute(new HibernateCallback<List>() {
 		@Override
 		public List doInHibernate(Session session) throws HibernateException {
@@ -56,17 +59,29 @@ public static List Finds(String fields, Object... value) {
 	});
 }
 
-public static void Save(Object oj) {
+@Transactional
+public void Save(Object oj) {
+//	Session session = getHibernateTemplate().getSessionFactory().getCurrentSession();
+//	Transaction transaction = session.getTransaction();
+//	try {
+//		session.save(oj);
+//		transaction.commit();
+//	} catch (Exception ex) {
+//		transaction.rollback();
+//		ex.printStackTrace();
+//	} finally {
+//		session.close();
+//	}
 	getHibernateTemplate().save(oj);
-	getHibernateTemplate().flush();
 }
 
-public static void Update(Object oj) {
+@Transactional
+public void Update(Object oj) {
 	getHibernateTemplate().update(oj);
 }
 
-
-public static boolean Delete(Object oj) {
+@Transactional
+public boolean Delete(Object oj) {
 	try {
 		getHibernateTemplate().delete(oj);
 		return true;
@@ -76,7 +91,8 @@ public static boolean Delete(Object oj) {
 	}
 }
 
-public static List LimitQuery(String hql, int start, int length) {
+@Transactional
+public List LimitQuery(String hql, int start, int length) {
 	return getHibernateTemplate().execute(new HibernateCallback<List>() {
 		@Override
 		public List doInHibernate(Session session) throws HibernateException {
@@ -88,23 +104,17 @@ public static List LimitQuery(String hql, int start, int length) {
 	});
 }
 
-public static int Count(Object oj) {
+@Transactional
+public int Count(Object oj) {
 	return getHibernateTemplate().findByExample(oj).size();
 }
 
-public static HibernateTemplate getHibernateTemplate() {
-	return hibernateTemplate;
+public HibernateTemplate getHibernateTemplate() {
+	return this.hibernateTemplate;
 }
 
 public void setHibernateTemplate(HibernateTemplate hibernateTemplate) {
 	this.hibernateTemplate = hibernateTemplate;
 }
 
-public SessionFactory getSessionFactory() {
-	return sessionFactory;
-}
-
-public void setSessionFactory(SessionFactory sessionFactory) {
-	this.sessionFactory = sessionFactory;
-}
 }

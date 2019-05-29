@@ -15,4 +15,5 @@ List<Board> loadRootBoards();
 
 boolean SaveOrUpdate(Board board);
 
+boolean Delete(Integer id);
 }

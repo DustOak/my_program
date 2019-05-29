@@ -6,6 +6,7 @@ import com.cui.po.Student;
 import com.cui.service.BoardLoadService;
 import com.cui.util.SessionManager;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -38,7 +39,7 @@ public void setStudent(Student student) {
 
 public String execute() {
 	boar = boardLoadService.loadBoard(board);
-	if (sessionId != null && ! SessionManager.IsExist(sessionId)) {
+	if (sessionId != null && ! SessionManager.IsExist(sessionId) && ! SessionManager.IsInitIPAddr(sessionId, ServletActionContext.getRequest().getRemoteAddr())) {
 		Object oj = SessionManager.Get(sessionId).getObject();
 		if (oj != null) {
 			if (oj instanceof Admin) {

@@ -45,9 +45,9 @@
         <div class="text-center">
             <p>昵称:<s:property value="student.getNickName()"/></p>
             <p>姓名:<s:property value="student.getRealName()"/></p>
-            <p><a href="/myPost?sessionId=<s:property value="sessionId"/>">查看我的帖子</a></p>
-            <p><a href="/myReplies?sessionId=<s:property value="sessionId"/>">查看我的回复</a></p>
-            <p><a href="/logout?sessionId=<s:property value="sessionId"/>">注销</a></p>
+            <p><a class="btn btn-info" href="/myPost?sessionId=<s:property value="sessionId"/>">查看我的帖子</a></p>
+            <p><a class="btn btn-info" href="/myReplies?sessionId=<s:property value="sessionId"/>">查看我的回复</a></p>
+            <p><a class="btn btn-warning" href="/logout?sessionId=<s:property value="sessionId"/>">注销</a></p>
         </div>
     </s:if>
     <s:else>
@@ -64,9 +64,10 @@
         <div class="text-center">
             <p>昵称:<s:property value="admin.getNickname()"/></p>
             <p>姓名:<s:property value="admin.getName()"/></p>
-            <p><a href="/myPost?sessionId=<s:property value="sessionId"/>">查看我的帖子</a></p>
-            <p><a href="/myReplies?sessionId=<s:property value="sessionId"/>">查看我的回复</a></p>
-            <p><a href="/logout?sessionId=<s:property value="sessionId"/>">注销</a></p>
+            <p><a class="btn btn-info" href="/myPost?sessionId=<s:property value=" sessionId"/>">查看我的帖子</a></p>
+            <p><a class="btn btn-info" href="/myReplies?sessionId=<s:property value=" sessionId"/>">查看我的回复</a></p>
+            <p><a class="btn btn-info" href="/boardManager?sessionId=<s:property value="sessionId"/>">板块操作</a></p>
+            <p><a class="btn btn-warning" href="/logout?sessionId=<s:property value="sessionId"/>">注销</a></p>
         </div>
     </s:else>
 </div>

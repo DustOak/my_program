@@ -50,9 +50,9 @@ To change this template use File | Settings | File Templates.
             </p>
             <p>姓名:<s:property value="student.getRealName()"/>
             </p>
-            <p><a href="/myPost?sessionId=<s:property value=" sessionId"/>">查看我的帖子</a></p>
-            <p><a href="/myReplies?sessionId=<s:property value=" sessionId"/>">查看我的回复</a></p>
-            <p><a href="/logout?sessionId=<s:property value="sessionId"/>">注销</a></p>
+            <p><a class="btn btn-info" href="/myPost?sessionId=<s:property value=" sessionId"/>">查看我的帖子</a></p>
+            <p><a class="btn btn-info" href="/myReplies?sessionId=<s:property value=" sessionId"/>">查看我的回复</a></p>
+            <p><a class="btn btn-warning" href="/logout?sessionId=<s:property value="sessionId"/>">注销</a></p>
         </div>
     </s:if>
     <s:else>
@@ -71,9 +71,10 @@ To change this template use File | Settings | File Templates.
             </p>
             <p>姓名:<s:property value="admin.getName()"/>
             </p>
-            <p><a href="/myPost?sessionId=<s:property value=" sessionId"/>">查看我的帖子</a></p>
-            <p><a href="/myReplies?sessionId=<s:property value=" sessionId"/>">查看我的回复</a></p>
-            <p><a href="/logout?sessionId=<s:property value="sessionId"/>">注销</a></p>
+            <p><a class="btn btn-info" href="/myPost?sessionId=<s:property value=" sessionId"/>">查看我的帖子</a></p>
+            <p><a class="btn btn-info" href="/myReplies?sessionId=<s:property value=" sessionId"/>">查看我的回复</a></p>
+            <p><a class="btn btn-info" href="/boardManager?sessionId=<s:property value="sessionId"/>">板块操作</a></p>
+            <p><a class="btn btn-warning" href="/logout?sessionId=<s:property value="sessionId"/>">注销</a></p>
         </div>
     </s:else>
 </div>
@@ -170,8 +171,8 @@ width:100%;color: black; overflow:hidden;padding-left: 17%;">
                         </div>
                         <s:if test="#reply.getSid()!=null">
                             <div class="card-body" style="padding-left: 23%;">
-                                <s:if test="postData.getSid().getPhotoPath()!=null">
-                                    <img src="images/head/<s:property value=" #reply.getSid().getPhotoPath()"/>"
+                                <s:if test="#reply.getSid().getPhotoPath()!=null">
+                                    <img src="images/head/<s:property value="#reply.getSid().getPhotoPath()"/>"
                                          width="150" height="150">
                                 </s:if>
                                 <s:else>
@@ -213,6 +214,14 @@ width:100%;color: black; overflow:hidden;padding-left: 17%;">
                              style="margin-bottom: 0;border-radius: 0 3px 0 0;height: 30px;border-left: none;padding: .3% 0 0 1%;">
                             <s:property
                                     value="#reply.getPublishTime()"/>
+                            <s:if test="#reply.getSid().getId()==getStudent().getId() ">
+                                <a href="" id="back-to-top" onclick="backTop()"> 删除</a>
+                                ●
+                            </s:if>
+                            <s:if test="getAdmin()!=null">
+                                <a href="" id="back-to-top" onclick="backTop()"> 删除</a>
+                                ●
+                            </s:if>
                             <a href="" id="back-to-top" onclick="backTop()"> 返回顶部</a>
                         </div>
                         <div class="card-body">
@@ -256,8 +265,30 @@ width:100%;color: black; overflow:hidden;padding-left: 17%;">
     }
 
     function getData() {
-        var html = editor2.txt.html();
-        var filterHtml = filterXSS(html);
+        content = filterXSS(editor2.txt.html());
+        if (content.replace(/\s+/g, "") === "") {
+            alert("内容禁止为空");
+        } else {
+            $.ajax({
+                data: {
+                    "board":<s:property value="postData.getBid().getId()"/>,
+                    "post":<s:property value="postData.getId()"/>,
+                    "content": content,
+                    "sessionId": '<s:property value="getSessionId()"/>'
+                },
+                url: "/saveReply",
+                type: "post",
+                success: function (returnData) {
+                    if (returnData.error === 0) {
+                        alert("回帖成功");
+                        window.location.reload();
+                    } else {
+                        alert(returnData.msg);
+                        window.location.reload();
+                    }
+                }
+            })
+        }
     }
 
     function noShow() {

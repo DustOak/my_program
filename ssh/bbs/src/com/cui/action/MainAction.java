@@ -10,6 +10,7 @@ import com.cui.service.PostLoadService;
 
 import com.cui.util.SessionManager;
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -59,7 +60,7 @@ PostLoadService postLoad;
 public String execute() {
 	boards = boardLoad.loadRootBoards();
 	hotPosts = postLoad.rankPosts(6);
-	if (sessionId != null && ! SessionManager.IsExist(sessionId)) {
+	if (sessionId != null && ! SessionManager.IsExist(sessionId) && !SessionManager.IsInitIPAddr(sessionId, ServletActionContext.getRequest().getRemoteAddr())) {
 		Object oj = SessionManager.Get(sessionId).getObject();
 		if (oj != null) {
 			if (oj instanceof Admin) {

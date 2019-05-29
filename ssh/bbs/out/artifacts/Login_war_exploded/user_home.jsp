@@ -46,9 +46,9 @@ To change this template use File | Settings | File Templates.
         <div class="text-center">
             <p>昵称:<s:property value="student.getNickName()"/></p>
             <p>姓名:<s:property value="student.getRealName()"/></p>
-            <p><a href="/myPost?sessionId=<s:property value="sessionId"/>">查看我的帖子</a></p>
-            <p><a href="/myReplies?sessionId=<s:property value="sessionId"/>">查看我的回复</a></p>
-            <p><a href="/logout?sessionId=<s:property value="sessionId"/>">注销</a></p>
+            <p><a class="btn btn-info" href="/myPost?sessionId=<s:property value="sessionId"/>">查看我的帖子</a></p>
+            <p><a class="btn btn-info" href="/myReplies?sessionId=<s:property value="sessionId"/>">查看我的回复</a></p>
+            <p><a class="btn btn-warning" href="/logout?sessionId=<s:property value="sessionId"/>">注销</a></p>
         </div>
     </s:if>
     <s:else>
@@ -65,9 +65,10 @@ To change this template use File | Settings | File Templates.
         <div class="text-center">
             <p>昵称:<s:property value="admin.getNickname()"/></p>
             <p>姓名:<s:property value="admin.getName()"/></p>
-            <p><a href="/myPost?sessionId=<s:property value="sessionId"/>">查看我的帖子</a></p>
-            <p><a href="/myReplies?sessionId=<s:property value="sessionId"/>">查看我的回复</a></p>
-            <p><a href="/logout?sessionId=<s:property value="sessionId"/>">注销</a></p>
+            <p><a class="btn btn-info" href="/myPost?sessionId=<s:property value="sessionId"/>">查看我的帖子</a></p>
+            <p><a class="btn btn-info" href="/myReplies?sessionId=<s:property value="sessionId"/>">查看我的回复</a></p>
+            <p><a class="btn btn-info" href="/boardManager?sessionId=<s:property value="sessionId"/>">板块操作</a></p>
+            <p><a class="btn btn-warning" href="/logout?sessionId=<s:property value="sessionId"/>">注销</a></p>
         </div>
     </s:else>
 </div>
@@ -157,8 +158,6 @@ width:87.5%;height:auto;color: black; overflow-y: hidden;">
         </div>
     </s:iterator>
 </div>
-</div>
-</div>
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -168,6 +167,7 @@ width:87.5%;height:auto;color: black; overflow-y: hidden;">
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
 </body>
 </html>
 

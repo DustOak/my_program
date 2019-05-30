@@ -46,7 +46,7 @@ To change this template use File | Settings | File Templates.
         <p>姓名:<s:property value="admin.getName()"/></p>
         <p><a class="btn btn-info" href="/myPost?sessionId=<s:property value="sessionId"/>">查看我的帖子</a></p>
         <p><a class="btn btn-info" href="/myReplies?sessionId=<s:property value="sessionId"/>">查看我的回复</a></p>
-        <p><a class="btn btn-info" href="/index?sessionId=<s:property value="sessionId"/>">取消操作</a></p>
+        <p><a class="btn btn-info" href="/index  ?sessionId=<s:property value="sessionId"/>">取消操作</a></p>
         <p><a class="btn btn-warning" href="/logout?sessionId=<s:property value="sessionId"/>">注销</a></p>
     </div>
 </div>
@@ -55,8 +55,50 @@ To change this template use File | Settings | File Templates.
 <!-- hot post bar-->
 <div class="float-right" style="margin-top: 4%;margin-left: .5%;
 width:87.5%;height:auto;overflow-y: auto;">
-    <div style="background: white;width: 80%;height:auto;margin: 2% auto;">
-        1111111
+    <div style="background: white;width: 60%;height:auto;margin: 2% auto;padding: 1%">
+        <div style="border: black solid 2px ;padding: 1% ">
+            <h5>添加板块</h5>
+            <hr>
+            <form action="addBoard" method="post" target="_self" onsubmit="return checkContent()"
+                  enctype="multipart/form-data">
+                <input type="hidden" value="<s:property value="sessionId"/>" name="sessionId">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">请选择父板块</label>
+                    <select class="form-control" id="exampleInputEmail1" name="parentId" style="width: 60%">
+                        <option value="-1">---请选择父板块---</option>
+                        <s:iterator value="getBoards()" var="parent">
+                            <option value="<s:property value="#parent.getId()"/>"><s:property
+                                    value="#parent.getName()"/></option>
+                        </s:iterator>
+                        <option value="-1">---其他---</option>
+                    </select>
+                    <small class="form-text text-muted">请选择父板块,如想添加父板块则选择其他
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="boardName">新板块名称</label>
+                    <input type="text" class="form-control" style="width: 60%" name="boardName"
+                           id="boardName"
+                           placeholder="Name">
+                    <small class="form-text text-muted">新板块名称
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label for="boardDescription">板块描述</label>
+                    <input type="text" class="form-control" style="width: 80%" name="boardDescription"
+                           id="boardDescription"
+                           placeholder="Description">
+                    <small class="form-text text-muted">新板块的描述信息</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">上传图标</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="icon"
+                           accept="image/*">
+                </div>
+                <button type="submit" class="btn btn-primary " style="width: 20%">提交</button>
+                <button type="reset" class="btn btn-secondary " style="width: 20%">重置</button>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -112,12 +154,24 @@ width:87.5%;height:auto;color: black; overflow-y: hidden;">
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/js-xss/0.3.3/xss.min.js"></script>
 <script>
     function determineDelete() {
         if (confirm("确定删除?")) {
             if (confirm("再次确定删除?删除板块会导致本板块下所有帖子和回复全部消失!")) {
                 return true;
             }
+        }
+        return false;
+    }
+
+    function checkContent() {
+        boardName = ($("#boardName").val()).replace(/\s+/g, "");
+        boardDescription = ($("#boardDescription").val()).replace(/\s+/g, "");
+        if (boardName !== "" && boardDescription !== "") {
+            $("#boardName").val(filterXSS(boardName));
+            $("#boardDescription").val(filterXSS(boardDescription));
+            return true;
         }
         return false;
     }

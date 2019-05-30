@@ -48,6 +48,17 @@
 				<param name="status">404</param>
 			</result>
 		</action>
+		<action name="addBoard" class="com.cui.action.AddBoardAction">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">image/*</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+			<param name="destPath">/home/cuiwenbin/gitLocal/ssh/bbs/web/images/board</param>
+			<result name="success" type="redirectAction">boardManager?sessionId=${sessionId}</result>
+			<result name="error" type="httpheader">
+				<param name="status">404</param>
+			</result>
+		</action>
 		<action name="logout" class="com.cui.action.LogoutAction">
 			<result name="success" type="redirectAction">login</result>
 		</action>

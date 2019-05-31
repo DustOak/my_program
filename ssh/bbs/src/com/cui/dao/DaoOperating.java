@@ -33,18 +33,6 @@ public List Gets(Object oj) {
 	return getHibernateTemplate().findByExample(oj);
 }
 
-//public static Object Query(String sql, Object... value) {
-//	return getHibernateTemplate().execute(new HibernateCallback<List>() {
-//		@Override
-//		public List doInHibernate(Session session) throws HibernateException {
-//			Query query = session.createQuery(sql);
-//			for (int i = 0; i < value.length; i++) {
-//				query.setParameter(i, value[i]);
-//			}
-//			return query.list();
-//		}
-//	});
-//}
 @Transactional
 public List Finds(String fields, Object... value) {
 	return getHibernateTemplate().execute(new HibernateCallback<List>() {
@@ -89,6 +77,11 @@ public boolean Delete(Object oj) {
 		ex.printStackTrace();
 		return false;
 	}
+}
+
+@Override
+public Object Query(String str) {
+	return null;
 }
 
 @Transactional

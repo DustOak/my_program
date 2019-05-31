@@ -32,4 +32,6 @@ int countYesteradyPost();
 int countDayLargestPost();
 
 int getBoardPostsCount(int bid);
+
+List getUserPosts(Object oj);
 }

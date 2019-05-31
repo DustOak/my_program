@@ -64,6 +64,12 @@ public int getBoardPostsCount(int bid) {
 }
 
 @Override
+public List getUserPosts(Object oj) {
+	
+	return daoOperating.Gets(oj);
+}
+
+@Override
 public Post loadPost(int id) {
 	return (Post) daoOperating.Get(new Post(), id);
 }

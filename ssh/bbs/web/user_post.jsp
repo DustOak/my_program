@@ -24,12 +24,6 @@ To change this template use File | Settings | File Templates.
 <!--head bar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light " style="position:fixed;width:100%;z-index:99;top: 0;">
     <a class="navbar-brand" href="#" style="margin-right: 10%">梦想科大</a>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="帖子名" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">查找</button>
-        </form>
-    </div>
 </nav>
 <!--left bar-->
 <div class="float-left" style="top: 6%;background: #293134;width: 12%;color: white; position:fixed;height: 100%;">

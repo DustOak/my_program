@@ -3,39 +3,21 @@ package com.cui.dao;
 import java.util.List;
 
 public interface Dao {
-static Object Get(Object oj, int id) {
-	return null;
-}
+Object Get(Object oj, int id);
 
-static List Gets(Object oj) {
-	return null;
-}
+List Gets(Object oj);
 
-static List Finds(String fields, Object... value) {
-	return null;
-}
+List Finds(String fields, Object... value);
 
-static void Save(Object oj) {
+void Save(Object oj);
 
-}
+void Update(Object oj);
 
-static void Update(Object oj) {
+boolean Delete(Object oj);
 
-}
+Object Query(String str);
 
-static boolean Delete(Object oj) {
-	return false;
-}
+List LimitQuery(String hql, int start, int length);
 
-static Object Query(String str) {
-	return null;
-}
-
-static List LimitQuery(String hql, int start, int length) {
-	return null;
-}
-
-static int Count(Object oj) {
-	return 0;
-}
+int Count(Object oj);
 }

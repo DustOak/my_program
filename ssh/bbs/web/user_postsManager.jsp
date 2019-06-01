@@ -43,6 +43,7 @@ To change this template use File | Settings | File Templates.
             <p>姓名:
                 <s:property value="student.getRealName()"/>
             </p>
+            <p><a class="btn btn-info" href="/myInfo?sessionId=<s:property value="sessionId"/>">个人信息</a></p>
             <p><a class="btn btn-info" href="/index?sessionId=<s:property value=" sessionId"/>">返回主页</a></p>
             <p><a class="btn btn-info" href="/myReplies?sessionId=<s:property value=" sessionId"/>">查看我的回复</a></p>
             <p><a class="btn btn-warning" href="/logout?sessionId=<s:property value=" sessionId"/>">注销</a></p>
@@ -66,6 +67,7 @@ To change this template use File | Settings | File Templates.
             <p>姓名:
                 <s:property value="admin.getName()"/>
             </p>
+            <p><a class="btn btn-info" href="/myInfo?sessionId=<s:property value="sessionId"/>">个人信息</a></p>
             <p><a class="btn btn-info" href="/index?sessionId=<s:property value=" sessionId"/>">返回主页</a></p>
             <p><a class="btn btn-info" href="/myReplies?sessionId=<s:property value=" sessionId"/>">查看我的回复</a></p>
             <p><a class="btn btn-info" href="/boardManager?sessionId=<s:property value=" sessionId"/>">板块操作</a></p>

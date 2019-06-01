@@ -4,12 +4,19 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Reply implements Serializable {
+public Reply(Integer id) {
+	this.id = id;
+}
+
 private Integer id;
 private String content;
 private String publishTime;
 private Post pid;
 private Admin aid;
 private Student sid;
+
+public Reply() {
+}
 
 public Integer getId() {
 	return id;

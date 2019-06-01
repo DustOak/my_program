@@ -77,7 +77,13 @@
 				<param name="status">404</param>
 			</result>
 		</action>
-		
+		<action name="deleteReply" class="com.cui.action.DeleteReplyAction">
+			<result name="success" type="redirectAction">
+				<param name="actionName">post</param>
+				<param name="sessionId">${sessionId}</param>
+				<param name="post">${post}</param>
+			</result>
+		</action>
 		<action name="logout" class="com.cui.action.LogoutAction">
 			<result name="success" type="redirectAction">login</result>
 		</action>

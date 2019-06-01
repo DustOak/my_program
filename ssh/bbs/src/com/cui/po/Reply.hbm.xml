@@ -8,9 +8,9 @@
 		<id name="id" column="id" type="java.lang.Integer">
 			<generator class="increment"/>
 		</id>
-		<property name="content" column="content" not-null="true"/>
+		<property name="content" column="content"/>
 		<property name="publishTime" column="publishTime"/>
-		<many-to-one name="pid" column="pid" not-null="true"/>
+		<many-to-one name="pid" column="pid"/>
 		<many-to-one name="aid" column="aid" class="Admin" lazy="false"/>
 		<many-to-one name="sid" column="sid" class="Student" lazy="false"/>
 	</class>

@@ -33,24 +33,24 @@
                     <s:fielderror class="p-3 mb-2 bg-danger text-white "
                                   name="error" style="border-radius: 3px;margin: 0 auto;list-style-type:none"/>
                     <div class="form-group">
-                        <input class="form-control" id="account" type="text" placeholder="User Name" name="account">
+                        <input class="form-control" id="account" type="text" placeholder="学号/管理员账号" name="account">
                     </div>
                     <div class="form-group">
-                        <input class="form-control" id="password" type="password" placeholder="Password"
+                        <input class="form-control" id="password" type="password" placeholder="密码"
                                name="password">
                     </div>
                     <div class="form-check form-check-inline ">
                         <input class="form-check-input" checked type="radio" name="adminOrStudent" id="inlineRadio1"
                                value="0">
-                        <label class="form-check-label" for="inlineRadio1">STUDENT</label>
+                        <label class="form-check-label" for="inlineRadio1">学生</label>
                     </div>
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="adminOrStudent" id="inlineRadio2" value="1">
-                        <label class="form-check-label" for="inlineRadio2">ADMINISTRATOR</label>
+                        <label class="form-check-label" for="inlineRadio2">管理员</label>
                     </div>
                     <div class="form-group" style="margin-top: 5%">
-                        <button class="btn btn-block btn-info" type="submit">Login</button>
-                        <a class="btn btn-block btn-secondary" href="index">TOURIST MODE</a>
+                        <button class="btn btn-block btn-info" type="submit">登录</button>
+                        <a class="btn btn-block btn-secondary" href="index">游客</a>
                     </div>
                 </form>
             </div>

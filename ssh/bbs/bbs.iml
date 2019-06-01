@@ -80,5 +80,6 @@
     <orderEntry type="library" name="wangEditor" level="application" />
     <orderEntry type="library" name="xss" level="application" />
     <orderEntry type="library" name="validator" level="application" />
+    <orderEntry type="library" name="jquery.validate" level="application" />
   </component>
 </module>

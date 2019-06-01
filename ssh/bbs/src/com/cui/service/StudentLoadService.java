@@ -32,4 +32,9 @@ public Student CheckUsernameAndPassword(String username, String password) {
 	String hql = "from Student  s where s.stuNum='" + username + "' and  s.password='" + password + "'";
 	return daoOperating.Finds(hql).size() == 0 ? null : (Student) daoOperating.Finds(hql).get(0);
 }
+
+@Override
+public void Update(Student student) {
+	daoOperating.Update(student);
+}
 }

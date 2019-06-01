@@ -84,6 +84,24 @@
 				<param name="post">${post}</param>
 			</result>
 		</action>
+		<action name="myInfo" class="com.cui.action.MyInfoAction">
+			<result name="success">/user_InfoManager.jsp</result>
+			<result name="error" type="httpheader">
+				<param name="status">404</param>
+			</result>
+		</action>
+		<action name="modifyInfo" class="com.cui.action.ModifyInfoAction">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">image/*</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"/>
+			<param name="destPath">/home/cuiwenbin/gitLocal/ssh/bbs/web/images/head</param>
+			<result name="success" type="redirectAction">myInfo?sessionId=${sessionId}</result>
+			<result name="error" type="httpheader">
+				<param name="status">404</param>
+			</result>
+		</action>
+		<action name="checkPassword" class="com.cui.action.CheckPassword"/>
 		<action name="logout" class="com.cui.action.LogoutAction">
 			<result name="success" type="redirectAction">login</result>
 		</action>

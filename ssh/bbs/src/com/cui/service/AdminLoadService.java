@@ -29,4 +29,9 @@ public Admin CheckUsernameAndPassword(String username, String password) {
 	String hql = "from Admin a where  a.account='" + username + "' and  a.password='" + password + "'";
 	return daoOperating.Finds(hql).size() == 0 ? null : (Admin) daoOperating.Finds(hql).get(0);
 }
+
+@Override
+public void Update(Admin admin) {
+	daoOperating.Update(admin);
+}
 }

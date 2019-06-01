@@ -65,8 +65,13 @@ public int getBoardPostsCount(int bid) {
 
 @Override
 public List getUserPosts(Object oj) {
-	
-	return daoOperating.Gets(oj);
+	if (oj instanceof Admin) {
+		String hql = "from Post where aid=" + ((Admin) oj).getId() + " order by publishTime desc";
+		return daoOperating.Finds(hql);
+	} else {
+		String hql = "from Post where sid=" + ((Student) oj).getId() + " order by publishTime desc";
+		return daoOperating.Finds(hql);
+	}
 }
 
 @Override

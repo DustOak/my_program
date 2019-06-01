@@ -8,12 +8,12 @@
 		<id name="id" column="id" type="java.lang.Integer">
 			<generator class="increment"/>
 		</id>
-		<property name="name" column="name" not-null="true" type="java.lang.String"/>
+		<property name="name" column="name" type="java.lang.String"/>
 		<property name="content" column="content" type="java.lang.String"/>
 		<property name="publishTime" column="publishTime" type="java.lang.String"/>
 		<property name="count" column="count" type="java.lang.Integer"/>
 		<many-to-one name="aid" column="aid" class="Admin" lazy="false"/>
-		<many-to-one name="bid" column="bid" not-null="true" class="Board" lazy="false" />
+		<many-to-one name="bid" column="bid"  class="Board" lazy="false"/>
 		<many-to-one name="sid" column="sid" class="Student" lazy="false"/>
 		<set name="replies" cascade="all-delete-orphan" order-by="publishTime asc" lazy="false" inverse="true">
 			<key column="pid"/>

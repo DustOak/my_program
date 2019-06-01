@@ -209,11 +209,12 @@ width:100%;color: black; overflow:hidden;padding-left: 17%;">
                             <s:property
                                     value="#reply.getPublishTime()"/>
                             <s:if test="#reply.getSid().getId()==getStudent().getId() ">
-                                <a href="" id="back-to-top" onclick="backTop()"> 删除</a>
+                                <a href="/deleteReply?sessionId=<s:property value=" getSessionId()"/>&&reply=<s:property value="#reply.getId()"/>" id="back-to-top" onclick="backTop()"> 删除</a>
                                 ●
                             </s:if>
                             <s:if test="getAdmin()!=null">
-                                <a href="" id="back-to-top" onclick="backTop()"> 删除</a>
+                                <a href="/deleteReply?sessionId=<s:property value=" getSessionId()"/>&&reply=<s:property value="#reply.getId()"/>"
+                                   id="back-to-top" onclick="backTop()"> 删除</a>
                                 ●
                             </s:if>
                             <a href="" id="back-to-top" onclick="backTop()"> 返回顶部</a>

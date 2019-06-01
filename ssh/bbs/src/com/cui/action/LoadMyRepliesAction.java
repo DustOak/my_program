@@ -1,12 +1,11 @@
 package com.cui.action;
 
 import com.cui.po.Admin;
-import com.cui.po.Post;
+import com.cui.po.Reply;
 import com.cui.po.Student;
-import com.cui.service.PostLoadService;
+import com.cui.service.ReplyLoadService;
 import com.cui.util.SessionManager;
 import com.opensymphony.xwork2.ActionSupport;
-
 import org.apache.struts2.ServletActionContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -14,12 +13,11 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class MyPostAction extends ActionSupport {
-
+public class LoadMyRepliesAction extends ActionSupport {
 private String sessionId;
-private List<Post> posts;
-private Student student;
-private Admin admin;
+@Autowired
+private ReplyLoadService replyLoadService;
+private List<Reply> replies;
 
 public Student getStudent() {
 	return student;
@@ -37,6 +35,9 @@ public void setAdmin(Admin admin) {
 	this.admin = admin;
 }
 
+private Student student;
+private Admin admin;
+
 public String execute() {
 	if (sessionId == null || SessionManager.IsExist(sessionId)
 				|| SessionManager.IsInitIPAddr(sessionId, ServletActionContext.getRequest().getRemoteAddr())) {
@@ -45,17 +46,15 @@ public String execute() {
 		Object oj = SessionManager.Get(sessionId).getObject();
 		if (oj instanceof Admin) {
 			admin = (Admin) oj;
-			posts = postLoadService.getUserPosts(oj);
+			replies = replyLoadService.getUserReplies(oj);
 		} else {
 			student = (Student) oj;
-			posts = postLoadService.getUserPosts(oj);
-		}
-		if (posts == null) {
-			return ERROR;
+			replies = replyLoadService.getUserReplies(oj);
 		}
 		return SUCCESS;
 	}
 }
+
 
 public String getSessionId() {
 	return sessionId;
@@ -65,23 +64,19 @@ public void setSessionId(String sessionId) {
 	this.sessionId = sessionId;
 }
 
-public List<Post> getPosts() {
-	return posts;
+public ReplyLoadService getReplyLoadService() {
+	return replyLoadService;
 }
 
-public void setPosts(List<Post> posts) {
-	this.posts = posts;
+public void setReplyLoadService(ReplyLoadService replyLoadService) {
+	this.replyLoadService = replyLoadService;
 }
 
-public PostLoadService getPostLoadService() {
-	return postLoadService;
+public List<Reply> getReplies() {
+	return replies;
 }
 
-public void setPostLoadService(PostLoadService postLoadService) {
-	this.postLoadService = postLoadService;
+public void setReplies(List<Reply> replies) {
+	this.replies = replies;
 }
-
-@Autowired
-private PostLoadService postLoadService;
-
 }

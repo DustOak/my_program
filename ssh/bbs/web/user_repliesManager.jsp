@@ -43,8 +43,8 @@ To change this template use File | Settings | File Templates.
             <p>姓名:
                 <s:property value="student.getRealName()"/>
             </p>
+            <p><a class="btn btn-info" href="/myPost?sessionId=<s:property value=" sessionId"/>">查看我的帖子</a></p>
             <p><a class="btn btn-info" href="/index?sessionId=<s:property value=" sessionId"/>">返回主页</a></p>
-            <p><a class="btn btn-info" href="/myReplies?sessionId=<s:property value=" sessionId"/>">查看我的回复</a></p>
             <p><a class="btn btn-warning" href="/logout?sessionId=<s:property value=" sessionId"/>">注销</a></p>
         </div>
     </s:if>
@@ -66,8 +66,8 @@ To change this template use File | Settings | File Templates.
             <p>姓名:
                 <s:property value="admin.getName()"/>
             </p>
-            <p><a class="btn btn-info" href="/index?sessionId=<s:property value=" sessionId"/>">返回主页</a></p>
-            <p><a class="btn btn-info" href="/myReplies?sessionId=<s:property value=" sessionId"/>">查看我的回复</a></p>
+            <p><a class="btn btn-info" href="/myPost?sessionId=<s:property value=" sessionId"/>">查看我的帖子</a></p>
+            <a class="btn btn-info" href="/index?sessionId=<s:property value=" sessionId"/>">返回主页</a></p>
             <p><a class="btn btn-info" href="/boardManager?sessionId=<s:property value=" sessionId"/>">板块操作</a></p>
             <p><a class="btn btn-warning" href="/logout?sessionId=<s:property value=" sessionId"/>">注销</a></p>
         </div>
@@ -84,41 +84,27 @@ To change this template use File | Settings | File Templates.
             <a href="index?sessionId=<s:property value="getSessionId()"/>" style="color: black">主页</a>&nbsp;&nbsp;&nbsp;>>&nbsp;&nbsp;&nbsp;个人发帖管理
         </div>
         <table id="example" class="table table-striped table-bordered text-center"
-               style="width:100%;font-size: 13px;color: black">
+               style="width:100%;font-size: 13px;color: black;   table-layout:fixed;">
             <thead>
             <tr style="height: 5% " class="text-center">
                 <td width="50%">帖子名</td>
                 <td width="10%">发布时间</td>
-                <td width="15%">所在版块</td>
-                <td width="4%">阅读</td>
-                <td width="4%">回复</td>
-                <td width="12%">操作</td>
+                <td width="40%">回复内容</td>
             </tr>
             </thead>
             <tbody>
-            <s:iterator value="getPosts()" var="data">
+            <s:iterator value="getReplies()" var="data">
                 <tr>
                     <td>
-                        <a href="/post?sessionId=<s:property value="getSessionId()" />&&post=<s:property value="#data.getId()"/>"><s:property
-                                value="#data.getName()"/></a></td>
+                        <a href="/post?sessionId=<s:property value="getSessionId()" />&&post=<s:property value="#data.getPid().getId()"/>"><s:property
+                                value="#data.getPid().getName()"/></a></td>
                     <td><s:property
                             value="#data.getPublishTime()"/></td>
-                    <td><s:property
-                            value="#data.getBid().getName()"/></td>
-                    <td><s:property
-                            value="#data.getCount()"/></td>
-                    <td><s:property
-                            value="#data.getReplies().size()"/></td>
-
-                    <td style="padding: .3%  0 0 0 ;">
-                        <form action="deletePost" method="post" target="_self" onsubmit="return determineDelete()">
-                            <input type="hidden" value="<s:property value="getSessionId()" />" name="sessionId">
-                            <input type="hidden" value="<s:property value="#data.getId()"/>" name="post">
-                            <button class="btn btn-danger btn-sm">删除
-                            </button>
-                        </form>
-
-                    </td>
+                    <td style="word-break:keep-all;/* 不换行 */
+    white-space:nowrap;/* 不换行 */
+    overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/"><s:property
+                            value="#data.getContent()"/></td>
                 </tr>
             </s:iterator>
             </tbody>
@@ -128,13 +114,6 @@ To change this template use File | Settings | File Templates.
 <script src="https://cdn.staticfile.org/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.staticfile.org/datatables/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 <script>
-    function determineDelete() {
-        if (confirm("确定删除?")) {
-            return true;
-        }
-        return false;
-    }
-
     $(document).ready(function () {
         $('#example').DataTable({
             retrieve: true,

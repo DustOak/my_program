@@ -65,8 +65,21 @@
 				<param name="status">404</param>
 			</result>
 		</action>
+		<action name="deletePost" class="com.cui.action.DeletePostAction">
+			<result name="success" type="redirectAction">myPost?sessionId=${sessionId}</result>
+			<result name="error" type="httpheader">
+				<param name="status">404</param>
+			</result>
+		</action>
+		<action name="myReplies" class="com.cui.action.LoadMyRepliesAction">
+			<result name="success">/user_repliesManager.jsp</result>
+			<result name="error" type="httpheader">
+				<param name="status">404</param>
+			</result>
+		</action>
+		<action name="deleteReply" class="com.cui.action.DeleteReplyAction">
 		
-		
+		</action>
 		<action name="logout" class="com.cui.action.LogoutAction">
 			<result name="success" type="redirectAction">login</result>
 		</action>

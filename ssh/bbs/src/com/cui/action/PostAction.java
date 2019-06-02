@@ -71,6 +71,8 @@ public void setPostLoadService(PostLoadService postLoadService) {
 
 public String execute() {
 	postData = postLoadService.loadPost(post);
+	postData.setCount(postData.getCount() + 1);
+	postLoadService.saveOrUpdate(postData);
 	if (postData == null) {
 		return ERROR;
 	}

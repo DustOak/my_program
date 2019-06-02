@@ -83,10 +83,19 @@ public String execute() {
 			adminLoadService.Update((Admin) oj);
 			SessionManager.Get(sessionId).setObject(oj);
 		} else {
+			try {
+				if (icon != null) {
+					((Student) oj).setPhotoPath(iconFileName);
+					File icons = new File(destPath, iconFileName);
+					FileUtils.copyFile(icon, icons);
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+				return ERROR;
+			}
 			((Student) oj).setEmail(email);
 			((Student) oj).setQq(qq);
 			((Student) oj).setNickName(nickName);
-			((Student) oj).setPhotoPath(iconFileName);
 			studentLoadService.Update((Student) oj);
 			SessionManager.Get(sessionId).setObject(oj);
 		}

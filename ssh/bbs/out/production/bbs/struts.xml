@@ -114,5 +114,11 @@
 			<result name="success" type="redirectAction">index?sessionId=${sessionID}</result>
 			<result name="input">/login.jsp</result>
 		</action>
+		<action name="modifyPassword" class="com.cui.action.ModifyPasswordAction">
+			<result name="success" type="redirectAction">login</result>
+			<result name="error" type="httpheader">
+				<param name="status">404</param>
+			</result>
+		</action>
 	</package>
 </struts>

@@ -48,7 +48,7 @@ private StudentLoadService studentLoadService;
 
 public void validate() {
 	if (account.equals("") || password.equals("")) {
-		addFieldError("error", "The Account Or Password Cant Empty!");
+		addFieldError("error", "账号或密码不能为空");
 	}
 }
 
@@ -78,7 +78,7 @@ public String execute() {
 			oj = adminLoadService.CheckUsernameAndPassword(this.getAccount(), Encryption.getMd5(this.getPassword()));
 			break;
 		default:
-			addFieldError("error", "Illegal identity!");
+			addFieldError("error", "非法参数");
 			return INPUT;
 	}
 	if (oj != null) {
@@ -91,7 +91,7 @@ public String execute() {
 		this.setSessionID(token);
 		return SUCCESS;
 	}
-	addFieldError("error", "The Account Or Password Wrong!");
+	addFieldError("error", "账号或密码错误");
 	return INPUT;
 }
 

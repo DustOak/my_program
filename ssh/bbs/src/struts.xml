@@ -6,6 +6,7 @@
 
 <struts>
 	<constant name="struts.action.extension" value=","/>
+	<!--自动装配-->
 	<constant name="struts.objectFactory.spring.autoWire.alwaysRespect" value="true"/>
 	<package name="login" extends="struts-default">
 		<interceptors>

@@ -11,56 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="501e686f-22a4-41bd-a9ae-78e7e6928718" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/action/AddBoardAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/action/CheckPassword.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/action/DeletePostAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/action/DeleteReplyAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/action/LoadMyRepliesAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/action/ModifyInfoAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/action/ModifyPasswordAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/action/MyInfoAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/action/MyPostAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/images/board/1214544421.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/images/board/1693371587.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/images/board/730400273.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/images/board/webwxgetmsgimg (1).jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/images/head/386576988.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/images/head/webwxgetmsgimg.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/js/validate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/user_InfoManager.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/user_postsManager.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/user_repliesManager.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/bbs/com/cui/action/AddBoardAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/bbs/com/cui/action/CheckPassword.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/bbs/com/cui/action/DeletePostAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/bbs/com/cui/action/DeleteReplyAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/bbs/com/cui/action/LoadMyRepliesAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/bbs/com/cui/action/ModifyInfoAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/bbs/com/cui/action/ModifyPasswordAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/bbs/com/cui/action/MyInfoAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/bbs/com/cui/action/MyPostAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/cui/action/ModifyPasswordAction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/images/head/386576988.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/images/head/webwxgetmsgimg.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/images/head/webwxgetmsgimg (2).jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/action/LoginAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/action/LoginAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/service/AdminLoadService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/service/AdminLoadService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/service/StudentLoadService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/service/StudentLoadService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/service/UserLoad.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/service/UserLoad.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bbs/com/cui/action/LoginAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bbs/com/cui/action/LoginAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bbs/com/cui/main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bbs/com/cui/main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bbs/com/cui/service/AdminLoadService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bbs/com/cui/service/AdminLoadService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bbs/com/cui/service/StudentLoadService.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bbs/com/cui/service/StudentLoadService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bbs/com/cui/service/UserLoad.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bbs/com/cui/service/UserLoad.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/bbs/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bbs/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cui/action/LoginAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cui/action/LoginAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cui/action/ModifyInfoAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cui/action/ModifyInfoAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cui/action/PostAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cui/action/PostAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/cui/main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/cui/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/action/PostAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Login_war_exploded/WEB-INF/classes/com/cui/action/PostAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/bbs/com/cui/action/PostAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/bbs/com/cui/action/PostAction.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/struts.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/user_InfoManager.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/user_InfoManager.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -105,10 +60,11 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/cui/action/PostAction.java">
+        <entry file="file://$PROJECT_DIR$/src/struts.xml">
+          <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
+            <state relative-caret-position="192">
+              <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -199,9 +155,9 @@
         <option value="$PROJECT_DIR$/src/com/cui/action/LoginAction.java" />
         <option value="$PROJECT_DIR$/src/com/cui/action/ModifyInfoAction.java" />
         <option value="$PROJECT_DIR$/web/user_InfoManager.jsp" />
-        <option value="$PROJECT_DIR$/src/struts.xml" />
         <option value="$PROJECT_DIR$/src/com/cui/action/ModifyPasswordAction.java" />
         <option value="$PROJECT_DIR$/src/com/cui/action/PostAction.java" />
+        <option value="$PROJECT_DIR$/src/struts.xml" />
       </list>
     </option>
   </component>
@@ -231,6 +187,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -262,34 +219,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="cui" type="462c0819:PsiDirectoryNode" />
               <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cui" type="462c0819:PsiDirectoryNode" />
-              <item name="interceptor" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cui" type="462c0819:PsiDirectoryNode" />
-              <item name="po" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cui" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
-              <item name="bbs" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="cui" type="462c0819:PsiDirectoryNode" />
-              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="bbs" type="b2602c69:ProjectViewProjectNode" />
@@ -336,7 +265,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -356,7 +284,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2091954" />
-    <property name="settings.editor.selected.configurable" value="spring" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.statistic.project.settings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -550,7 +478,9 @@
       <workItem from="1559383779638" duration="269000" />
       <workItem from="1559389331805" duration="3723000" />
       <workItem from="1559393198684" duration="5825000" />
-      <workItem from="1559444546918" duration="6264000" />
+      <workItem from="1559444546918" duration="6474000" />
+      <workItem from="1559452063970" duration="374000" />
+      <workItem from="1559455201348" duration="4762000" />
     </task>
     <task id="LOCAL-00001" summary="更新bbs项目名以及当前进度">
       <created>1556872161763</created>
@@ -776,11 +706,18 @@
       <option name="project" value="LOCAL" />
       <updated>1559399018790</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="update">
+      <created>1559451838333</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1559451838333</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="410666000" />
+    <option name="totallyTimeSpent" value="416012000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -793,8 +730,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1040" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49596122" visible="true" weight="0.21299255" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49596122" visible="true" weight="0.2172524" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Persistence" order="3" sideWeight="0.50403875" side_tool="true" weight="0.19382322" />
@@ -805,7 +743,7 @@
       <window_info id="Web" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32861805" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946752" visible="true" weight="0.3264418" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946752" weight="0.3264418" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934713" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -820,6 +758,7 @@
       <window_info anchor="bottom" id="Database Changes" order="14" weight="0.3297062" />
       <window_info anchor="bottom" id="Version Control" order="15" weight="0.32861805" />
       <window_info anchor="bottom" id="Database Console" order="16" weight="0.32861805" />
+      <window_info anchor="bottom" id="Statistic" order="17" weight="0.3297062" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24973376" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -901,66 +840,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://1f42d036-69bb-42f2-ade3-729fbe037963/schema/bbs/table/reply">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="e9fe25c1-6061-45f8-b5bb-e681de8b457f">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1f42d036-69bb-42f2-ade3-729fbe037963/schema/bbs/table/post">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="e9fe25c1-6061-45f8-b5bb-e681de8b457f">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cui/action/MyPostAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="47" column="43" lean-forward="true" selection-start-line="44" selection-start-column="8" selection-end-line="55" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#598#599#0" expanded="true" />
-            <element signature="e#617#618#0" expanded="true" />
-            <element signature="e#660#661#0" expanded="true" />
-            <element signature="e#687#688#0" expanded="true" />
-            <element signature="e#714#715#0" expanded="true" />
-            <element signature="e#731#732#0" expanded="true" />
-            <element signature="e#768#769#0" expanded="true" />
-            <element signature="e#791#792#0" expanded="true" />
-            <element signature="e#1464#1465#0" expanded="true" />
-            <element signature="e#1485#1486#0" expanded="true" />
-            <element signature="e#1531#1532#0" expanded="true" />
-            <element signature="e#1562#1563#0" expanded="true" />
-            <element signature="e#1594#1595#0" expanded="true" />
-            <element signature="e#1611#1612#0" expanded="true" />
-            <element signature="e#1653#1654#0" expanded="true" />
-            <element signature="e#1676#1677#0" expanded="true" />
-            <element signature="e#1723#1724#0" expanded="true" />
-            <element signature="e#1750#1751#0" expanded="true" />
-            <element signature="e#1817#1818#0" expanded="true" />
-            <element signature="e#1860#1861#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cui/action/DeletePostAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="75" column="5" lean-forward="true" selection-start-line="62" selection-start-column="4" selection-end-line="75" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
-            <element signature="e#887#888#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cui/service/ReplyLoad.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -991,13 +870,6 @@
             <element signature="e#906#907#0" expanded="true" />
             <element signature="e#951#952#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cui/service/ReplyLoadService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -1036,16 +908,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
           <caret line="68" column="111" lean-forward="true" selection-start-line="68" selection-start-column="111" selection-end-line="68" selection-end-column="111" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cui/action/GetPostsApiAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="110" column="5" lean-forward="true" selection-start-line="104" selection-start-column="4" selection-end-line="110" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1155,11 +1017,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-432" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cui/action/ForwardAction.java" />
     <entry file="file://$PROJECT_DIR$/src/com/cui/po/Student.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1175,13 +1032,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/cui/service/UserLoad.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
         </state>
       </provider>
     </entry>
@@ -1357,27 +1207,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/user_post.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="265" column="39" selection-start-line="265" selection-start-column="20" selection-end-line="265" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/user_InfoManager.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="314" column="47" selection-start-line="314" selection-start-column="47" selection-end-line="314" selection-end-column="47" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#form#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#form#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#form#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cui/action/ModifyInfoAction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -1411,23 +1240,6 @@
             <element signature="e#3136#3137#0" expanded="true" />
             <element signature="e#3181#3182#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/struts.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="115" column="17" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
-    </entry>
-    <entry file="das://1f42d036-69bb-42f2-ade3-729fbe037963/schema/bbs/table/student">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="31f9bee7-9a80-4a54-b819-509d69fab0b9">
-          <filtering>
-            <filter text="" />
-          </filtering>
         </state>
       </provider>
     </entry>
@@ -1466,10 +1278,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/images/head/webwxgetmsgimg (2).jpeg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="das://1f42d036-69bb-42f2-ade3-729fbe037963/schema/bbs/table/student">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="31f9bee7-9a80-4a54-b819-509d69fab0b9">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cui/service/ReplyLoadService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="43" column="35" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/artifacts/Login_war_exploded/user_InfoManager.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/user_post.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="265" column="39" selection-start-line="265" selection-start-column="20" selection-end-line="265" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/user_InfoManager.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7488">
+          <caret line="314" column="47" selection-start-line="314" selection-start-column="47" selection-end-line="314" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cui/action/GetPostsApiAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="111" column="16" lean-forward="true" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/cui/action/PostAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
+        <state relative-caret-position="864">
+          <caret line="97" column="1" lean-forward="true" selection-start-line="97" selection-start-column="1" selection-end-line="97" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/cui/service/UserLoad.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/spring-web-4.3.18.RELEASE.jar!/org/springframework/web/context/ContextLoaderListener.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="10" column="48" selection-start-line="10" selection-start-column="48" selection-end-line="10" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/lib/spring-web-4.3.18.RELEASE.jar!/org/springframework/web/context/ContextLoader.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6416">
+          <caret line="36" column="60" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="21" column="66" lean-forward="true" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/struts.xml">
+      <provider editor-type-id="com.intellij.struts2.graph.fileEditor.Struts2GraphFileEditorProvider" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
         </state>
       </provider>
     </entry>

@@ -44,6 +44,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 	<bean id="adminLoad" class="com.cui.service.AdminLoadService"/>
 	<bean id="studentLoad" class="com.cui.service.StudentLoadService"/>
 	<bean id="replyLoad" class="com.cui.service.ReplyLoadService"/>
+	<bean id="daoOperating" class="com.cui.dao.DaoOperating"/>
 	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate">
 		<property name="sessionFactory" ref="sessionFactory"/>
 		<property name="checkWriteOperations" value="false"/>

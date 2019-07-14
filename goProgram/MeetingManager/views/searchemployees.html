@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv = "content-type" content = "text/html" ;charset = "utf-8">
+        <title>CoolMeeting会议管理系统</title>
+        <link rel = "stylesheet" href = "/static/css/common.css" />
+        <style type = "text/css">
+            
+        </style>
+    </head>
+    <body>
+    <div class = "page-header">
+            <div class = "header-banner">
+                <img src = "/static/img/header.png" alt = "CoolMeeting" />
+            </div>
+            <div class = "header-title">
+                欢迎访问Cool-Meeting会议管理系统
+            </div>
+            <div class = "header-quicklink">
+                欢迎您，<strong>admin</strong>
+                <a href = "/personal/password">[修改密码]</a>
+            </div>
+        </div>
+       <div class = "page-sidebar">
+                <div class = "sidebar-menugroup">
+                    <div class = "sidebar-grouptitle">个人中心</div>
+                    <ul class = "sidebar-menu">
+                        <li class = "sidebar-menuitem"><a href = "/personal/notice">最新通知</a></li>
+                        <li class = "sidebar-menuitem active"><a href = "/personal/destine">我的预定</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/personal/meeting">我的会议</a></li>
+                    </ul>
+                </div>
+                <div class = "sidebar-menugroup">
+                    <div class = "sidebar-grouptitle">人员管理</div>
+                    <ul class = "sidebar-menu">
+                        <li class = "sidebar-menuitem"><a href = "/personnel/department">部门管理</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/personnel/staffRegister">员工注册</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/personnel/staffApproval">注册审批</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/personnel/staffSearch">搜索员工</a></li>
+                    </ul>
+                </div>
+                <div class = "sidebar-menugroup">
+                    <div class = "sidebar-grouptitle">会议预定</div>
+                    <ul class = "sidebar-menu">
+                        <li class = "sidebar-menuitem"><a href = "/meeting/meetingRoomAdd">添加会议室</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/meeting/meetingRoomView">查看会议室</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/meeting/destineMeeting">预定会议</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/meeting/meetingSearch">搜索会议</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class = "page-content" id = "app">
+                <div class = "content-nav">
+                    会议预定 > 搜索员工
+                </div>
+                <form>
+                    <fieldset>
+                        <legend>搜索会议</legend>
+                        <table class = "formtable">
+                            <tr>
+                                <td>姓名：</td>
+                                <td>
+                                    <input type = "text" v-model="name"id = "employeename" maxlength = "20" />
+                                </td>
+                                <td>账号名：</td>
+                                <td>
+                                    <input type = "text" v-model="account"id = "accountname" maxlength = "20" />
+                                </td>
+                                <td>状态：</td>
+                                <td>
+                                    <input type = "radio" v-model="status" id = "status" name = "status" value = "1"
+                                           checked = "checked" /><label>已批准</label>
+                                    <input type = "radio" v-model="status" id = "status" name = "status"
+                                           value = "-1" /><label>待审批</label>
+                                    <input type = "radio" v-model="status" id = "status" name = "status"
+                                           value = "-2" /><label>已关闭</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan = "6" class = "command">
+                                    <input type = "button" class = "clickbutton" value = "查询"  v-on:click = "search"  />
+                                    <input type = "reset" class = "clickbutton" value = "重置" />
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </form>
+                <div>
+                    <h3 style = "text-align:center;color:black">查询结果</h3>
+                </div>
+                <table class = "listtable">
+                    <tr class = "listheader">
+                        <th>姓名</th>
+                        <th>账号名</th>
+                        <th>联系电话</th>
+                        <th>电子邮件</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr v-for = " personnel in personnels">
+                        <td>${personnel.PersonnelName}</td>
+                        <td>${personnel.PersonnelAccount}</td>
+                        <td>${personnel.PersonnelPhone}</td>
+                        <td>${personnel.PersonnelEmail}</td>
+                        <td>
+                            <a class = "clickbutton" v-if="personnel.PersonnelStatus!=-2"  v-on:click = "close(personnel.ID)"  >关闭账号</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+    </div>
+    <div class = "page-footer">
+            <hr />
+            更多问题，欢迎联系<a href = "mailto:webmaster@eeg.com">管理员</a>
+            <img src = "/static/img/footer.png" alt = "CoolMeeting" />
+        </div>
+    <script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src = "https://cdn.staticfile.org/axios/0.19.0-beta.1/axios.min.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                delimiters: ['${', '}'],
+                data: {
+                    personnels: [],
+                    name:"",
+                    account:"",
+                    status:1
+                },
+                methods: {
+                    search: function () {
+                        axios.defaults.paramsSerializer = (params) => {
+                            return Qs.stringify(params, {arrayFormat: 'brackets'});
+                        };
+                        axios({
+                            method: 'get',
+                            url: '/api/staff?type=1&name='+app.name+'&account='+app.account+'&status='+app.status,
+                        }).then(function (response) {
+                            app.personnels = response.data.data;
+                        }).catch(function (error) {
+                            alert(error);
+                        });
+                    },
+                    close:function (id) {
+                        axios.defaults.paramsSerializer = (params) => {
+                            return Qs.stringify(params, {arrayFormat: 'brackets'});
+                        };
+                        axios({
+                            method: 'put',
+                            url: '/api/staff?id='+id+'&status=-2'
+                        }).then(function (response) {
+                            app.personnels = response.data.data;
+                        }).catch(function (error) {
+                            alert(error);
+                        });
+                    }
+
+                }
+
+            })
+        </script>
+    </body>
+</html>

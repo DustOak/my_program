@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv = "content-type" content = "text/html" charset = "utf-8">
+        <title>CoolMeeting会议管理系统</title>
+        <link rel = "stylesheet" href = "/static/css/common.css" />
+    </head>
+    <body>
+        <div class = "page-header">
+            <div class = "header-banner">
+                <img src = "/static/img/header.png" alt = "CoolMeeting" />
+            </div>
+            <div class = "header-title">
+                欢迎访问Cool-Meeting会议管理系统
+            </div>
+        </div>
+            <div class = "page-content" id = "app">
+                <form @submit.prevent = "submit">
+                    <fieldset>
+                        <legend>登录信息</legend>
+                        <table class = "formtable" style = "width:50%">
+                            <tr>
+                                <td>账号名:</td>
+                                <td>
+                                    <input id = "accountname" type = "text" v-model = "account" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>密码:</td>
+                                <td>
+                                    <input id = "new" type = "password" v-model = "password" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan = "2" class = "command">
+                                    <input type = "submit" value = "登录" class = "clickbutton" />
+                                    <input type = "button" value = "返回" class = "clickbutton"
+                                           onclick = "window.history.back();" />
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class = "page-footer">
+            <hr />
+            更多问题，欢迎联系<a href = "mailto:webmaster@eeg.com">管理员</a>
+            <img src = "/static/img/footer.png" alt = "CoolMeeting" />
+        </div>
+      <script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src = "https://cdn.staticfile.org/axios/0.19.0-beta.1/axios.min.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                delimiters: ['${', '}'],
+                data: {
+                    account: '',
+                    password: ''
+                },
+                methods: {
+                    submit: function () {
+                        axios.defaults.paramsSerializer = (params) => {
+                            return Qs.stringify(params, {arrayFormat: 'brackets'});
+                        };
+                        axios({
+                            method: 'post',
+                            url: '/api/login',
+                            data: {
+                                "account": this.account,
+                                "password": this.password,
+                            },
+                        }).then(function (response) {
+                            if (response.data.code != 20000) {
+                                alert(response.data.message);
+                            } else {
+                                window.location.href = "/personal/notice"
+                            }
+                        }).catch(function (error) {
+                            alert(error);
+                        });
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

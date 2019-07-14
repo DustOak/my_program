@@ -78,6 +78,7 @@
 				<param name="status">404</param>
 			</result>
 		</action>
+		
 		<action name="deleteReply" class="com.cui.action.DeleteReplyAction">
 			<result name="success" type="redirectAction">
 				<param name="actionName">post</param>
@@ -85,6 +86,9 @@
 				<param name="post">${post}</param>
 			</result>
 		</action>
+		
+		
+		<!--到这了-->
 		<action name="myInfo" class="com.cui.action.MyInfoAction">
 			<result name="success">/user_InfoManager.jsp</result>
 			<result name="error" type="httpheader">
@@ -102,19 +106,22 @@
 				<param name="status">404</param>
 			</result>
 		</action>
-		<action name="checkPassword" class="com.cui.action.CheckPassword"/>
+		<action name="checkPassword" class="com.cui.action.CheckPasswordAction"/>
 		<action name="logout" class="com.cui.action.LogoutAction">
 			<result name="success" type="redirectAction">login</result>
 		</action>
+		
 		<action name="login" class="com.cui.action.indexAction">
 			<interceptor-ref name="Session"/>
 			<result name="input">/login.jsp</result>
 			<result name="success" type="redirectAction">index?sessionId=${sessionId}</result>
 		</action>
+		
 		<action name="loginAction" class="com.cui.action.LoginAction">
 			<result name="success" type="redirectAction">index?sessionId=${sessionID}</result>
 			<result name="input">/login.jsp</result>
 		</action>
+		
 		<action name="modifyPassword" class="com.cui.action.ModifyPasswordAction">
 			<result name="success" type="redirectAction">login</result>
 			<result name="error" type="httpheader">

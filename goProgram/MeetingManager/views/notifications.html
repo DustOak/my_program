@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+<meta http-equiv = "content-type" content = "text/html" ;charset = "utf-8">
+        <title>CoolMeeting会议管理系统</title>
+        <link rel = "stylesheet" href = "/static/css/common.css" />
+    </head>
+    <body>
+       <div>
+            <div class = "page-header">
+            <div class = "header-banner">
+                <img src = "/static/img/header.png" alt = "CoolMeeting" />
+            </div>
+            <div class = "header-title">
+                欢迎访问Cool-Meeting会议管理系统
+            </div>
+            <div class = "header-quicklink">
+                欢迎您，<strong></strong>
+                <a href = "/personal/password">[修改密码]</a>
+            </div>
+        </div>
+        <div class = "page-body">
+          <div class = "page-sidebar">
+                <div class = "sidebar-menugroup">
+                    <div class = "sidebar-grouptitle">个人中心</div>
+                    <ul class = "sidebar-menu">
+                        <li class = "sidebar-menuitem"><a href = "/personal/notice">最新通知</a></li>
+                        <li class = "sidebar-menuitem active"><a href = "/personal/destine">我的预定</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/personal/meeting">我的会议</a></li>
+                    </ul>
+                </div>
+                <div class = "sidebar-menugroup">
+                    <div class = "sidebar-grouptitle">人员管理</div>
+                    <ul class = "sidebar-menu">
+                        <li class = "sidebar-menuitem"><a href = "/personnel/department">部门管理</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/personnel/staffRegister">员工注册</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/personnel/staffApproval">注册审批</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/personnel/staffSearch">搜索员工</a></li>
+                    </ul>
+                </div>
+                <div class = "sidebar-menugroup">
+                    <div class = "sidebar-grouptitle">会议预定</div>
+                    <ul class = "sidebar-menu">
+                        <li class = "sidebar-menuitem"><a href = "/meeting/meetingRoomAdd">添加会议室</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/meeting/meetingRoomView">查看会议室</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/meeting/destineMeeting">预定会议</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/meeting/meetingSearch">搜索会议</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class = "page-content">
+                <div class = "content-nav">
+                    个人中心 > <a>最新通知</a>
+                </div>
+                <table class = "listtable" id = "app">
+                    <caption>
+                        未来7天我要参加的会议:
+                    </caption>
+                    <tr class = "listheader">
+                        <th style = "width:300px">会议名称</th>
+                        <th>会议室</th>
+                        <th>起始时间</th>
+                        <th>结束时间</th>
+                        <th style = "width:100px">操作</th>
+                    </tr>
+                    <tr v-for = "meeting in meetings">
+                         <td>${meeting.Name}</td>
+                         <td>${meeting.MeetingRoom.RoomID}</td>
+                         <td>${meeting.StartTime}</td>
+                         <td>${meeting.EndTime}</td>
+                         <td>   <a class = "clickbutton" :href = "'/meeting/details?id='+meeting.ID">查看详情</a></td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <div class = "page-footer">
+            <hr />
+            更多问题，欢迎联系<a href = "mailto:webmaster@eeg.com">管理员</a>
+            <img src = "/static/img/footer.png" alt = "CoolMeeting" />
+        </div>
+       </div>
+      <script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src = "https://cdn.staticfile.org/axios/0.19.0-beta.1/axios.min.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                delimiters: ['${', '}'],
+                data: {
+                    meetings: []
+                },
+                mounted() {
+                    this.init()
+                },
+                methods: {
+                    init() {
+                        axios.defaults.paramsSerializer = (params) => {
+                            return Qs.stringify(params, {arrayFormat: 'brackets'});
+                        };
+                        axios({
+                            method: 'get',
+                            url: '/api/meeting?type=1',
+                        }).then(function (response) {
+                            app.meetings = response.data.data;
+                        }).catch(function (error) {
+                            alert(error);
+                        });
+                    },
+                }
+
+            })
+        </script>
+    </body>
+</html>

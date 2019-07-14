@@ -70,7 +70,7 @@ To change this template use File | Settings | File Templates.
     </s:else>
 </div>
 
-
+<!--写到这了!!!-->
 <!-- hot post bar-->
 <div class="float-right" style="margin-top: 4%;margin-left: .5%;
 width:87.5%;height:auto;color: white; overflow-y: auto;">

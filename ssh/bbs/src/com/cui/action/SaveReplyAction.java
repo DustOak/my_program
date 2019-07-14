@@ -7,6 +7,8 @@ import com.cui.util.Session;
 import com.cui.util.SessionManager;
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.ServletActionContext;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -15,6 +17,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class SaveReplyAction extends ActionSupport {
 private Integer board;
 private Integer post;
@@ -61,6 +64,7 @@ public void setReplyLoadService(ReplyLoadService replyLoadService) {
 	this.replyLoadService = replyLoadService;
 }
 
+@Autowired
 private ReplyLoadService replyLoadService;
 
 public String execute() {

@@ -1,13 +1,35 @@
 package tools
 
 import (
-	"crypto/rand"
+	"database/sql/driver"
+	"fmt"
+	"strconv"
+	"time"
 )
 
-func GetSid() string {
-	value, err := rand.Prime(rand.Reader, 64)
-	if err != nil {
-		panic(err)
+type LocalTime struct {
+	time.Time
+}
+
+func (t LocalTime) MarshalJSON() ([]byte, error) {
+	// 格式化秒
+	seconds := t.Unix() * 1000
+	return []byte(strconv.FormatInt(seconds, 10)), nil
+}
+
+func (t LocalTime) Value() (driver.Value, error) {
+	var zeroTime time.Time
+	if t.Time.UnixNano() == zeroTime.UnixNano() {
+		return nil, nil
 	}
-	return value.String()
+	return t.Time, nil
+}
+
+func (t *LocalTime) Scan(v interface{}) error {
+	value, ok := v.(time.Time)
+	if ok {
+		*t = LocalTime{Time: value}
+		return nil
+	}
+	return fmt.Errorf("can not convert %v to timestamp", v)
 }

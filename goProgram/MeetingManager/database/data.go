@@ -43,6 +43,7 @@ func QueryByCondition(object model.BaseInterface) interface{} {
 	db.Where(object).Find(object)
 	return object
 }
+
 func QueryPreloadCondition(object model.BaseInterface, condition string, value ...interface{}) interface{} {
 	a := object.GetSlice()
 	db.Set("gorm:auto_preload", true).Where(condition, value...).Find(a)

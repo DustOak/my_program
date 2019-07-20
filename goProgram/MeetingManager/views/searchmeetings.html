@@ -49,45 +49,50 @@
                     </ul>
                 </div>
             </div>
-            <div class = "page-content">
+            <div class = "page-content" id = "app">
                 <div class = "content-nav">
                     会议预定 > 搜索会议
                 </div>
-                <form>
+                <form id = "app">
                     <fieldset>
                         <legend>搜索会议</legend>
                         <table class = "formtable">
                             <tr>
                                 <td>会议名称：</td>
                                 <td>
-                                    <input type = "text" id = "meetingname" maxlength = "20" />
+                                    <input type = "text" v-model = "meetingName" id = "meetingname" maxlength = "20" />
                                 </td>
-                                <td>会议室名称：</td>
+                                <td>会议室房间号：</td>
                                 <td>
-                                    <input type = "text" id = "roomname" maxlength = "20" />
+                                    <input type = "text" v-model = "meetingRoomID" id = "roomname" maxlength = "20" />
                                 </td>
                                 <td>预定者姓名：</td>
                                 <td>
-                                    <input type = "text" id = "reservername" maxlength = "20" />
+                                    <input type = "text" v-model = "meetingBookName" id = "reservername"
+                                           maxlength = "20" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>预定日期：</td>
                                 <td colspan = "5">
-                                    从&nbsp;<input type = "date" id = "reservefromdate" placeholder = "例如：2013-10-20" />
-                                    到&nbsp;<input type = "date" id = "reservetodate" placeholder = "例如：2013-10-22" />
+                                    从&nbsp;<input type = "date" v-model = "bookDateMin" id = "reservefromdate"
+                                                  placeholder = "例如：2013-10-20" />
+                                    到&nbsp;<input type = "date" v-model = "bookDateMax" id = "reservetodate"
+                                                  placeholder = "例如：2013-10-22" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>会议日期：</td>
                                 <td colspan = "5">
-                                    从&nbsp;<input type = "date" id = "meetingfromdate" placeholder = "例如：2013-10-20" />
-                                    到&nbsp;<input type = "date" id = "meetingtodate" placeholder = "例如：2013-10-22" />
+                                    从&nbsp;<input type = "date" v-model = "meetingDateMin" id = "meetingfromdate"
+                                                  placeholder = "例如：2013-10-20" />
+                                    到&nbsp;<input type = "date" v-model = " meetingDateMax" id = "meetingtodate"
+                                                  placeholder = "例如：2013-10-22" />
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan = "6" class = "command">
-                                    <input type = "button" class = "clickbutton" value = "查询" />
+                                    <input type = "button" class = "clickbutton" value = "查询" v-on:click = "search" />
                                     <input type = "reset" class = "clickbutton" value = "重置" />
                                 </td>
                             </tr>
@@ -96,41 +101,26 @@
                 </form>
                 <div>
                     <h3 style = "text-align:center;color:black">查询结果</h3>
-                    <div class = "pager-header">
-                        <div class = "header-info">
-                            共<span class = "info-number">54</span>条结果，
-                            分成<span class = "info-number">6</span>页显示，
-                            当前第<span class = "info-number">1</span>页
-                        </div>
-                        <div class = "header-nav">
-                            <input type = "button" class = "clickbutton" value = "首页" />
-                            <input type = "button" class = "clickbutton" value = "上页" />
-                            <input type = "button" class = "clickbutton" value = "下页" />
-                            <input type = "button" class = "clickbutton" value = "末页" />
-                            跳到第<input type = "text" id = "pagenum" class = "nav-number" />页
-                            <input type = "button" class = "clickbutton" value = "跳转" />
-                        </div>
-                    </div>
                 </div>
                 <table class = "listtable">
                     <tr class = "listheader">
                         <th>会议名称</th>
-                        <th>会议室名称</th>
+                        <th>会议室房间号</th>
                         <th>会议开始时间</th>
                         <th>会议结束时间</th>
                         <th>会议预定时间</th>
                         <th>预定者</th>
                         <th>操作</th>
                     </tr>
-                    <tr>
-                        <td>业务洽谈会</td>
-                        <td>第一会议室</td>
-                        <td>2013-10-12 8:00</td>
-                        <td>2013-10-12 12:00</td>
-                        <td>2013-10-10 16:00</td>
-                        <td>Jerry</td>
+                    <tr v-for = "meeting in meetings ">
+                        <td>${meeting.Name}</td>
+                        <td>${meeting.MeetingRoom.RoomName}</td>
+                        <td>${meeting.StartTime| formatDate}</td>
+                        <td>${meeting.EndTime |formatDate}</td>
+                        <td>${meeting.BookTime|formatDate}</td>
+                        <td>${meeting.BP.PersonnelName}</td>
                         <td>
-                            <a class = "clickbutton" href = "/meeting/details">查看详情</a>
+                            <a class = "clickbutton"  :href = "'/meeting/details?id='+meeting.ID">查看详情</a>
                         </td>
                     </tr>
                 </table>
@@ -141,5 +131,63 @@
             更多问题，欢迎联系<a href = "mailto:webmaster@eeg.com">管理员</a>
             <img src = "/static/img/footer.png" alt = "CoolMeeting" />
         </div>
+    <script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src = "https://cdn.staticfile.org/axios/0.19.0-beta.1/axios.min.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                delimiters: ['${', '}'],
+                data: {
+                    meetings: [],
+                    meetingName: null,
+                    meetingRoomID: null,
+                    meetingBookName: null,
+                    bookDateMin: null,
+                    bookDateMax: null,
+                    meetingDateMin: null,
+                    meetingDateMax: null,
+                },
+                methods: {
+                    search: function () {
+                        axios.defaults.paramsSerializer = (params) => {
+                            return Qs.stringify(params, {arrayFormat: 'brackets'});
+                        };
+                        axios({
+                            method: 'get',
+                            url: '/api/meeting?type=5& meetingName=' +
+                                app.meetingName + '&meetingRoomID=' +
+                                app.meetingRoomID + '&meetingBookName=' + app.meetingBookName + '&bookDateMin=' + app.bookDateMin
+                                + '&bookDateMax=' + app.bookDateMax + '&meetingDateMin=' + app.meetingDateMin
+                                + '&meetingDateMax=' + app.meetingDateMax
+                        }).then(function (response) {
+                            if (response.data.code == 0) {
+                                app.meetings = response.data.data;
+                            } else {
+                                alert(response.data.message)
+                            }
+                        }).catch(function (error) {
+                            alert(error);
+                        });
+                    }
+                },
+                filters: {
+                    formatDate: function (value) {
+                        let date = new Date(value);
+                        let y = date.getFullYear();
+                        let MM = date.getMonth() + 1;
+                        MM = MM < 10 ? ('0' + MM) : MM;
+                        let d = date.getDate();
+                        d = d < 10 ? ('0' + d) : d;
+                        let h = date.getHours();
+                        h = h < 10 ? ('0' + h) : h;
+                        let m = date.getMinutes();
+                        m = m < 10 ? ('0' + m) : m;
+                        let s = date.getSeconds();
+                        s = s < 10 ? ('0' + s) : s;
+                        return y + '-' + MM + '-' + d + ' ' + h + ':' + m + ':' + s;
+                    }
+                }
+            })
+        </script>
     </body>
 </html>

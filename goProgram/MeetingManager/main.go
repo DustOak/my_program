@@ -59,6 +59,7 @@ func main() {
 		api.POST("/login", ApiControllers.LoginController)
 		api.GET("/meeting", ApiControllers.MeetingController)
 		api.PUT("/meeting", ApiControllers.MeetingStatusChange)
+		api.POST("/meeting", ApiControllers.SaveMeeting)
 		api.GET("/department", ApiControllers.GetDepartment)
 		api.DELETE("/department", ApiControllers.DeleteDepartment)
 		api.POST("/department", ApiControllers.SaveDepartment)
@@ -67,6 +68,8 @@ func main() {
 		api.PUT("/staff", ApiControllers.ChangeStaffStatus)
 		api.DELETE("/staff", ApiControllers.DeleteStaff)
 		api.POST("/meetingRoom", ApiControllers.SaveMeetingRoom)
+		api.GET("/meetingRoom", ApiControllers.GetMeetingRoomRouter)
+		api.PUT("/meetingRoom", ApiControllers.UpdateMeetingRoom)
 	}
 	err := r.Run(":8080") // listen and serve on 0.0.0.0:8080
 	if err != nil {

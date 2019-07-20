@@ -51,7 +51,7 @@
                 <div class = "content-nav">
                     会议预定 > 查看会议室
                 </div>
-                <table class = "listtable">
+                <table class = "listtable" id="app">
                     <caption>所有会议室:</caption>
                     <tr class = "listheader">
                         <th>门牌编号</th>
@@ -60,13 +60,15 @@
                         <th>当前状态</th>
                         <th>操作</th>
                     </tr>
-                    <tr>
-                        <td>101</td>
-                        <td>第一会议室</td>
-                        <td>10</td>
-                        <td>启用</td>
+                    <tr v-for="meetingRoom in meetingRooms">
+                        <td>${meetingRoom.RoomID}</td>
+                        <td>${meetingRoom.RoomName}</td>
+                        <td>${meetingRoom.RoomCapacity}</td>
+                        <td v-if="meetingRoom.RoomStatus===1">启用</td>
+                        <td v-else-if="meetingRoom.RoomStatus===-1">停用</td>
+                        <td v-else>删除</td >
                         <td>
-                            <a class = "clickbutton" href = "/meeting/roomDetails">查看详情</a>
+                            <a class = "clickbutton":href = "'/meeting/roomDetails?id='+meetingRoom.ID">查看详情</a>
                         </td>
                     </tr>
                 </table>
@@ -77,5 +79,35 @@
             更多问题，欢迎联系<a href = "mailto:webmaster@eeg.com">管理员</a>
             <img src = "/static/img/footer.png" alt = "CoolMeeting" />
         </div>
+      <script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src = "https://cdn.staticfile.org/axios/0.19.0-beta.1/axios.min.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                delimiters: ['${', '}'],
+                data: {
+                   meetingRooms:[]
+                },
+                mounted() {
+                    this.init()
+                },
+                methods: {
+                    init() {
+                        axios.defaults.paramsSerializer = (params) => {
+                            return Qs.stringify(params, {arrayFormat: 'brackets'});
+                        };
+                        axios({
+                            method: 'get',
+                            url: '/api/meetingRoom?type=0',
+                        }).then(function (response) {
+                            app.meetingRooms = response.data.data;
+                        }).catch(function (error) {
+                            alert(error);
+                        });
+                    },
+                }
+
+            })
+        </script>
     </body>
 </html>

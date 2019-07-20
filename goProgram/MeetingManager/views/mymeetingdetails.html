@@ -104,11 +104,11 @@
                             </tr>
                             <tr>
                                 <td>预计开始时间：</td>
-                                <td>${meeting.StartTime}</td>
+                                <td>${meeting.StartTime|formatDate}</td>
                             </tr>
                             <tr>
                                 <td>预计结束时间：</td>
-                                <td>${meeting.EndTime}
+                                <td>${meeting.EndTime|formatDate}
                                 </td>
                             </tr>
                             <tr>
@@ -185,20 +185,37 @@
                     },
                     cancel: function () {
                         if (confirm("确认取消会议?")) {
-                           if (confirm("再次确认撤销会议?撤销后将无法恢复")){
-                               axios({
-                                   method: 'put',
-                                   url: '/api/meeting?id=' + window.location.search.split("=")[1],
-                               }).then(function (response) {
-                                   if (response.data.code==0){
-                                       alert("撤销成功!");
-                                       window.location.href = "/personal/destine"
-                                   }
-                               }).catch(function (error) {
-                                   alert(error);
-                               });
-                           }
+                            if (confirm("再次确认撤销会议?撤销后将无法恢复")) {
+                                axios({
+                                    method: 'put',
+                                    url: '/api/meeting?id=' + window.location.search.split("=")[1],
+                                }).then(function (response) {
+                                    if (response.data.code == 0) {
+                                        alert("撤销成功!");
+                                        window.location.href = "/personal/destine"
+                                    }
+                                }).catch(function (error) {
+                                    alert(error);
+                                });
+                            }
                         }
+                    }
+                },
+                filters: {
+                    formatDate: function (value) {
+                        let date = new Date(value);
+                        let y = date.getFullYear();
+                        let MM = date.getMonth() + 1;
+                        MM = MM < 10 ? ('0' + MM) : MM;
+                        let d = date.getDate();
+                        d = d < 10 ? ('0' + d) : d;
+                        let h = date.getHours();
+                        h = h < 10 ? ('0' + h) : h;
+                        let m = date.getMinutes();
+                        m = m < 10 ? ('0' + m) : m;
+                        let s = date.getSeconds();
+                        s = s < 10 ? ('0' + s) : s;
+                        return y + '-' + MM + '-' + d + ' ' + h + ':' + m + ':' + s;
                     }
                 }
 

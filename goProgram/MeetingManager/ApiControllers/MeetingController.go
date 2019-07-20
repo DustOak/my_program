@@ -4,12 +4,18 @@ import (
 	"MeetingManager/database"
 	"MeetingManager/global"
 	"MeetingManager/model"
+	"MeetingManager/tools"
+	"encoding/json"
+	"fmt"
 	"github.com/gin-gonic/gin"
+	"io/ioutil"
 	"log"
 	"strconv"
+	"strings"
+	"time"
 )
 
-// code 0 查看某个会议 case 1  查看未来七天会议 case 2 查看我的预定会议 3将要参加的会议(今天)
+// code 0 查看某个会议 case 1  查看未来七天会议 case 2 查看我的预定会议 3获取今天会议 4将要参加的会议 5搜索会议
 func MeetingController(context *gin.Context) {
 	defer func() {
 		if err := recover(); err != nil {
@@ -36,6 +42,8 @@ func MeetingController(context *gin.Context) {
 		GetTodayMeetings(context)
 	case "4":
 		GetIJoinMeetings(context)
+	case "5":
+		SearchMeeting(context)
 	default:
 		context.JSON(global.HTTP_STATUS_OK, gin.H{
 			"status":  global.HTTP_STATUS_OK,
@@ -146,6 +154,7 @@ func GetMeeting(context *gin.Context, id int) {
 			"message": global.ERROR_STRING_SESSION_NOT_FOUNT,
 			"code":    global.ERROR_SESSION_NOT_FOUNT,
 		})
+		return
 	} else {
 		meeting := database.QueryObject(true, &model.Meeting{}, id)
 		if meeting.(*model.Meeting).ID <= 0 {
@@ -240,6 +249,128 @@ func MeetingStatusChange(context *gin.Context) {
 	context.JSON(global.HTTP_STATUS_OK, gin.H{
 		"status":  global.HTTP_STATUS_OK,
 		"data":    gin.H{},
+		"message": "",
+		"code":    global.NO_ERROR,
+	})
+}
+
+func SearchMeeting(context *gin.Context) {
+	var (
+		bookDateMax     = context.Query("bookDateMax")
+		bookDateMin     = context.Query("bookDateMin")
+		meetingBookName = context.Query("meetingBookName")
+		meetingDateMax  = context.Query("meetingDateMax")
+		meetingDateMin  = context.Query("meetingDateMin")
+		meetingName     = context.Query("meetingName")
+		meetingRoomID   = context.Query("meetingRoomID")
+		bookDateSql     = " and m.BOOK_TIME >= '" + bookDateMin + "' and  m.BOOK_TIME <= '" + bookDateMax + "'"
+		meetingDate     = " and m.START_TIME >= '" + meetingDateMin + "' and  m.START_TIME <= '" + meetingDateMax + "'"
+		meetingBN       = " and p.PERSONNEL_NAME=  '" + meetingBookName + "'"
+		meetingRI       = " and mr.ROOM_ID='" + meetingRoomID + "'"
+		meetingN        = " and m.NAME like '%" + meetingName + "%'"
+	)
+
+	sql := "select m.* from MEETING as m, PERSONNEL as p ,MEETINGROOM as mr  where  1=1 "
+	if strings.TrimSpace(bookDateMax) != "" && strings.TrimSpace(bookDateMin) != "" {
+		sql += bookDateSql
+	}
+	if strings.TrimSpace(meetingDateMax) != "" && strings.TrimSpace(meetingDateMin) != "" {
+		sql += meetingDate
+	}
+	if strings.TrimSpace(meetingBookName) != "" {
+		sql += meetingBN
+	}
+	if strings.TrimSpace(meetingName) != "" {
+		sql += meetingN
+	}
+	if strings.TrimSpace(meetingRoomID) != "" {
+		sql += meetingRI
+	}
+	result := database.Query(&model.Meeting{}, sql)
+	if len(*result.(*[]model.Meeting)) <= 0 {
+		context.JSON(global.HTTP_STATUS_OK, gin.H{
+			"status":  global.HTTP_STATUS_OK,
+			"data":    gin.H{},
+			"message": global.ERROR_STRING_DATEBASE_DATA_NOT_FOUND,
+			"code":    global.ERROR_DATEBASE_DATA_NOT_FOUND,
+		})
+		return
+	} else {
+		personnel := database.QueryAll(&model.Personnel{})
+		meetingRoom := database.QueryAll(&model.MeetingRoom{})
+		for i := 0; i < len(*result.(*[]model.Meeting)); i++ {
+			for j := 0; j < len(*personnel.(*[]model.Personnel)); j++ {
+				if (*result.(*[]model.Meeting))[i].BookPersonnel == (*personnel.(*[]model.Personnel))[j].ID {
+					(*result.(*[]model.Meeting))[i].BP = (*personnel.(*[]model.Personnel))[j]
+					break
+				}
+			}
+			for j := 0; j < len(*meetingRoom.(*[]model.MeetingRoom)); j++ {
+				if (*result.(*[]model.Meeting))[i].RID == (*meetingRoom.(*[]model.MeetingRoom))[j].ID {
+					(*result.(*[]model.Meeting))[i].MeetingRoom = (*meetingRoom.(*[]model.MeetingRoom))[j]
+					break
+				}
+			}
+		}
+		context.JSON(global.HTTP_STATUS_OK, gin.H{
+			"status":  global.HTTP_STATUS_OK,
+			"data":    result,
+			"message": "",
+			"code":    global.NO_ERROR,
+		})
+	}
+
+}
+
+func SaveMeeting(context *gin.Context) {
+	value := make(map[string]interface{})
+	data, err := ioutil.ReadAll(context.Request.Body)
+	if err != nil {
+		log.Println(err)
+		context.JSON(global.HTTP_STATUS_OK, gin.H{
+			"status":  global.HTTP_STATUS_OK,
+			"data":    "",
+			"message": global.ERROR_STRING_PRAM_ILLEGAL,
+			"code":    global.ERROR_PRAM_ILLEGAL,
+		})
+	}
+	err = json.Unmarshal(data, &value)
+	if err != nil {
+		log.Println(err)
+		context.JSON(global.HTTP_STATUS_OK, gin.H{
+			"status":  global.HTTP_STATUS_OK,
+			"data":    "",
+			"message": global.ERROR_STRING_PRAM_ILLEGAL,
+			"code":    global.ERROR_PRAM_ILLEGAL,
+		})
+		return
+	}
+	fmt.Println(value)
+	st, err := time.Parse("2006-01-02 15:04:05", value["meetingST"].(string))
+	et, err := time.Parse("2006-01-02 15:04:05", value["meetingET"].(string))
+	err = database.Insert(&model.Meeting{
+		RID:                int(value["meetingRoomID"].(float64)),
+		Name:               value["meetingName"].(string),
+		MeetingStatus:      1,
+		BookNumber:         int(value["meetingRoomID"].(float64)),
+		StartTime:          tools.LocalTime{Time: st},
+		EndTime:            tools.LocalTime{Time: et},
+		BookTime:           tools.LocalTime{Time: time.Now()},
+		MeetingDescription: value["meetingRemaker"].(string),
+	})
+	if err != nil {
+		log.Println(err)
+		context.JSON(global.HTTP_STATUS_OK, gin.H{
+			"status":  global.HTTP_STATUS_OK,
+			"data":    "",
+			"message": global.ERROR_STRING_DATABASE_CANT_INSERT,
+			"code":    global.ERROR_DATABASE_CANT_INSERT,
+		})
+		return
+	}
+	context.JSON(global.HTTP_STATUS_OK, gin.H{
+		"status":  global.HTTP_STATUS_OK,
+		"data":    "",
 		"message": "",
 		"code":    global.NO_ERROR,
 	})

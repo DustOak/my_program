@@ -50,48 +50,53 @@
                 <div class = "content-nav">
                     会议预定 > 修改会议室信息
                 </div>
-                <form>
+                <form id = "app">
                     <fieldset>
                         <legend>会议室信息</legend>
                         <table class = "formtable">
                             <tr>
                                 <td>门牌号:</td>
                                 <td>
-                                    <input id = "roomnumber" type = "text" value = "201" maxlength = "10" />
+                                    <input id = "roomnumber" v-model = " meeting.RoomID" type = "text" value = "201"
+                                           maxlength = "10" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>会议室名称:</td>
                                 <td>
-                                    <input id = "capacity" type = "text" value = "第一会议室" maxlength = "20" />
+                                    <input id = "capacity" v-model = " meeting.RoomName" type = "text" value = "第一会议室"
+                                           maxlength = "20" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>最多容纳人数：</td>
                                 <td>
-                                    <input id = "roomcapacity" type = "text" value = "15" />
+                                    <input id = "roomcapacity" v-model = " meeting.RoomCapacity" type = "text"
+                                           value = "15" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>当前状态：</td>
                                 <td>
-                                    <input type = "radio" id = "status" name = "status" checked = "checked"
+                                    <input type = "radio" v-model = " meeting.RoomStatus" id = "status" name = "status"
+                                           checked = "checked"
                                            value = "1" /><label for = "status">启用</label>
-                                    <input type = "radio" id = "status" name = "status" /><label for = "status"
-                                                                                                 value = "0">停用</label>
-                                    <input type = "radio" id = "status" name = "status" /><label for = "status"
-                                                                                                 value = "-1">删除</label>
+                                    <input type = "radio" v-model = " meeting.RoomStatus" id = "status" value = "-1"
+                                           name = "status" /><label>停用</label>
+                                    <input type = "radio" v-model = " meeting.RoomStatus" id = "status" value = "-2"
+                                           name = "status" /><label>删除</label>
                                 </td>
                             </tr>
                             <tr>
                                 <td>备注：</td>
                                 <td>
-                                    <textarea id = "description" maxlength = "200" rows = "5" cols = "60">本会议室配备了投影、幕布、音响设备。</textarea>
+                                    <textarea v-model = " meeting.RoomRemarks" id = "description" maxlength = "200"
+                                              rows = "5" cols = "60">本会议室配备了投影、幕布、音响设备。</textarea>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan = "2" class = "command">
-                                    <input type = "submit" value = "确认修改" class = "clickbutton" />
+                                    <input type = "button" value = "确认修改" class = "clickbutton" v-on:click = "up" />
                                     <input type = "button" class = "clickbutton" value = "返回"
                                            onclick = "window.history.back();" />
                                 </td>
@@ -106,5 +111,64 @@
             更多问题，欢迎联系<a href = "mailto:webmaster@eeg.com">管理员</a>
             <img src = "/static/img/footer.png" alt = "CoolMeeting" />
         </div>
+     <script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src = "https://cdn.staticfile.org/axios/0.19.0-beta.1/axios.min.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                delimiters: ['${', '}'],
+                data: {
+                    meeting: "",
+                },
+                mounted() {
+                    this.init()
+                },
+                methods: {
+                    init() {
+                        axios.defaults.paramsSerializer = (params) => {
+                            return Qs.stringify(params, {arrayFormat: 'brackets'});
+                        };
+                        axios({
+                            method: 'get',
+                            url: '/api/meetingRoom?type=1&id=' + window.location.search.split("=")[1],
+                        }).then(function (response) {
+                            if (response.data.code != 0) {
+                                alert(response.data.message)
+                            } else {
+                                app.meeting = response.data.data
+                            }
+                        }).catch(function (error) {
+                            alert(error);
+                        });
+                    },
+                    up: function () {
+                        axios.defaults.paramsSerializer = (params) => {
+                            return Qs.stringify(params, {arrayFormat: 'brackets'});
+                        };
+                        axios({
+                            method: 'put',
+                            url: '/api/meetingRoom',
+                            data: {
+                                ID: app.meeting.ID,
+                                RoomCapacity: app.meeting.RoomCapacity,
+                                RoomID: app.meeting.RoomID,
+                                RoomName: app.meeting.RoomName,
+                                RoomRemarks: app.meeting.RoomRemarks,
+                                RoomStatus: app.meeting.RoomStatus
+                            }
+                        }).then(function (response) {
+                            if (response.data.code == 0) {
+                                alert("更新成功");
+                                location.href = "/meeting/meetingRoomView";
+                            } else {
+                                alert(response.data.message)
+                            }
+                        }).catch(function (error) {
+                            alert(error);
+                        });
+                    }
+                },
+            })
+        </script>
     </body>
 </html>

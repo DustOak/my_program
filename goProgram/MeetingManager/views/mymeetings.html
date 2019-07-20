@@ -68,9 +68,9 @@
                     <tr v-for="meeting in meetings">
                         <td>${meeting.Name}</td>
                         <td>${meeting.MeetingRoom.RoomName}</td>
-                        <td>${meeting.StartTime}</td>
-                        <td>${meeting.EndTime}</td>
-                        <td>${meeting.BookTime}</td>
+                        <td>${meeting.StartTime|formatDate}</td>
+                        <td>${meeting.EndTime|formatDate}</td>
+                        <td>${meeting.BookTime|formatDate}</td>
                         <td>${meeting.BP.PersonnelName}</td>
                         <td>
                             <a class = "clickbutton" :href = "'/meeting/details?id='+meeting.ID">查看详情</a>
@@ -110,8 +110,24 @@
                             alert(error);
                         });
                     },
+                },
+                filters: {
+                    formatDate: function (value) {
+                        let date = new Date(value);
+                        let y = date.getFullYear();
+                        let MM = date.getMonth() + 1;
+                        MM = MM < 10 ? ('0' + MM) : MM;
+                        let d = date.getDate();
+                        d = d < 10 ? ('0' + d) : d;
+                        let h = date.getHours();
+                        h = h < 10 ? ('0' + h) : h;
+                        let m = date.getMinutes();
+                        m = m < 10 ? ('0' + m) : m;
+                        let s = date.getSeconds();
+                        s = s < 10 ? ('0' + s) : s;
+                        return y + '-' + MM + '-' + d + ' ' + h + ':' + m + ':' + s;
+                    }
                 }
-
             })
         </script>
     </body>

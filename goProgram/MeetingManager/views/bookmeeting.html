@@ -42,119 +42,8 @@
                 height: 225px;
             }
         </style>
-        <script type = "application/javascript">
-            function employee(employeeid, employeename) {
-                this.employeeid = employeeid;
-                this.employeename = employeename;
-            }
-
-            function department(departmentid, departmentname, employees) {
-                this.departmentid = departmentid;
-                this.departmentname = departmentname;
-                this.employees = employees;
-            }
-
-            var data = new Array(
-                new department(1, "技术部", new Array(
-                    new employee(1001, "a00"), new employee(1002, "a01"), new employee(1003, "a02"), new employee(1004, "a03"))),
-                new department(2, "销售部", new Array(
-                    new employee(2001, "b00"), new employee(2002, "b01"), new employee(2003, "b02"), new employee(2004, "b03"))),
-                new department(3, "市场部", new Array(
-                    new employee(3001, "c00"), new employee(3002, "c01"), new employee(3003, "c02"), new employee(3004, "c03"))),
-                new department(4, "行政部", new Array(
-                    new employee(4001, "d00"), new employee(4002, "d01"), new employee(4003, "d02"), new employee(4004, "d03"))));
-
-            var selDepartments;
-            var selEmployees;
-            var selSelectedEmployees;
-
-            function body_load() {
-                selDepartments = document.getElementById("selDepartments");
-                selEmployees = document.getElementById("selEmployees");
-                selSelectedEmployees = document.getElementById("selSelectedEmployees");
-
-                for (var i = 0; i < data.length; i++) {
-                    var dep = document.createElement("option");
-                    dep.value = data[i].departmentid;
-                    dep.text = data[i].departmentname;
-                    selDepartments.appendChild(dep);
-                }
-
-                fillEmployees();
-            }
-
-            function fillEmployees() {
-                clearList(selEmployees);
-                var departmentid = selDepartments.options[selDepartments.selectedIndex].value;
-                var employees;
-                for (var i = 0; i < data.length; i++) {
-                    if (departmentid == data[i].departmentid) {
-                        employees = data[i].employees;
-                        break;
-                    }
-                }
-                for (i = 0; i < employees.length; i++) {
-                    var emp = document.createElement("option");
-                    emp.value = employees[i].employeeid;
-                    emp.text = employees[i].employeename;
-                    selEmployees.appendChild(emp);
-                }
-            }
-
-            function clearList(list) {
-                while (list.childElementCount > 0) {
-                    list.removeChild(list.lastChild);
-                }
-            }
-
-            function selectEmployees() {
-                for (var i = 0; i < selEmployees.options.length; i++) {
-                    if (selEmployees.options[i].selected) {
-                        addEmployee(selEmployees.options[i]);
-                        selEmployees.options[i].selected = false;
-                    }
-                }
-            }
-
-            function deSelectEmployees() {
-                var elementsToRemoved = new Array();
-                var options = selSelectedEmployees.options;
-                for (var i = 0; i < options.length; i++) {
-                    if (options[i].selected) {
-                        elementsToRemoved.push(options[i]);
-                    }
-                }
-                for (i = 0; i < elementsToRemoved.length; i++) {
-                    selSelectedEmployees.removeChild(elementsToRemoved[i]);
-                }
-            }
-
-            function addEmployee(optEmployee) {
-                var options = selSelectedEmployees.options;
-                var i = 0;
-                var insertIndex = -1;
-                while (i < options.length) {
-                    if (optEmployee.value == options[i].value) {
-                        return;
-                    } else if (optEmployee.value < options[i].value) {
-                        insertIndex = i;
-                        break;
-                    }
-                    i++;
-                }
-                var opt = document.createElement("option");
-                opt.value = optEmployee.value;
-                opt.text = optEmployee.text;
-
-                if (insertIndex == -1) {
-                    selSelectedEmployees.appendChild(opt);
-                } else {
-                    selSelectedEmployees.insertBefore(opt, options[insertIndex]);
-                }
-            }            
-        </script>
     </head>
-    <body onload = "body_load()">
+    <body >
         <div class = "page-header">
             <div class = "header-banner">
                 <img src = "/static/img/header.png" alt = "CoolMeeting" />
@@ -200,55 +89,70 @@
                 <div class = "content-nav">
                     会议预定 > 预定会议
                 </div>
-                <form>
+                <form id="app">
                     <fieldset>
                         <legend>会议信息</legend>
                         <table class = "formtable">
                             <tr>
                                 <td>会议名称：</td>
                                 <td>
-                                    <input type = "text" id = "meetingname" maxlength = "20" />
+                                    <input type = "text" v-model="meetingName" id = "meetingname" maxlength = "20" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>预计参加人数：</td>
                                 <td>
-                                    <input type = "text" id = "numofattendents" />
+                                    <input type = "text" v-model="meetingNumber" id = "numofattendents" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>预计开始时间：</td>
                                 <td>
-                                    <input type = "date" id = "startdate" />
-                                    <input type = "time" id = "starttime" />
+                                    <input type = "datetime-local" v-model="meetingST"id = "startdate" />
                                 </td>
                             </tr>
                             <tr>
                                 <td>预计结束时间：</td>
                                 <td>
-                                    <input type = "date" id = "enddate" />
-                                    <input type = "time" id = "endtime" />
+                                    <input type = "datetime-local" v-model="meetingET"id = "enddate" />
+
                                 </td>
                             </tr>
                             <tr>
                                 <td>会议说明：</td>
                                 <td>
-                                    <textarea id = "description" rows = "5"></textarea>
+                                    <textarea id = "description" v-model="meetingRemaker" rows = "5"></textarea>
                                 </td>
                             </tr>
                             <tr>
                                 <td>选择参会人员：</td>
                                 <td>
                                     <div id = "divfrom">
-                                        <select id = "selEmployees" multiple = "true">
+                                        <select id = "selEmployees" multiple = "true" v-model="people">
+                                            <option v-for="personnel in personnels"  v-bind:value="personnel.ID">
+                                                ${personnel.PersonnelName }
+                                            </option>
                                         </select>
                                     </div>
                                    
                                 </td>
                             </tr>
                             <tr>
+                                <td>选择会议室：</td>
+                                <td>
+                                    <div id = "divfrom">
+                                        <select  style="width: 50%">
+                                            <option v-for="meeting in meetingRooms"  v-model="meetingRoomID" v-bind:value="meeting.ID">
+                                                ${meeting.RoomID }
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                </td>
+                            </tr>
+                            <tr>
                                 <td class = "command" colspan = "2">
-                                    <input type = "submit" class = "clickbutton" value = "预定会议" />
+                                    <input type = "submit" class = "clickbutton" value = "预定会议" v-on:click="book" />
                                     <input type = "reset" class = "clickbutton" value = "重置" />
                                 </td>
                             </tr>
@@ -262,5 +166,75 @@
             更多问题，欢迎联系<a href = "mailto:webmaster@eeg.com">管理员</a>
             <img src = "/static/img/footer.png" alt = "CoolMeeting" />
         </div>
+    <script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src = "https://cdn.staticfile.org/axios/0.19.0-beta.1/axios.min.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                delimiters: ['${', '}'],
+                data: {
+                    personnels: [],
+                    meetingRooms:[],
+                    people:[],
+                    meetingName:"",
+                    meetingNumber:"",
+                    meetingST:"",
+                    meetingET:"",
+                    meetingRemaker:"",
+                    meetingRoomID:1
+                },
+                mounted() {
+                    this.init()
+                },
+                methods: {
+                    init() {
+                        axios.defaults.paramsSerializer = (params) => {
+                            return Qs.stringify(params, {arrayFormat: 'brackets'});
+                        };
+                        axios({
+                            method: 'get',
+                            url: '/api/staff?type=1&status=1',
+                        }).then(function (response) {
+                            app.personnels=response.data.data;
+                        }).catch(function (error) {
+                            alert(error);
+                        });
+                        axios({
+                            method: 'get',
+                            url: '/api/meetingRoom?type=0',
+                        }).then(function (response) {
+                            app.meetingRooms=response.data.data
+                        }).catch(function (error) {
+                            alert(error);
+                        });
+
+                    },
+                },
+                book:function () {
+                    axios.defaults.paramsSerializer = (params) => {
+                        return Qs.stringify(params, {arrayFormat: 'brackets'});
+                    };
+                    axios({
+                        method: 'post',
+                        url: '/api/staff',
+                        data:{
+                            people:app.people,
+                            meetingName:app.meetingName,
+                            meetingNumber:app.meetingNumber,
+                            meetingST:app.meetingST,
+                            meetingET:app.meetingET,
+                            meetingRemaker:app.meetingRemaker,
+                            meetingRoomID:app.meetingRoomID,
+                        }
+                    }).then(function (response) {
+
+                    }).catch(function (error) {
+                        alert(error);
+                    });
+
+                }
+
+            })
+        </script>
     </body>
 </html>

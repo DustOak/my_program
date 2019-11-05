@@ -1,0 +1,31 @@
+#login{
+    height: 100%;
+    background-image: url("../../static/images/47fb3c_.jpg");
+}
+#loginCard{
+    padding:8%;
+    padding-top: 5%;
+    background: rgba(255,255,255,.7);
+    border-radius: 5px;
+    margin-top: 60%;
+}
+span,img{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+#addArticle{
+    width: 50%;
+    height: 70%;
+    background:white;
+    display: none;
+    position: absolute;
+    top: 15%;
+    left: 26%;
+    z-index: 2;
+    padding: 2%;
+    border-radius: 10px;
+}

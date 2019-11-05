@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%;">
+<head>
+	<meta charset="UTF-8">
+	<title>博客后台管理</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../static/css/bakcup.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.semanticui.min.css">
+</head>
+<body style="background-color: #99CCFF;height: 100%">
+<div class="container" style="height: 100%">
+	<div class="row">
+			<h3 class="text-muted" style="color: #FFFFFF">博客后台管理系统</h3>
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li ><a href="home">主页</a></li>
+							<li class="active"><a href="article">文章管理</a></li>
+							<li><a href="comment">评论管理</a></li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle glyphicon glyphicon-user"
+                                   data-toggle="dropdown" role="button" aria-haspopup="true"
+                                   aria-expanded="false"><span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="logout">登出</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+	<div class="row" style="background-color: whitesmoke;margin-bottom:1%;height: 90%;">
+			<div class="col-lg-3 col-xs-3 col-md-3 col-sm-3 " style="width:20%;margin-top: 5%;margin-left: 3.5%">
+				<button class="btn btn-block btn-primary" onclick="disp()">发布文章</button>
+          	</div>
+			<div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 " style="margin-top: 5%;width: 95%;margin-left: 3.5%">
+            	<table id="myTable"  class="ui celled table " cellspacing="0" width="100%">
+					<thead>
+           			 	 <tr>
+               			 <th>标题</th>
+               			 <th>发布日期</th>
+               			 <th>标签</th>
+						 <th width="10%">操作</th>
+           				 </tr>
+        			</thead>
+					<tbody>
+					{{range .articles}}
+           				 <tr>
+               				 <th>{{.Title}}</th>
+               				 <th>{{.Date}}</th>
+               				 <th>{{.Category.CategoryName}}</th>
+							 <th>
+                                 <a  href="/admin/article/view?id={{.ID}}" target="_self" class="btn btn-info" style=""><span class="glyphicon glyphicon-search"></span></a>
+							     <button type="button" onclick="delArticle({{.ID}})" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span></button>
+							 </th>
+           				 </tr>
+					{{end}}
+        			</tbody>
+				</table>
+         	 </div>
+		</div>
+	<div class="row text-center" style="background-color: whitesmoke;height: 3%">
+          <h6 class="text-center"> Copyright ©   长风莫忘 |
+        <a href="http://www.miitbeian.gov.cn/">辽ICP备18004670号-2</a></h6>
+        </div>
+	<div class="row" id="addArticle">
+		<form style="padding: 2%; border: grey 2px solid;border-radius: 10px" id="article" action="/admin/article/save" method="post">
+			<h1>文章发布</h1>
+			<div	class="form-group">
+				<label>标题:</label>
+				<input class="form-control" name="title" id="title" type="text" style="width: 50%;display: inline;">
+			</div>
+			<div	class="form-group">
+				<label>分类:</label>
+				<select class="form-control" name="tag" id="tag" style="width: 50%;display: inline;">
+				{{range .cate}}
+					<option value="{{.ID}}">{{.CategoryName}}</option>
+				{{end}}
+				</select>
+			</div>
+			<div class="form-group" id="editor"></div>
+			<div class="form-group">
+				<input type="button" class="btn btn-primary" id="btn1" value="发布">
+				<button class="btn btn-default" type="button" onclick="cls()">关闭</button>
+			</div>
+		</form>
+	</div>
+</div>
+<script type="text/javascript" src="../../static/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="http://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.semanticui.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.1/semantic.min.js"></script>
+<script type="text/javascript" src="https://unpkg.com/wangeditor@3.1.1/release/wangEditor.min.js"></script>
+<script type="text/javascript" src="../../static/js/article.js"></script>
+<script type="text/javascript">
+        var E = window.wangEditor
+		var editor = new E('#editor')
+		editor.customConfig.uploadImgShowBase64 = true
+		editor.customConfig.menus = [
+			'head',  // 标题
+			'bold',  // 粗体
+			'fontSize',  // 字号
+			'fontName',  // 字体
+			'italic',  // 斜体
+			'underline',  // 下划线
+			'strikeThrough',  // 删除线
+			'foreColor',  // 文字颜色
+			'backColor',  // 背景颜色
+			'link',  // 插入链接
+			'list',  // 列表
+			'justify',  // 对齐方式
+			'quote',  // 引用
+			'emoticon',  // 表情
+			'image',  // 插入图片
+			'table',  // 表格
+			'video',  // 插入视频
+			'code',  // 插入代码
+			'undo',  // 撤销
+			'redo'  // 重复
+		];
+		editor.create();
+		document.getElementById('btn1').addEventListener('click', function () {
+			$.ajax({
+				url:"/admin/article/save",
+				method:"POST",
+				data:{
+					content:editor.txt.html(),
+					title:$("#title").val(),
+					tag:$("#tag").val(),
+				},
+				success:function (result) {
+					if (result=="-1"){
+						alert("发布失败");
+					}else {
+						alert("发布成功");
+                        location.reload();
+					}
+				}
+			})
+		}, false)
+    </script>
+</body>
+</html>

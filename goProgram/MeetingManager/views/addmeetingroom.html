@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv = "content-type" content = "text/html" ;charset = "utf-8">
+        <title>CoolMeeting会议管理系统</title>
+        <link rel = "stylesheet" href = "/static/css/common.css" />
+    </head>
+    <body>
+        <div class = "page-header">
+            <div class = "header-banner">
+                <img src = "/static/img/header.png" alt = "CoolMeeting" />
+            </div>
+            <div class = "header-title">
+                欢迎访问Cool-Meeting会议管理系统
+            </div>
+            <div class = "header-quicklink">
+                欢迎您，<strong>admin</strong>
+                <a href = "/personal/password">[修改密码]</a>
+            </div>
+        </div>
+        <div class = "page-body">
+           <div class = "page-sidebar">
+                <div class = "sidebar-menugroup">
+                    <div class = "sidebar-grouptitle">个人中心</div>
+                    <ul class = "sidebar-menu">
+                        <li class = "sidebar-menuitem"><a href = "/personal/notice">最新通知</a></li>
+                        <li class = "sidebar-menuitem active"><a href = "/personal/destine">我的预定</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/personal/meeting">我的会议</a></li>
+                    </ul>
+                </div>
+                <div class = "sidebar-menugroup">
+                    <div class = "sidebar-grouptitle">人员管理</div>
+                    <ul class = "sidebar-menu">
+                        <li class = "sidebar-menuitem"><a href = "/personnel/department">部门管理</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/personnel/staffRegister">员工注册</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/personnel/staffApproval">注册审批</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/personnel/staffSearch">搜索员工</a></li>
+                    </ul>
+                </div>
+                <div class = "sidebar-menugroup">
+                    <div class = "sidebar-grouptitle">会议预定</div>
+                    <ul class = "sidebar-menu">
+                        <li class = "sidebar-menuitem"><a href = "/meeting/meetingRoomAdd">添加会议室</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/meeting/meetingRoomView">查看会议室</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/meeting/destineMeeting">预定会议</a></li>
+                        <li class = "sidebar-menuitem"><a href = "/meeting/meetingSearch">搜索会议</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class = "page-content">
+                <div class = "content-nav">
+                    会议预定 > 添加会议室
+                </div>
+                <form id="app">
+                    <fieldset>
+                        <legend>会议室信息</legend>
+                        <table class = "formtable">
+                            <tr>
+                                <td>门牌号:</td>
+                                <td>
+                                    <input id = "roomnumber" v-model = "roomId" type = "text" placeholder = "例如：201"
+                                           maxlength = "10" />
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>会议室名称:</td>
+                                <td>
+                                    <input id = "capacity" type = "text" v-model = "roomName" placeholder = "例如：第一会议室"
+                                           maxlength = "20" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>最多容纳人数：</td>
+                                <td>
+                                    <input id = "roomcapacity" type = "text" v-model = "roomCapacity"
+                                           placeholder = "填写一个正整数" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>当前状态：</td>
+                                <td>
+                                    <input type = "radio" id = "status" v-model = "status" name = "status"
+                                           checked = "checked"
+                                           value = "1" /><label >启用</label>
+                                    <input type = "radio" id = "status" v-model = "status" name = "status"  value="-1"/><label>停用</label>
+                                    <input type = "radio" id = "status" v-model = "status" name = "status" value="-2" /><label>删除</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>备注：</td>
+                                <td>
+                                    <textarea id = "description" maxlength = "200" v-model = "roomRemarks" rows = "5"
+                                              cols = "60"
+                                              placeholder = "200字以内的文字描述"></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan = "2" class = "command">
+                                    <input type = "submit" value = "添加" class = "clickbutton" v-on:click="sb"/>
+                                    <input type = "reset" value = "重置" class = "clickbutton" />
+                                </td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class = "page-footer">
+            <hr />
+            更多问题，欢迎联系<a href = "mailto:webmaster@eeg.com">管理员</a>
+            <img src = "/static/img/footer.png" alt = "CoolMeeting" />
+        </div>
+    <script src = "https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src = "https://cdn.staticfile.org/axios/0.19.0-beta.1/axios.min.js"></script>
+        <script>
+            var app = new Vue({
+                el: '#app',
+                delimiters: ['${', '}'],
+                data: {
+                    roomId: "",
+                    roomName: "",
+                    roomCapacity: 1,
+                    status: 1,
+                    roomRemarks: "",
+                },
+                methods: {
+                    sb: function () {
+                        if (app.roomId.trim()===""||app.roomName.trim()===""){
+                            alert("内容禁止为空!")
+                        }else if(app.roomCapacity<2){
+                            alert("最多容纳人数必须大于1")
+                        }else {
+                            axios({
+                                method: 'post',
+                                url: '/api/meetingRoom',
+                                data:{
+                                    roomId: app.roomId,
+                                    roomName: app.roomName,
+                                    roomCapacity: app.roomCapacity,
+                                    roomStatus: app.status,
+                                    roomRemarks: app.roomRemarks,
+                                }
+                            }).then(function (response) {
+                                if (response.data.code==0){
+                                    alert("添加成功!");
+                                }
+                            }).catch(function (error) {
+                                alert(error);
+                            });
+                        }
+                    },
+                }
+
+            })
+        </script>
+    </body>
+</html>

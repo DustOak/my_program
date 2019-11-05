@@ -1,0 +1,178 @@
+-- MySQL dump 10.13  Distrib 8.0.16, for Linux (x86_64)
+--
+-- Host: 127.0.0.1    Database: MEETINGMANAGER
+-- ------------------------------------------------------
+-- Server version	8.0.16
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8mb4 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `DEPARTMENT`
+--
+
+DROP TABLE IF EXISTS `DEPARTMENT`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `DEPARTMENT` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `DEPARTMENT_NAME` varchar(50) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `DEPARTMENT`
+--
+
+LOCK TABLES `DEPARTMENT` WRITE;
+/*!40000 ALTER TABLE `DEPARTMENT` DISABLE KEYS */;
+INSERT INTO `DEPARTMENT` VALUES (1,'无部门'),(2,'技术部'),(3,'管理部'),(12,'烦烦烦');
+/*!40000 ALTER TABLE `DEPARTMENT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `MEETING`
+--
+
+DROP TABLE IF EXISTS `MEETING`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `MEETING` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(100) NOT NULL,
+  `ROOM_ID` int(11) NOT NULL,
+  `START_TIME` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `END_TIME` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `BOOK_TIME` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `BOOK_NUMBER` int(11) NOT NULL,
+  `MEETING_DESCRIPTION` text,
+  `MEETING_STATUS` int(11) NOT NULL DEFAULT '1',
+  `BOOK_PERSONNEL` int(11) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `BOOK_PERSONNEL` (`BOOK_PERSONNEL`),
+  KEY `MEETING_FK` (`ROOM_ID`),
+  CONSTRAINT `MEETING_FK` FOREIGN KEY (`ROOM_ID`) REFERENCES `MEETINGROOM` (`ID`),
+  CONSTRAINT `MEETING_ibfk_1` FOREIGN KEY (`BOOK_PERSONNEL`) REFERENCES `PERSONNEL` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MEETING`
+--
+
+LOCK TABLES `MEETING` WRITE;
+/*!40000 ALTER TABLE `MEETING` DISABLE KEYS */;
+INSERT INTO `MEETING` VALUES (1,'测试会议1',1,'2019-07-10 00:00:00','2019-07-10 00:00:00','2019-07-09 00:00:00',3,'测试会议描述',1,1),(2,'测试会议2',2,'2019-07-10 00:00:00','2019-07-10 00:00:00','2019-07-09 00:00:00',1,'测试会议描述',1,2),(3,'测试会议3',1,'2019-07-10 00:00:00','2019-07-10 00:00:00','2019-07-09 00:00:00',1,'测试会议描述',1,3),(4,'测试会议4',3,'2019-07-10 00:00:00','2019-07-10 00:00:00','2019-07-09 00:00:00',1,'测试会议描述',1,1),(5,'测试会议5',4,'2019-07-10 00:00:00','2019-07-10 00:00:00','2019-07-09 00:00:00',1,'测试会议描述',1,1),(6,'测试会议6',1,'2019-07-10 00:00:00','2019-07-10 00:00:00','2019-07-09 00:00:00',1,'测试会议描述',1,1),(7,'测试会议7',1,'2019-07-20 00:00:00','2019-07-20 00:00:00','2019-07-10 00:00:00',1,'测试会议描述',1,1),(8,'测试会议8',1,'2019-07-17 13:00:00','2019-07-17 13:00:00','2019-07-11 00:00:00',1,'测试会议描述',1,1),(9,'测试会议9',1,'2019-07-17 13:00:00','2019-07-17 13:00:00','2019-07-11 00:00:00',1,'测试会议描述',1,1),(10,'测试会议10',1,'2019-07-17 13:00:00','2019-07-17 13:00:00','2019-07-11 00:00:00',1,'测试会议描述',1,1),(11,'测试会议11',1,'2019-07-11 13:00:00','2019-07-11 13:00:00','2019-07-11 00:00:00',1,'测试会议描述',1,1);
+/*!40000 ALTER TABLE `MEETING` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `MEETINGROOM`
+--
+
+DROP TABLE IF EXISTS `MEETINGROOM`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `MEETINGROOM` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ROOM_ID` varchar(20) NOT NULL,
+  `ROOM_NAME` varchar(50) NOT NULL,
+  `ROOM_CAPACITY` int(11) NOT NULL,
+  `ROOM_STATUS` int(11) NOT NULL DEFAULT '1',
+  `ROOM_REMARKS` text,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MEETINGROOM`
+--
+
+LOCK TABLES `MEETINGROOM` WRITE;
+/*!40000 ALTER TABLE `MEETINGROOM` DISABLE KEYS */;
+INSERT INTO `MEETINGROOM` VALUES (1,'1520','测试会议房间1',20,-1,'asdsdad'),(2,'1521','测试会议房间2',10,1,''),(3,'1522','测试会议房间3',10,1,''),(4,'1523','测试会议房间4',10,1,''),(5,'1524','测试会议房间5',10,1,''),(6,'1525','测试会议房间6',10,1,''),(7,'1712','测试会议室',33,1,'阿萨德');
+/*!40000 ALTER TABLE `MEETINGROOM` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `MEETING_PERSONNEL`
+--
+
+DROP TABLE IF EXISTS `MEETING_PERSONNEL`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `MEETING_PERSONNEL` (
+  `MEETING_ID` int(11) NOT NULL,
+  `PERSONNEL_ID` int(11) NOT NULL,
+  KEY `MEETING_ID` (`MEETING_ID`),
+  KEY `PERSONNEL_ID` (`PERSONNEL_ID`),
+  CONSTRAINT `MEETING_PERSONNEL_ibfk_1` FOREIGN KEY (`MEETING_ID`) REFERENCES `MEETING` (`ID`),
+  CONSTRAINT `MEETING_PERSONNEL_ibfk_2` FOREIGN KEY (`PERSONNEL_ID`) REFERENCES `PERSONNEL` (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `MEETING_PERSONNEL`
+--
+
+LOCK TABLES `MEETING_PERSONNEL` WRITE;
+/*!40000 ALTER TABLE `MEETING_PERSONNEL` DISABLE KEYS */;
+INSERT INTO `MEETING_PERSONNEL` VALUES (1,1),(1,2),(1,3),(2,2),(2,3),(2,1),(3,1),(3,2),(4,3),(5,2),(5,3);
+/*!40000 ALTER TABLE `MEETING_PERSONNEL` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `PERSONNEL`
+--
+
+DROP TABLE IF EXISTS `PERSONNEL`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `PERSONNEL` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `PERSONNEL_NAME` varchar(50) NOT NULL,
+  `PERSONNEL_ACCOUNT` varchar(50) NOT NULL,
+  `PERSONNEL_PASSWORD` varchar(50) NOT NULL,
+  `PERSONNEL_EMAIL` varchar(50) NOT NULL,
+  `DEPARTMENT_ID` int(11) NOT NULL,
+  `PERSONNEL_STATUS` int(11) NOT NULL DEFAULT '1',
+  `PERSONNEL_PHONE` varchar(20) NOT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `DEPARTMENT_ID` (`DEPARTMENT_ID`),
+  CONSTRAINT `PERSONNEL_ibfk_1` FOREIGN KEY (`DEPARTMENT_ID`) REFERENCES `DEPARTMENT` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PERSONNEL`
+--
+
+LOCK TABLES `PERSONNEL` WRITE;
+/*!40000 ALTER TABLE `PERSONNEL` DISABLE KEYS */;
+INSERT INTO `PERSONNEL` VALUES (1,'崔文彬','cuiwenbin','123456','cuiwenbin@cwb95.xyz',3,1,'15998052446'),(2,'崔文彬1','cuiwenbin1','123456','cuiwenbin@cwb95.xyz',2,1,'15998052446'),(3,'崔文彬2','cuiwenbin2','123456','cuiwenbin@cwb95.xyz',2,1,'15998052446'),(4,'崔文彬3','cuiwenbin3','123456','cuiwenbin@cwb95.xyz',3,1,'15998052446'),(5,'崔文彬4','cuiwenbin4','123456','cuiwenbin@cwb95.xyz',2,1,'15998052446'),(6,'崔文彬5','cuiwenbin5','123456','cuiwenbin@cwb95.xyz',1,1,'15998052446'),(7,'崔文彬6','cuiwenbin6','123456','cuiwenbin@cwb95.xyz',1,1,'15998052446'),(8,'王思宇','wangsiyu','123456','2562424494@qq.com',3,-1,'13514180610'),(9,'王思宇2','wangsiyu2','123456','2562424494@qq.com',3,-1,'13514180610');
+/*!40000 ALTER TABLE `PERSONNEL` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'MEETINGMANAGER'
+--
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-07-16 22:33:23

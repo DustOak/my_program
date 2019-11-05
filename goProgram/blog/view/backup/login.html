@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>博客后台管理</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../../static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../static/css/bakcup.css">
+</head>
+<body id="login">
+<div class="container" style="height: 100%">
+    <div class="row" style="height: 100%">
+        <div class="col-lg-4 col-sm-4 col-md-4 col-l-4"></div>
+        <div class="col-lg-4 col-sm-4 col-md-4 col-l-4">
+            <form id="loginCard" action="/admin/login" onsubmit="return checkSubmit()" method="post">
+                <h3 class="text-center">管理员登录</h3>
+                <hr>
+                <div class="form-group">
+                    <div  class="alert alert-danger alert-dismissible" id="error"
+                         role="alert" style="height: 40px;text-align: center;padding: 10px;display: {{.display}}">
+                        <button type="button" class="close" data-dismiss="alert" style="right: 0" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <span class="glyphicon glyphicon-remove-sign" id="errorInfo">{{.errorInfo}}</span></div>
+                    <input type="text" name="email" id="email" placeholder="管理员邮箱" style="border-radius: 5px;height: 40px"
+                           class="form-control">
+                </div>
+                <div class="form-group ">
+                    <input type="password" name="password"  id="password" placeholder="管理员密码" style="border-radius: 5px;height: 40px"
+                           class="form-control ">
+                </div>
+                <div class="form-group ">
+                    <input type="hidden" value="{{.token}}" name="code" id="token">
+                    <input type="text"  maxlength="6" id="validate_code" name="validate_code" placeholder="邮箱验证码"
+                           style="border-radius: 5px;width: 60%;height: 40px;display: inline" class="form-control ">
+                    <input type="button" class="btn btn-primary btn-block " id="emailb"
+                       value="获取验证码"  onclick="getCode(this)" style="border-radius: 5px;height: 40px;width: 38%;display: inline">
+
+                </div>
+                <div class="form-group ">
+                    <button type="submit" disabled class="btn btn-primary btn-block btn-lg"
+                            style="border-radius: 5px;height: 40px" id="sub">
+                        <span class="glyphicon glyphicon-log-in "></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4 col-sm-4 col-md-4 col-l-4"></div>
+    </div>
+</div>
+<script type='text/javascript' src="../../static/js/jquery.min.js"></script>
+<script type='text/javascript' src="../../static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../static/js/check.js"></script>
+</body>
+</html>
